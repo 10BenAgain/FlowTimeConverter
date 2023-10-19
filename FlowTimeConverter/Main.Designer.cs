@@ -45,6 +45,7 @@
             this.IntroHitTimerLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ConverterContainer = new System.Windows.Forms.GroupBox();
+            this.FlatMSBox = new System.Windows.Forms.NumericUpDown();
             this.EncounterAdvancesBox = new System.Windows.Forms.NumericUpDown();
             this.DelayBox = new System.Windows.Forms.NumericUpDown();
             this.IntroTimerMSBox = new System.Windows.Forms.NumericUpDown();
@@ -54,7 +55,6 @@
             this.FlowtimerMSTotalTextBox = new System.Windows.Forms.TextBox();
             this.DelayBoxLabel = new System.Windows.Forms.Label();
             this.FlatMSTextLabel = new System.Windows.Forms.Label();
-            this.FlatMSTextBox = new System.Windows.Forms.TextBox();
             this.IntroTimerMSLabel = new System.Windows.Forms.Label();
             this.Selections = new System.Windows.Forms.GroupBox();
             this.ConsoleDropDown = new System.Windows.Forms.ComboBox();
@@ -70,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IntroHitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ConverterContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FlatMSBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EncounterAdvancesBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DelayBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntroTimerMSBox)).BeginInit();
@@ -181,12 +182,12 @@
             // 
             this.EncounterHitBox.Location = new System.Drawing.Point(9, 79);
             this.EncounterHitBox.Maximum = new decimal(new int[] {
-            99999,
+            99999999,
             0,
             0,
             0});
             this.EncounterHitBox.Minimum = new decimal(new int[] {
-            999,
+            99999999,
             0,
             0,
             -2147483648});
@@ -198,7 +199,7 @@
             // 
             this.IntroHitBox.Location = new System.Drawing.Point(9, 40);
             this.IntroHitBox.Maximum = new decimal(new int[] {
-            99999,
+            99999999,
             0,
             0,
             0});
@@ -237,6 +238,7 @@
             // 
             // ConverterContainer
             // 
+            this.ConverterContainer.Controls.Add(this.FlatMSBox);
             this.ConverterContainer.Controls.Add(this.EncounterAdvancesBox);
             this.ConverterContainer.Controls.Add(this.DelayBox);
             this.ConverterContainer.Controls.Add(this.IntroTimerMSBox);
@@ -246,7 +248,6 @@
             this.ConverterContainer.Controls.Add(this.FlowtimerMSTotalTextBox);
             this.ConverterContainer.Controls.Add(this.DelayBoxLabel);
             this.ConverterContainer.Controls.Add(this.FlatMSTextLabel);
-            this.ConverterContainer.Controls.Add(this.FlatMSTextBox);
             this.ConverterContainer.Controls.Add(this.IntroTimerMSLabel);
             this.ConverterContainer.Location = new System.Drawing.Point(162, 6);
             this.ConverterContainer.Name = "ConverterContainer";
@@ -254,6 +255,18 @@
             this.ConverterContainer.TabIndex = 1;
             this.ConverterContainer.TabStop = false;
             this.ConverterContainer.Text = "Converter";
+            // 
+            // FlatMSBox
+            // 
+            this.FlatMSBox.Location = new System.Drawing.Point(23, 214);
+            this.FlatMSBox.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.FlatMSBox.Name = "FlatMSBox";
+            this.FlatMSBox.Size = new System.Drawing.Size(120, 20);
+            this.FlatMSBox.TabIndex = 16;
             // 
             // EncounterAdvancesBox
             // 
@@ -264,7 +277,7 @@
             0});
             this.EncounterAdvancesBox.Location = new System.Drawing.Point(23, 120);
             this.EncounterAdvancesBox.Maximum = new decimal(new int[] {
-            99999,
+            99999999,
             0,
             0,
             0});
@@ -293,7 +306,7 @@
             // 
             this.IntroTimerMSBox.Location = new System.Drawing.Point(23, 41);
             this.IntroTimerMSBox.Maximum = new decimal(new int[] {
-            99999,
+            99999999,
             0,
             0,
             0});
@@ -354,13 +367,6 @@
             this.FlatMSTextLabel.Size = new System.Drawing.Size(43, 13);
             this.FlatMSTextLabel.TabIndex = 9;
             this.FlatMSTextLabel.Text = "Flat MS";
-            // 
-            // FlatMSTextBox
-            // 
-            this.FlatMSTextBox.Location = new System.Drawing.Point(23, 214);
-            this.FlatMSTextBox.Name = "FlatMSTextBox";
-            this.FlatMSTextBox.Size = new System.Drawing.Size(120, 20);
-            this.FlatMSTextBox.TabIndex = 8;
             // 
             // IntroTimerMSLabel
             // 
@@ -461,6 +467,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 361);
             this.Controls.Add(this.TeachyTV);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FlowtimerConverter";
             this.Text = "Frames to MS";
             this.Load += new System.EventHandler(this.FlowtimerConverter_Load_1);
@@ -473,6 +481,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ConverterContainer.ResumeLayout(false);
             this.ConverterContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FlatMSBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EncounterAdvancesBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DelayBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntroTimerMSBox)).EndInit();
@@ -498,7 +507,6 @@
         private System.Windows.Forms.Label FlowTimeMSTotalLabel;
         private System.Windows.Forms.TextBox FlowtimerMSTotalTextBox;
         private System.Windows.Forms.Label FlatMSTextLabel;
-        private System.Windows.Forms.TextBox FlatMSTextBox;
         private System.Windows.Forms.Label AdvancesLabel;
         private System.Windows.Forms.Label DelayBoxLabel;
         private System.Windows.Forms.Button CalculateInitialButton;
@@ -518,6 +526,7 @@
         private System.Windows.Forms.TextBox NewTimerBox;
         private System.Windows.Forms.TextBox AdvancesAdjustBox;
         private System.Windows.Forms.TextBox IntroMSAdjustBox;
+        private System.Windows.Forms.NumericUpDown FlatMSBox;
     }
 }
 

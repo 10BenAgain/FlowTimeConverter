@@ -7,8 +7,7 @@ namespace FlowTimeConverter
 {
     public partial class FlowtimerConverter : Form
     {
-        public double FPS { get; set; }
-        public int SeedLag { get; set; }
+        public Timer InitialConverter { get; set; }
         public Selections.NConsole NConsole { get; set; }
         public Selections.Version Version { get; set; }
         public Selections.Method Method { get; set; }
@@ -27,7 +26,7 @@ namespace FlowTimeConverter
             EncounterAdvancesBox.Value = 1400;
         }
        
-        private void GetUserSettings()
+        private void SetUserSettings()
         {
             var game = GameDropDown.SelectedItem.ToString();
             Version = game switch
@@ -52,7 +51,6 @@ namespace FlowTimeConverter
                 _ => throw new NotImplementedException(),
             };
 
-
             var method = MethodDropDown.SelectedItem.ToString();
             Method = method switch
             {
@@ -66,32 +64,74 @@ namespace FlowTimeConverter
 
         private void CalculateInitialButton_Click(object sender, EventArgs e)
         {
-            GetUserSettings();
+            SetUserSettings();
             var timer = new Timer(Version, NConsole, Method);
-            FPS = timer.FPS;
-            SeedLag = timer.SeedLag;
+            var userInput = ReusableFunctions.ConvertDecimal(GetInitialUserInput());
 
-            timer.SetIntroTimer(Convert.ToInt32(IntroTimerMSBox.Value));
-            timer.SetTargetFrame(Convert.ToInt32(EncounterAdvancesBox.Value));
+            timer
+                .SetIntroTimer(userInput[0])
+                .SetTargetFrame(userInput[1])
+                .SetSeedLagMS()
+                .SetIntroTimerMS();
 
-            var values = timer.GetStringValues();
             DelayBox.Value = timer.GetDelay();
-            FlatMSTextBox.Text = values[0];
-            FlowtimerMSTotalTextBox.Text = $"{values[1]}/{values[2]}";
+            FlatMSBox.Value = Convert.ToInt32(timer.CalculateFlatMS());
+            FlowtimerMSTotalTextBox.Text = ReusableFunctions
+                .CreateFlowTimerString(timer.FlowtimerMSTotal());
+            InitialConverter = timer;
         }
 
         private void ReCalculate_Click(object sender, EventArgs e)
         {
-            var recalc = new AdjustTimer(
-                Convert.ToInt32(EncounterAdvancesBox.Value),
-                Convert.ToInt32(IntroTimerMSBox.Value), 
-                Convert.ToInt32(EncounterHitBox.Value), 
-                Convert.ToInt32(IntroHitBox.Value),
-                FPS, SeedLag, Convert.ToInt16(DelayBox.Value));
+            if (InitialConverter != null)
+            {
+                Recalculate();
+            }
+            else
+            {
+                SetUserSettings();
+                InitialConverter = new Timer(Version, NConsole, Method);
+                Recalculate();
+            }
+        }
 
-            IntroMSAdjustBox.Text = recalc.IntroMSAdjust().ToString();
-            AdvancesAdjustBox.Text = recalc.AdvancesAdjust().ToString();
-            NewTimerBox.Text = recalc.UpdatedFlowTimer();
+        private void Recalculate()
+        {
+            var userInput = ReusableFunctions.ConvertDecimal(GetNewUserInput());
+            InitialConverter
+                .SetIntroHit(userInput[0])
+                .SetFrameHit(userInput[1]);
+
+            IntroMSAdjustBox.Text = InitialConverter.AdjustSeedHit().ToString();
+            AdvancesAdjustBox.Text = InitialConverter.AdjustFrameHit().ToString();
+            FlatMSBox.Value = Convert.ToDecimal(InitialConverter.RecalculateFlatMS());
+
+            InitialConverter.AdjustIntroMS();
+            NewTimerBox.Text =
+                ReusableFunctions.CreateFlowTimerString
+                (
+                    new double[]
+                    {
+                        InitialConverter.ReturnNewTotal(),
+                        InitialConverter.ReturnFinalIntro()
+                    }
+                );
+        }
+        private decimal[] GetInitialUserInput()
+        {
+            return new decimal[]
+            {
+                IntroTimerMSBox.Value,
+                EncounterAdvancesBox.Value
+            };
+        }
+        private decimal[] GetNewUserInput()
+        {
+            return new decimal[]
+            {
+                IntroHitBox.Value,
+                EncounterHitBox.Value
+            };
         }
         private void PictureBox1_Click(object sender, EventArgs e)
         {

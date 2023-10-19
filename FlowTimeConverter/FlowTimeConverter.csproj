@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logic\AdjustTimer.cs" />
     <Compile Include="Logic\Constants.cs" />
     <Compile Include="Logic\ReusableFunctions.cs" />
     <Compile Include="Main.cs">
