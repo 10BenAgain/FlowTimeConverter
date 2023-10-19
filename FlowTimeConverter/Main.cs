@@ -79,7 +79,6 @@ namespace FlowTimeConverter
             FlowtimerMSTotalTextBox.Text = ReusableFunctions
                 .CreateFlowTimerString(timer.FlowtimerMSTotal());
             InitialConverter = timer;
-
         }
 
         private void ReCalculate_Click(object sender, EventArgs e)
@@ -91,16 +90,15 @@ namespace FlowTimeConverter
 
             IntroMSAdjustBox.Text = InitialConverter.AdjustSeedHit().ToString();
             AdvancesAdjustBox.Text = InitialConverter.AdjustFrameHit().ToString();
-            var newFlatMS = InitialConverter.RecalculateFlatMS(Convert.ToInt32(FlatMSBox.Value));
+            FlatMSBox.Value = Convert.ToDecimal(InitialConverter.RecalculateFlatMS());
 
-            FlatMSBox.Value = Convert.ToDecimal(newFlatMS);
-
+            InitialConverter.AdjustIntroMS();
             NewTimerBox.Text =
                 ReusableFunctions.CreateFlowTimerString
                 (
                     new double[]
                     {
-                        InitialConverter.ReturnNewTotal(Convert.ToInt32(FlatMSBox.Value)),
+                        InitialConverter.ReturnNewTotal(),
                         InitialConverter.ReturnFinalIntro()
                     }
                 );

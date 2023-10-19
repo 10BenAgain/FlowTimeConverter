@@ -1,5 +1,6 @@
 ﻿using FlowTimeConverter.Logic;
 using System;
+using System.Windows.Forms;
 
 namespace FlowTimeConverter
 {
@@ -8,7 +9,7 @@ namespace FlowTimeConverter
         private byte NConsole { get; set; } = (byte)console;
         private byte Game { get; set; } = (byte)game;
         private byte Method { get; set; } = (byte)method;
-        
+
         private int Delay { get; set; } = method switch
         {
             Selections.Method.M124 => Constants.M124,
@@ -38,7 +39,8 @@ namespace FlowTimeConverter
         private int IntroTimerHit { get; set; }
         private double IntroTimerMS { get; set; }
         private double SeedLagMS { get; set; }
-        
+        private double FlatMS { get; set; }
+
         public Timer SetTargetFrame(int frame)
         {
             TargetFrame = frame;
@@ -85,18 +87,20 @@ namespace FlowTimeConverter
         }
         public int GetSeedLag() => SeedLag;
         public double GetFPS() => FPS;
+        public double GetFlatMS() => FlatMS;
         public double CalculateFlatMS()
         {
             var delayDifference = TargetFrame + GetDelay();
-            return ReusableFunctions.FrameToMS(FPS) * delayDifference;
+            FlatMS = ReusableFunctions.FrameToMS(FPS, delayDifference);
+            return FlatMS;
         }
         public double CalculateTotalFrames()
         {
-            return CalculateFlatMS() + IntroTimerMS;
+            return FlatMS + IntroTimerMS;
         }
         public double[] FlowtimerMSTotal()
         {
-            var TotalFrames = Math.Round(CalculateTotalFrames());
+            var TotalFrames = CalculateTotalFrames();
             return new double[] { TotalFrames, IntroTimer };
         }
         // adjustby
@@ -117,9 +121,13 @@ namespace FlowTimeConverter
             return introTimerLag - seedHitlag;
         }
 
+        public Timer AdjustIntroMS()
+        {
+            IntroTimerMS += AdjustSeedHit();
+            return this;
+        }
         public double AdjustIntroTimerMS()
         {
-            IntroTimerMS += Math.Round(AdjustSeedHit());
             return IntroTimerMS;
         }
         public double ReturnFinalIntro()
@@ -127,14 +135,16 @@ namespace FlowTimeConverter
             var introNoLag = AdjustIntroTimerMS();
             return introNoLag - SeedLagMS;
         }
-        public double RecalculateFlatMS(int flatMS)
+        public double RecalculateFlatMS()
         {
-            return Math.Round(flatMS + AdjustFrameHitMS());
+            var adjustedPureMS = AdjustFrameHitMS();
+            FlatMS = Math.Round(FlatMS) + adjustedPureMS;
+            return FlatMS;
         }
         //intropurems
-        public double ReturnNewTotal(int flatMS)
+        public double ReturnNewTotal()
         {
-            return RecalculateFlatMS(flatMS) + IntroTimerMS;
+            return FlatMS + Math.Round(IntroTimerMS);
         }
     }
 }
