@@ -16,16 +16,13 @@ namespace FlowTimeConverter
         {
             InitializeComponent();
         }
-
         private void FlowtimerConverter_Load_1(object sender, EventArgs e)
         {
             ConsoleDropDown.SelectedItem = "GBA";
             MethodDropDown.SelectedItem = "Method 1/2/4";
             GameDropDown.SelectedItem = "FireRed 1.0";
-            IntroTimerMSBox.Value = 35000;
             EncounterAdvancesBox.Value = 1400;
         }
-       
         private void SetUserSettings()
         {
             var game = GameDropDown.SelectedItem.ToString();
@@ -136,6 +133,25 @@ namespace FlowTimeConverter
         private void PictureBox1_Click(object sender, EventArgs e)
         {
             Process.Start("https://blisy.net/flowtimerconverter.html");
+        }
+
+        private void ConsoleDropDown_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            switch (ConsoleDropDown.SelectedIndex)
+            {
+                case 0:
+                case 1:
+                case 4:
+                    IntroTimerMSBox.Value = 35000;
+                    break;
+
+                case 2:
+                    IntroTimerMSBox.Value = 2500;
+                    break;
+                case 3:
+                    IntroTimerMSBox.Value = 3500;
+                    break;
+            }
         }
     }
 }

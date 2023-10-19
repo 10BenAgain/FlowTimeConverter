@@ -405,6 +405,7 @@
             this.ConsoleDropDown.Name = "ConsoleDropDown";
             this.ConsoleDropDown.Size = new System.Drawing.Size(137, 21);
             this.ConsoleDropDown.TabIndex = 4;
+            this.ConsoleDropDown.SelectionChangeCommitted += new System.EventHandler(this.ConsoleDropDown_SelectionChangeCommitted);
             // 
             // MethodDropDown
             // 

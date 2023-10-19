@@ -106,7 +106,6 @@ namespace FlowTimeConverter
             return introTimerLag - seedHitlag;
         }
         public double ReturnFinalIntro() => IntroTimerMS - SeedLagMS;
-        
         public double RecalculateFlatMS()
         {
             var adjustedPureMS = AdjustFrameHitMS();
