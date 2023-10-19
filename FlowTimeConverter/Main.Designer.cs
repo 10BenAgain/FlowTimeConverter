@@ -45,6 +45,7 @@
             this.IntroHitTimerLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ConverterContainer = new System.Windows.Forms.GroupBox();
+            this.FlatMSBox = new System.Windows.Forms.NumericUpDown();
             this.EncounterAdvancesBox = new System.Windows.Forms.NumericUpDown();
             this.DelayBox = new System.Windows.Forms.NumericUpDown();
             this.IntroTimerMSBox = new System.Windows.Forms.NumericUpDown();
@@ -62,7 +63,6 @@
             this.ConsoleLabel = new System.Windows.Forms.Label();
             this.GameDropDown = new System.Windows.Forms.ComboBox();
             this.GameLabel = new System.Windows.Forms.Label();
-            this.FlatMSBox = new System.Windows.Forms.NumericUpDown();
             this.TeachyTV.SuspendLayout();
             this.FlowtimeConverter.SuspendLayout();
             this.AdjustGroup.SuspendLayout();
@@ -70,11 +70,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.IntroHitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ConverterContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FlatMSBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EncounterAdvancesBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DelayBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntroTimerMSBox)).BeginInit();
             this.Selections.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FlatMSBox)).BeginInit();
             this.SuspendLayout();
             // 
             // TeachyTV
@@ -182,12 +182,12 @@
             // 
             this.EncounterHitBox.Location = new System.Drawing.Point(9, 79);
             this.EncounterHitBox.Maximum = new decimal(new int[] {
-            99999,
+            99999999,
             0,
             0,
             0});
             this.EncounterHitBox.Minimum = new decimal(new int[] {
-            999,
+            99999999,
             0,
             0,
             -2147483648});
@@ -199,7 +199,7 @@
             // 
             this.IntroHitBox.Location = new System.Drawing.Point(9, 40);
             this.IntroHitBox.Maximum = new decimal(new int[] {
-            99999,
+            99999999,
             0,
             0,
             0});
@@ -256,6 +256,18 @@
             this.ConverterContainer.TabStop = false;
             this.ConverterContainer.Text = "Converter";
             // 
+            // FlatMSBox
+            // 
+            this.FlatMSBox.Location = new System.Drawing.Point(23, 214);
+            this.FlatMSBox.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.FlatMSBox.Name = "FlatMSBox";
+            this.FlatMSBox.Size = new System.Drawing.Size(120, 20);
+            this.FlatMSBox.TabIndex = 16;
+            // 
             // EncounterAdvancesBox
             // 
             this.EncounterAdvancesBox.Increment = new decimal(new int[] {
@@ -265,7 +277,7 @@
             0});
             this.EncounterAdvancesBox.Location = new System.Drawing.Point(23, 120);
             this.EncounterAdvancesBox.Maximum = new decimal(new int[] {
-            99999,
+            99999999,
             0,
             0,
             0});
@@ -294,7 +306,7 @@
             // 
             this.IntroTimerMSBox.Location = new System.Drawing.Point(23, 41);
             this.IntroTimerMSBox.Maximum = new decimal(new int[] {
-            99999,
+            99999999,
             0,
             0,
             0});
@@ -449,18 +461,6 @@
             this.GameLabel.TabIndex = 1;
             this.GameLabel.Text = "Game";
             // 
-            // FlatMSBox
-            // 
-            this.FlatMSBox.Location = new System.Drawing.Point(23, 214);
-            this.FlatMSBox.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.FlatMSBox.Name = "FlatMSBox";
-            this.FlatMSBox.Size = new System.Drawing.Size(120, 20);
-            this.FlatMSBox.TabIndex = 16;
-            // 
             // FlowtimerConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -481,12 +481,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ConverterContainer.ResumeLayout(false);
             this.ConverterContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FlatMSBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EncounterAdvancesBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DelayBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntroTimerMSBox)).EndInit();
             this.Selections.ResumeLayout(false);
             this.Selections.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FlatMSBox)).EndInit();
             this.ResumeLayout(false);
 
         }

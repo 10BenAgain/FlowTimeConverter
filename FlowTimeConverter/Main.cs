@@ -83,6 +83,20 @@ namespace FlowTimeConverter
 
         private void ReCalculate_Click(object sender, EventArgs e)
         {
+            if (InitialConverter != null)
+            {
+                Recalculate();
+            }
+            else
+            {
+                SetUserSettings();
+                InitialConverter = new Timer(Version, NConsole, Method);
+                Recalculate();
+            }
+        }
+
+        private void Recalculate()
+        {
             var userInput = ReusableFunctions.ConvertDecimal(GetNewUserInput());
             InitialConverter
                 .SetIntroHit(userInput[0])
@@ -123,6 +137,5 @@ namespace FlowTimeConverter
         {
             Process.Start("https://blisy.net/flowtimerconverter.html");
         }
-        
     }
 }

@@ -1,6 +1,5 @@
 ﻿using FlowTimeConverter.Logic;
 using System;
-using System.Windows.Forms;
 
 namespace FlowTimeConverter
 {
@@ -85,9 +84,6 @@ namespace FlowTimeConverter
                     _ => -20,
                 };
         }
-        public int GetSeedLag() => SeedLag;
-        public double GetFPS() => FPS;
-        public double GetFlatMS() => FlatMS;
         public double CalculateFlatMS()
         {
             var delayDifference = TargetFrame + GetDelay();
@@ -103,19 +99,16 @@ namespace FlowTimeConverter
             var TotalFrames = CalculateTotalFrames();
             return new double[] { TotalFrames, IntroTimer };
         }
-        // adjustby
         public int AdjustFrameHit()
         {
             return TargetFrame - TargetFrameHit;
         }
-        //adjustbyms
         public double AdjustFrameHitMS()
         {
             return ReusableFunctions.FrameToMS(FPS, AdjustFrameHit());
         }
         public double AdjustSeedHit()
         {
-            //Very redundant?
             var seedHitlag = IntroTimerHit + ReusableFunctions.FrameToMS(FPS, SeedLag);
             var introTimerLag = IntroTimer + ReusableFunctions.FrameToMS(FPS, SeedLag);
             return introTimerLag - seedHitlag;
@@ -141,7 +134,6 @@ namespace FlowTimeConverter
             FlatMS = Math.Round(FlatMS) + adjustedPureMS;
             return FlatMS;
         }
-        //intropurems
         public double ReturnNewTotal()
         {
             return FlatMS + Math.Round(IntroTimerMS);
