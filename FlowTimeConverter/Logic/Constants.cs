@@ -19,5 +19,6 @@ namespace FlowTimeConverter
         public const int IDRNG = 0;
 
         public const int TVAccelerator = 313; // TV Frame eccelerator offset
+        public const int TVOffset = 33; // 34 seconds to load TV + 1 frame lag
     }
 }
