@@ -8,6 +8,13 @@ namespace FlowTimeConverter
         private byte NConsole { get; set; } = (byte)console;
         private byte Game { get; set; } = (byte)game;
         private byte Method { get; set; } = (byte)method;
+        private int TargetFrame { get; set; }
+        private int TargetFrameHit { get; set; }
+        private int IntroTimer { get; set; }
+        private int IntroTimerHit { get; set; }
+        private double IntroTimerMS { get; set; }
+        private double SeedLagMS { get; set; }
+        private double FlatMS { get; set; }
 
         private int Delay { get; set; } = method switch
         {
@@ -32,14 +39,6 @@ namespace FlowTimeConverter
             Selections.NConsole.FPS60 => Constants.FPS60,
             _ => 0,
         };
-        private int TargetFrame { get; set; }
-        private int TargetFrameHit { get; set; }
-        private int IntroTimer { get; set; }
-        private int IntroTimerHit { get; set; }
-        private double IntroTimerMS { get; set; }
-        private double SeedLagMS { get; set; }
-        private double FlatMS { get; set; }
-
         public Timer SetTargetFrame(int frame)
         {
             TargetFrame = frame;
@@ -70,6 +69,11 @@ namespace FlowTimeConverter
             IntroTimerHit = frame;
             return this;
         }
+        public Timer AdjustIntroMS()
+        {
+            IntroTimerMS += AdjustSeedHit();
+            return this;
+        }
         public int GetDelay()
         {
             if (Method != 4)
@@ -84,59 +88,31 @@ namespace FlowTimeConverter
                     _ => -20,
                 };
         }
+        public double GetFPS() => FPS;
+        public int GetTargetFrame() => TargetFrame;
         public double CalculateFlatMS()
         {
             var delayDifference = TargetFrame + GetDelay();
             FlatMS = ReusableFunctions.FrameToMS(FPS, delayDifference);
             return FlatMS;
         }
-        public double CalculateTotalFrames()
-        {
-            return FlatMS + IntroTimerMS;
-        }
-        public double[] FlowtimerMSTotal()
-        {
-            var TotalFrames = CalculateTotalFrames();
-            return new double[] { TotalFrames, IntroTimer };
-        }
-        public int AdjustFrameHit()
-        {
-            return TargetFrame - TargetFrameHit;
-        }
-        public double AdjustFrameHitMS()
-        {
-            return ReusableFunctions.FrameToMS(FPS, AdjustFrameHit());
-        }
+        public double CalculateTotalFrames() => FlatMS + IntroTimerMS;
+        public double[] FlowtimerMSTotal() => new double[] { CalculateTotalFrames(), IntroTimer };
+        public int AdjustFrameHit() => TargetFrame - TargetFrameHit;
+        public double AdjustFrameHitMS() => ReusableFunctions.FrameToMS(FPS, AdjustFrameHit());
         public double AdjustSeedHit()
         {
             var seedHitlag = IntroTimerHit + ReusableFunctions.FrameToMS(FPS, SeedLag);
             var introTimerLag = IntroTimer + ReusableFunctions.FrameToMS(FPS, SeedLag);
             return introTimerLag - seedHitlag;
         }
-
-        public Timer AdjustIntroMS()
-        {
-            IntroTimerMS += AdjustSeedHit();
-            return this;
-        }
-        public double AdjustIntroTimerMS()
-        {
-            return IntroTimerMS;
-        }
-        public double ReturnFinalIntro()
-        {
-            var introNoLag = AdjustIntroTimerMS();
-            return introNoLag - SeedLagMS;
-        }
+        public double ReturnFinalIntro() => IntroTimerMS - SeedLagMS;
         public double RecalculateFlatMS()
         {
             var adjustedPureMS = AdjustFrameHitMS();
             FlatMS = Math.Round(FlatMS) + adjustedPureMS;
             return FlatMS;
         }
-        public double ReturnNewTotal()
-        {
-            return FlatMS + Math.Round(IntroTimerMS);
-        }
+        public double ReturnNewTotal() => FlatMS + Math.Round(IntroTimerMS);
     }
 }

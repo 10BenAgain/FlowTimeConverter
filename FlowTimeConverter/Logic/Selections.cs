@@ -11,7 +11,6 @@ namespace FlowTimeConverter
             O3DS,
             FPS60
         }
-
         public enum Version : byte
         {
             FR10 = 1,

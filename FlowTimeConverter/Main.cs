@@ -12,55 +12,55 @@ namespace FlowTimeConverter
         public Selections.Version Version { get; set; }
         public Selections.Method Method { get; set; }
 
+        public Selections.NConsole TVConsole { get; set; }
+        public Selections.Version TVVersion { get; set; }
+        public Selections.Method TVMethod { get; set; }
+
         public FlowtimerConverter()
         {
             InitializeComponent();
-        }
 
+        }
         private void FlowtimerConverter_Load_1(object sender, EventArgs e)
         {
             ConsoleDropDown.SelectedItem = "GBA";
             MethodDropDown.SelectedItem = "Method 1/2/4";
             GameDropDown.SelectedItem = "FireRed 1.0";
-            IntroTimerMSBox.Value = 35000;
             EncounterAdvancesBox.Value = 1400;
         }
-       
         private void SetUserSettings()
         {
-            var game = GameDropDown.SelectedItem.ToString();
-            Version = game switch
+            Version = GameDropDown.SelectedIndex switch
             {
-                "FireRed 1.0" => FlowTimeConverter.Selections.Version.FR10,
-                "FireRed 1.1" => FlowTimeConverter.Selections.Version.FR11,
-                "Leaf Green" => FlowTimeConverter.Selections.Version.LG,
-                "Ruby / Sapphire" => FlowTimeConverter.Selections.Version.RS,
-                "Emerald" => FlowTimeConverter.Selections.Version.Emerald,
-                "SM/USUM" => FlowTimeConverter.Selections.Version.USUM,
+                0 => FlowTimeConverter.Selections.Version.FR10,
+                1 => FlowTimeConverter.Selections.Version.FR11,
+                2 => FlowTimeConverter.Selections.Version.LG,
+                3 => FlowTimeConverter.Selections.Version.RS,
+                4 => FlowTimeConverter.Selections.Version.Emerald,
+                5 => FlowTimeConverter.Selections.Version.USUM,
                 _ => throw new NotImplementedException(),
             };
 
-            var nconsole = ConsoleDropDown.SelectedItem.ToString();
-            NConsole = nconsole switch
+            NConsole = ConsoleDropDown.SelectedIndex switch
             {
-                "GBA" => FlowTimeConverter.Selections.NConsole.GBA,
-                "NDS" => FlowTimeConverter.Selections.NConsole.NDS,
-                "New 3DS/2DS" => FlowTimeConverter.Selections.NConsole.N3DS,
-                "Old 3DS/2DS" => FlowTimeConverter.Selections.NConsole.O3DS,
-                "60FPS" => FlowTimeConverter.Selections.NConsole.FPS60,
+                0 => FlowTimeConverter.Selections.NConsole.GBA,
+                1 => FlowTimeConverter.Selections.NConsole.NDS,
+                2 => FlowTimeConverter.Selections.NConsole.N3DS,
+                3 => FlowTimeConverter.Selections.NConsole.O3DS,
+                4 => FlowTimeConverter.Selections.NConsole.FPS60,
                 _ => throw new NotImplementedException(),
             };
 
-            var method = MethodDropDown.SelectedItem.ToString();
-            Method = method switch
+            Method = MethodDropDown.SelectedIndex switch
             {
-                "Method 1/2/4" => FlowTimeConverter.Selections.Method.M124,
-                "Sweet Scent(Outdoors)" => FlowTimeConverter.Selections.Method.SCO,
-                "Sweet Scent(Indoors)" => FlowTimeConverter.Selections.Method.SCI,
-                "IDRNG" => FlowTimeConverter.Selections.Method.ID,
+                0 => FlowTimeConverter.Selections.Method.M124,
+                1 => FlowTimeConverter.Selections.Method.SCO,
+                2 => FlowTimeConverter.Selections.Method.SCI,
+                3 => FlowTimeConverter.Selections.Method.ID,
                 _ => throw new NotImplementedException(),
             };
         }
+        
 
         private void CalculateInitialButton_Click(object sender, EventArgs e)
         {
@@ -136,6 +136,28 @@ namespace FlowTimeConverter
         private void PictureBox1_Click(object sender, EventArgs e)
         {
             Process.Start("https://blisy.net/flowtimerconverter.html");
+        }
+        private void ConsoleDropDown_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            switch (ConsoleDropDown.SelectedIndex)
+            {
+                case 0:
+                case 1:
+                case 4:
+                    IntroTimerMSBox.Value = 35000;
+                    break;
+
+                case 2:
+                    IntroTimerMSBox.Value = 2500;
+                    break;
+                case 3:
+                    IntroTimerMSBox.Value = 3500;
+                    break;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
         }
     }
 }
