@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Logic\Constants.cs" />
     <Compile Include="Logic\ReusableFunctions.cs" />
+    <Compile Include="Logic\TeachyTV.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

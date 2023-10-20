@@ -5,7 +5,8 @@ namespace FlowTimeConverter.Logic
 {
     public class ReusableFunctions
     {
-        public static double FrameToMS(double FPS, double SeedLag = 1) => 1 / FPS * 1000 * SeedLag;
+        public static double FrameToMS(double FPS, double Frame = 1) => 1 / FPS * 1000 * Frame;
+        public static double MSToFrame(double FPS, double Frame = 1) => Frame / 1000 * FPS;
         public static int[] ConvertDecimal(decimal[] input)
         {
             var output = new int[input.Length];
