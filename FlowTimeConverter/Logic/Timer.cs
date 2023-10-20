@@ -89,6 +89,7 @@ namespace FlowTimeConverter
                 };
         }
         public double GetFPS() => FPS;
+        public int GetTargetFrame() => TargetFrame;
         public double CalculateFlatMS()
         {
             var delayDifference = TargetFrame + GetDelay();

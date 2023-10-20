@@ -63,6 +63,52 @@
             this.ConsoleLabel = new System.Windows.Forms.Label();
             this.GameDropDown = new System.Windows.Forms.ComboBox();
             this.GameLabel = new System.Windows.Forms.Label();
+            this.TeachyTVTab = new System.Windows.Forms.TabPage();
+            this.TVAdjustedGroup = new System.Windows.Forms.GroupBox();
+            this.TVNewFlowMSTotalLabel = new System.Windows.Forms.Label();
+            this.TVNewFlowMSTotalBox = new System.Windows.Forms.TextBox();
+            this.TVNewFlowtimerLabel = new System.Windows.Forms.Label();
+            this.TVNewFlowtimerBox = new System.Windows.Forms.NumericUpDown();
+            this.TVAdjustTotalMSLabel = new System.Windows.Forms.Label();
+            this.TVAdjustTotalMSBox = new System.Windows.Forms.NumericUpDown();
+            this.TVAdjustMSLabel = new System.Windows.Forms.Label();
+            this.TVAdjustMSBox = new System.Windows.Forms.NumericUpDown();
+            this.TVAdjustTotalFramesLabel = new System.Windows.Forms.Label();
+            this.TVAdjustTotalFramesBox = new System.Windows.Forms.NumericUpDown();
+            this.TVAdjustFramesLabel = new System.Windows.Forms.Label();
+            this.TVAdjustFramesBox = new System.Windows.Forms.NumericUpDown();
+            this.TVInitialGroupBox = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.TVFrameHitBox = new System.Windows.Forms.NumericUpDown();
+            this.TVFrameHitLabel = new System.Windows.Forms.Label();
+            this.TVFlowtimerMSTotalLabel = new System.Windows.Forms.Label();
+            this.TVMSTotalLabel = new System.Windows.Forms.Label();
+            this.TVMSinTVLabel = new System.Windows.Forms.Label();
+            this.TVTotalFramesLabel = new System.Windows.Forms.Label();
+            this.TVFramesInTVLabel = new System.Windows.Forms.Label();
+            this.TVFlowTimerMSTotalBox = new System.Windows.Forms.TextBox();
+            this.TVMSTotalBox = new System.Windows.Forms.NumericUpDown();
+            this.TVMSinTVBox = new System.Windows.Forms.NumericUpDown();
+            this.TVFramesTotalBox = new System.Windows.Forms.NumericUpDown();
+            this.TVFramesInBox = new System.Windows.Forms.NumericUpDown();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TVIntroTimerMSInitBox = new System.Windows.Forms.NumericUpDown();
+            this.TVFramesOutBox = new System.Windows.Forms.NumericUpDown();
+            this.TVTargetFrameLabel = new System.Windows.Forms.Label();
+            this.TVFrameOutsideLabel = new System.Windows.Forms.Label();
+            this.TVDelayBoxLabel = new System.Windows.Forms.Label();
+            this.TVDelayBox = new System.Windows.Forms.NumericUpDown();
+            this.TVIntroTimerMSLabel = new System.Windows.Forms.Label();
+            this.TVTargetFrameInitBox = new System.Windows.Forms.NumericUpDown();
+            this.TVSettingGroupBox = new System.Windows.Forms.GroupBox();
+            this.TVMethodLabel = new System.Windows.Forms.Label();
+            this.TVConsoleLabel = new System.Windows.Forms.Label();
+            this.TVGameDropDown = new System.Windows.Forms.ComboBox();
+            this.TVConsoleDropDown = new System.Windows.Forms.ComboBox();
+            this.TVGameLabel = new System.Windows.Forms.Label();
+            this.TVMethodDropDown = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.TeachyTV.SuspendLayout();
             this.FlowtimeConverter.SuspendLayout();
             this.AdjustGroup.SuspendLayout();
@@ -75,11 +121,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.DelayBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntroTimerMSBox)).BeginInit();
             this.Selections.SuspendLayout();
+            this.TeachyTVTab.SuspendLayout();
+            this.TVAdjustedGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TVNewFlowtimerBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVAdjustTotalMSBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVAdjustMSBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVAdjustTotalFramesBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVAdjustFramesBox)).BeginInit();
+            this.TVInitialGroupBox.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TVFrameHitBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVMSTotalBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVMSinTVBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVFramesTotalBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVFramesInBox)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TVIntroTimerMSInitBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVFramesOutBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVDelayBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVTargetFrameInitBox)).BeginInit();
+            this.TVSettingGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // TeachyTV
             // 
             this.TeachyTV.Controls.Add(this.FlowtimeConverter);
+            this.TeachyTV.Controls.Add(this.TeachyTVTab);
             this.TeachyTV.Location = new System.Drawing.Point(12, 12);
             this.TeachyTV.Name = "TeachyTV";
             this.TeachyTV.SelectedIndex = 0;
@@ -462,6 +529,473 @@
             this.GameLabel.TabIndex = 1;
             this.GameLabel.Text = "Game";
             // 
+            // TeachyTVTab
+            // 
+            this.TeachyTVTab.Controls.Add(this.TVAdjustedGroup);
+            this.TeachyTVTab.Controls.Add(this.TVInitialGroupBox);
+            this.TeachyTVTab.Controls.Add(this.groupBox1);
+            this.TeachyTVTab.Controls.Add(this.TVSettingGroupBox);
+            this.TeachyTVTab.Location = new System.Drawing.Point(4, 22);
+            this.TeachyTVTab.Name = "TeachyTVTab";
+            this.TeachyTVTab.Padding = new System.Windows.Forms.Padding(3);
+            this.TeachyTVTab.Size = new System.Drawing.Size(484, 311);
+            this.TeachyTVTab.TabIndex = 1;
+            this.TeachyTVTab.Text = "TeachyTV";
+            this.TeachyTVTab.UseVisualStyleBackColor = true;
+            // 
+            // TVAdjustedGroup
+            // 
+            this.TVAdjustedGroup.Controls.Add(this.TVNewFlowMSTotalLabel);
+            this.TVAdjustedGroup.Controls.Add(this.TVNewFlowMSTotalBox);
+            this.TVAdjustedGroup.Controls.Add(this.TVNewFlowtimerLabel);
+            this.TVAdjustedGroup.Controls.Add(this.TVNewFlowtimerBox);
+            this.TVAdjustedGroup.Controls.Add(this.TVAdjustTotalMSLabel);
+            this.TVAdjustedGroup.Controls.Add(this.TVAdjustTotalMSBox);
+            this.TVAdjustedGroup.Controls.Add(this.TVAdjustMSLabel);
+            this.TVAdjustedGroup.Controls.Add(this.TVAdjustMSBox);
+            this.TVAdjustedGroup.Controls.Add(this.TVAdjustTotalFramesLabel);
+            this.TVAdjustedGroup.Controls.Add(this.TVAdjustTotalFramesBox);
+            this.TVAdjustedGroup.Controls.Add(this.TVAdjustFramesLabel);
+            this.TVAdjustedGroup.Controls.Add(this.TVAdjustFramesBox);
+            this.TVAdjustedGroup.Location = new System.Drawing.Point(339, 6);
+            this.TVAdjustedGroup.Name = "TVAdjustedGroup";
+            this.TVAdjustedGroup.Size = new System.Drawing.Size(139, 299);
+            this.TVAdjustedGroup.TabIndex = 27;
+            this.TVAdjustedGroup.TabStop = false;
+            // 
+            // TVNewFlowMSTotalLabel
+            // 
+            this.TVNewFlowMSTotalLabel.AutoSize = true;
+            this.TVNewFlowMSTotalLabel.Location = new System.Drawing.Point(18, 244);
+            this.TVNewFlowMSTotalLabel.Name = "TVNewFlowMSTotalLabel";
+            this.TVNewFlowMSTotalLabel.Size = new System.Drawing.Size(97, 13);
+            this.TVNewFlowMSTotalLabel.TabIndex = 38;
+            this.TVNewFlowMSTotalLabel.Text = "Flowtimer MS Total";
+            // 
+            // TVNewFlowMSTotalBox
+            // 
+            this.TVNewFlowMSTotalBox.Location = new System.Drawing.Point(21, 260);
+            this.TVNewFlowMSTotalBox.Name = "TVNewFlowMSTotalBox";
+            this.TVNewFlowMSTotalBox.Size = new System.Drawing.Size(94, 20);
+            this.TVNewFlowMSTotalBox.TabIndex = 37;
+            // 
+            // TVNewFlowtimerLabel
+            // 
+            this.TVNewFlowtimerLabel.AutoSize = true;
+            this.TVNewFlowtimerLabel.Location = new System.Drawing.Point(18, 187);
+            this.TVNewFlowtimerLabel.Name = "TVNewFlowtimerLabel";
+            this.TVNewFlowtimerLabel.Size = new System.Drawing.Size(93, 13);
+            this.TVNewFlowtimerLabel.TabIndex = 36;
+            this.TVNewFlowtimerLabel.Text = "New Flowtimer TV";
+            // 
+            // TVNewFlowtimerBox
+            // 
+            this.TVNewFlowtimerBox.Location = new System.Drawing.Point(21, 203);
+            this.TVNewFlowtimerBox.Name = "TVNewFlowtimerBox";
+            this.TVNewFlowtimerBox.Size = new System.Drawing.Size(94, 20);
+            this.TVNewFlowtimerBox.TabIndex = 35;
+            // 
+            // TVAdjustTotalMSLabel
+            // 
+            this.TVAdjustTotalMSLabel.AutoSize = true;
+            this.TVAdjustTotalMSLabel.Location = new System.Drawing.Point(18, 144);
+            this.TVAdjustTotalMSLabel.Name = "TVAdjustTotalMSLabel";
+            this.TVAdjustTotalMSLabel.Size = new System.Drawing.Size(85, 13);
+            this.TVAdjustTotalMSLabel.TabIndex = 34;
+            this.TVAdjustTotalMSLabel.Text = "Adjust Total MS ";
+            // 
+            // TVAdjustTotalMSBox
+            // 
+            this.TVAdjustTotalMSBox.Location = new System.Drawing.Point(21, 160);
+            this.TVAdjustTotalMSBox.Name = "TVAdjustTotalMSBox";
+            this.TVAdjustTotalMSBox.Size = new System.Drawing.Size(94, 20);
+            this.TVAdjustTotalMSBox.TabIndex = 33;
+            // 
+            // TVAdjustMSLabel
+            // 
+            this.TVAdjustMSLabel.AutoSize = true;
+            this.TVAdjustMSLabel.Location = new System.Drawing.Point(18, 100);
+            this.TVAdjustMSLabel.Name = "TVAdjustMSLabel";
+            this.TVAdjustMSLabel.Size = new System.Drawing.Size(75, 13);
+            this.TVAdjustMSLabel.TabIndex = 32;
+            this.TVAdjustMSLabel.Text = "Adjust TV MS ";
+            // 
+            // TVAdjustMSBox
+            // 
+            this.TVAdjustMSBox.Location = new System.Drawing.Point(21, 116);
+            this.TVAdjustMSBox.Name = "TVAdjustMSBox";
+            this.TVAdjustMSBox.Size = new System.Drawing.Size(94, 20);
+            this.TVAdjustMSBox.TabIndex = 31;
+            // 
+            // TVAdjustTotalFramesLabel
+            // 
+            this.TVAdjustTotalFramesLabel.AutoSize = true;
+            this.TVAdjustTotalFramesLabel.Location = new System.Drawing.Point(18, 58);
+            this.TVAdjustTotalFramesLabel.Name = "TVAdjustTotalFramesLabel";
+            this.TVAdjustTotalFramesLabel.Size = new System.Drawing.Size(100, 13);
+            this.TVAdjustTotalFramesLabel.TabIndex = 30;
+            this.TVAdjustTotalFramesLabel.Text = "Adjust Total Frames";
+            // 
+            // TVAdjustTotalFramesBox
+            // 
+            this.TVAdjustTotalFramesBox.Location = new System.Drawing.Point(21, 74);
+            this.TVAdjustTotalFramesBox.Name = "TVAdjustTotalFramesBox";
+            this.TVAdjustTotalFramesBox.Size = new System.Drawing.Size(94, 20);
+            this.TVAdjustTotalFramesBox.TabIndex = 29;
+            // 
+            // TVAdjustFramesLabel
+            // 
+            this.TVAdjustFramesLabel.AutoSize = true;
+            this.TVAdjustFramesLabel.Location = new System.Drawing.Point(18, 17);
+            this.TVAdjustFramesLabel.Name = "TVAdjustFramesLabel";
+            this.TVAdjustFramesLabel.Size = new System.Drawing.Size(90, 13);
+            this.TVAdjustFramesLabel.TabIndex = 28;
+            this.TVAdjustFramesLabel.Text = "Adjust TV Frames";
+            // 
+            // TVAdjustFramesBox
+            // 
+            this.TVAdjustFramesBox.Location = new System.Drawing.Point(21, 33);
+            this.TVAdjustFramesBox.Name = "TVAdjustFramesBox";
+            this.TVAdjustFramesBox.Size = new System.Drawing.Size(94, 20);
+            this.TVAdjustFramesBox.TabIndex = 27;
+            // 
+            // TVInitialGroupBox
+            // 
+            this.TVInitialGroupBox.Controls.Add(this.groupBox4);
+            this.TVInitialGroupBox.Controls.Add(this.TVFlowtimerMSTotalLabel);
+            this.TVInitialGroupBox.Controls.Add(this.TVMSTotalLabel);
+            this.TVInitialGroupBox.Controls.Add(this.TVMSinTVLabel);
+            this.TVInitialGroupBox.Controls.Add(this.TVTotalFramesLabel);
+            this.TVInitialGroupBox.Controls.Add(this.TVFramesInTVLabel);
+            this.TVInitialGroupBox.Controls.Add(this.TVFlowTimerMSTotalBox);
+            this.TVInitialGroupBox.Controls.Add(this.TVMSTotalBox);
+            this.TVInitialGroupBox.Controls.Add(this.TVMSinTVBox);
+            this.TVInitialGroupBox.Controls.Add(this.TVFramesTotalBox);
+            this.TVInitialGroupBox.Controls.Add(this.TVFramesInBox);
+            this.TVInitialGroupBox.Location = new System.Drawing.Point(194, 6);
+            this.TVInitialGroupBox.Name = "TVInitialGroupBox";
+            this.TVInitialGroupBox.Size = new System.Drawing.Size(139, 299);
+            this.TVInitialGroupBox.TabIndex = 26;
+            this.TVInitialGroupBox.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.TVFrameHitBox);
+            this.groupBox4.Controls.Add(this.TVFrameHitLabel);
+            this.groupBox4.Location = new System.Drawing.Point(6, 239);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(127, 54);
+            this.groupBox4.TabIndex = 29;
+            this.groupBox4.TabStop = false;
+            // 
+            // TVFrameHitBox
+            // 
+            this.TVFrameHitBox.Location = new System.Drawing.Point(16, 27);
+            this.TVFrameHitBox.Name = "TVFrameHitBox";
+            this.TVFrameHitBox.Size = new System.Drawing.Size(94, 20);
+            this.TVFrameHitBox.TabIndex = 25;
+            // 
+            // TVFrameHitLabel
+            // 
+            this.TVFrameHitLabel.AutoSize = true;
+            this.TVFrameHitLabel.Location = new System.Drawing.Point(35, 11);
+            this.TVFrameHitLabel.Name = "TVFrameHitLabel";
+            this.TVFrameHitLabel.Size = new System.Drawing.Size(52, 13);
+            this.TVFrameHitLabel.TabIndex = 26;
+            this.TVFrameHitLabel.Text = "Frame Hit";
+            // 
+            // TVFlowtimerMSTotalLabel
+            // 
+            this.TVFlowtimerMSTotalLabel.AutoSize = true;
+            this.TVFlowtimerMSTotalLabel.Location = new System.Drawing.Point(19, 197);
+            this.TVFlowtimerMSTotalLabel.Name = "TVFlowtimerMSTotalLabel";
+            this.TVFlowtimerMSTotalLabel.Size = new System.Drawing.Size(97, 13);
+            this.TVFlowtimerMSTotalLabel.TabIndex = 28;
+            this.TVFlowtimerMSTotalLabel.Text = "Flowtimer MS Total";
+            // 
+            // TVMSTotalLabel
+            // 
+            this.TVMSTotalLabel.AutoSize = true;
+            this.TVMSTotalLabel.Location = new System.Drawing.Point(19, 149);
+            this.TVMSTotalLabel.Name = "TVMSTotalLabel";
+            this.TVMSTotalLabel.Size = new System.Drawing.Size(61, 13);
+            this.TVMSTotalLabel.TabIndex = 27;
+            this.TVMSTotalLabel.Text = "MS in Total";
+            // 
+            // TVMSinTVLabel
+            // 
+            this.TVMSinTVLabel.AutoSize = true;
+            this.TVMSinTVLabel.Location = new System.Drawing.Point(19, 103);
+            this.TVMSinTVLabel.Name = "TVMSinTVLabel";
+            this.TVMSinTVLabel.Size = new System.Drawing.Size(51, 13);
+            this.TVMSinTVLabel.TabIndex = 26;
+            this.TVMSinTVLabel.Text = "MS in TV";
+            // 
+            // TVTotalFramesLabel
+            // 
+            this.TVTotalFramesLabel.AutoSize = true;
+            this.TVTotalFramesLabel.Location = new System.Drawing.Point(19, 59);
+            this.TVTotalFramesLabel.Name = "TVTotalFramesLabel";
+            this.TVTotalFramesLabel.Size = new System.Drawing.Size(79, 13);
+            this.TVTotalFramesLabel.TabIndex = 25;
+            this.TVTotalFramesLabel.Text = "Frames in Total";
+            // 
+            // TVFramesInTVLabel
+            // 
+            this.TVFramesInTVLabel.AutoSize = true;
+            this.TVFramesInTVLabel.Location = new System.Drawing.Point(19, 12);
+            this.TVFramesInTVLabel.Name = "TVFramesInTVLabel";
+            this.TVFramesInTVLabel.Size = new System.Drawing.Size(69, 13);
+            this.TVFramesInTVLabel.TabIndex = 24;
+            this.TVFramesInTVLabel.Text = "Frames in TV";
+            // 
+            // TVFlowTimerMSTotalBox
+            // 
+            this.TVFlowTimerMSTotalBox.Location = new System.Drawing.Point(22, 213);
+            this.TVFlowTimerMSTotalBox.Name = "TVFlowTimerMSTotalBox";
+            this.TVFlowTimerMSTotalBox.Size = new System.Drawing.Size(94, 20);
+            this.TVFlowTimerMSTotalBox.TabIndex = 5;
+            // 
+            // TVMSTotalBox
+            // 
+            this.TVMSTotalBox.Location = new System.Drawing.Point(22, 165);
+            this.TVMSTotalBox.Name = "TVMSTotalBox";
+            this.TVMSTotalBox.Size = new System.Drawing.Size(94, 20);
+            this.TVMSTotalBox.TabIndex = 4;
+            // 
+            // TVMSinTVBox
+            // 
+            this.TVMSinTVBox.Location = new System.Drawing.Point(22, 119);
+            this.TVMSinTVBox.Name = "TVMSinTVBox";
+            this.TVMSinTVBox.Size = new System.Drawing.Size(94, 20);
+            this.TVMSinTVBox.TabIndex = 3;
+            // 
+            // TVFramesTotalBox
+            // 
+            this.TVFramesTotalBox.Location = new System.Drawing.Point(22, 75);
+            this.TVFramesTotalBox.Name = "TVFramesTotalBox";
+            this.TVFramesTotalBox.Size = new System.Drawing.Size(94, 20);
+            this.TVFramesTotalBox.TabIndex = 2;
+            // 
+            // TVFramesInBox
+            // 
+            this.TVFramesInBox.Location = new System.Drawing.Point(22, 28);
+            this.TVFramesInBox.Name = "TVFramesInBox";
+            this.TVFramesInBox.Size = new System.Drawing.Size(94, 20);
+            this.TVFramesInBox.TabIndex = 1;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.TVIntroTimerMSInitBox);
+            this.groupBox1.Controls.Add(this.TVFramesOutBox);
+            this.groupBox1.Controls.Add(this.TVTargetFrameLabel);
+            this.groupBox1.Controls.Add(this.TVFrameOutsideLabel);
+            this.groupBox1.Controls.Add(this.TVDelayBoxLabel);
+            this.groupBox1.Controls.Add(this.TVDelayBox);
+            this.groupBox1.Controls.Add(this.TVIntroTimerMSLabel);
+            this.groupBox1.Controls.Add(this.TVTargetFrameInitBox);
+            this.groupBox1.Location = new System.Drawing.Point(6, 117);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(182, 188);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            // 
+            // TVIntroTimerMSInitBox
+            // 
+            this.TVIntroTimerMSInitBox.Location = new System.Drawing.Point(9, 28);
+            this.TVIntroTimerMSInitBox.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.TVIntroTimerMSInitBox.Name = "TVIntroTimerMSInitBox";
+            this.TVIntroTimerMSInitBox.Size = new System.Drawing.Size(150, 20);
+            this.TVIntroTimerMSInitBox.TabIndex = 19;
+            // 
+            // TVFramesOutBox
+            // 
+            this.TVFramesOutBox.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.TVFramesOutBox.Location = new System.Drawing.Point(9, 150);
+            this.TVFramesOutBox.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.TVFramesOutBox.Name = "TVFramesOutBox";
+            this.TVFramesOutBox.Size = new System.Drawing.Size(116, 20);
+            this.TVFramesOutBox.TabIndex = 24;
+            // 
+            // TVTargetFrameLabel
+            // 
+            this.TVTargetFrameLabel.AutoSize = true;
+            this.TVTargetFrameLabel.Location = new System.Drawing.Point(6, 90);
+            this.TVTargetFrameLabel.Name = "TVTargetFrameLabel";
+            this.TVTargetFrameLabel.Size = new System.Drawing.Size(70, 13);
+            this.TVTargetFrameLabel.TabIndex = 18;
+            this.TVTargetFrameLabel.Text = "Target Frame";
+            // 
+            // TVFrameOutsideLabel
+            // 
+            this.TVFrameOutsideLabel.AutoSize = true;
+            this.TVFrameOutsideLabel.Location = new System.Drawing.Point(6, 133);
+            this.TVFrameOutsideLabel.Name = "TVFrameOutsideLabel";
+            this.TVFrameOutsideLabel.Size = new System.Drawing.Size(88, 13);
+            this.TVFrameOutsideLabel.TabIndex = 23;
+            this.TVFrameOutsideLabel.Text = "Frames out of TV";
+            // 
+            // TVDelayBoxLabel
+            // 
+            this.TVDelayBoxLabel.AutoSize = true;
+            this.TVDelayBoxLabel.Location = new System.Drawing.Point(6, 51);
+            this.TVDelayBoxLabel.Name = "TVDelayBoxLabel";
+            this.TVDelayBoxLabel.Size = new System.Drawing.Size(55, 13);
+            this.TVDelayBoxLabel.TabIndex = 17;
+            this.TVDelayBoxLabel.Text = "Delay Box";
+            // 
+            // TVDelayBox
+            // 
+            this.TVDelayBox.Location = new System.Drawing.Point(9, 67);
+            this.TVDelayBox.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.TVDelayBox.Minimum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            -2147483648});
+            this.TVDelayBox.Name = "TVDelayBox";
+            this.TVDelayBox.Size = new System.Drawing.Size(150, 20);
+            this.TVDelayBox.TabIndex = 20;
+            // 
+            // TVIntroTimerMSLabel
+            // 
+            this.TVIntroTimerMSLabel.AutoSize = true;
+            this.TVIntroTimerMSLabel.Location = new System.Drawing.Point(6, 12);
+            this.TVIntroTimerMSLabel.Name = "TVIntroTimerMSLabel";
+            this.TVIntroTimerMSLabel.Size = new System.Drawing.Size(82, 13);
+            this.TVIntroTimerMSLabel.TabIndex = 16;
+            this.TVIntroTimerMSLabel.Text = "Intro Timer (MS)";
+            // 
+            // TVTargetFrameInitBox
+            // 
+            this.TVTargetFrameInitBox.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.TVTargetFrameInitBox.Location = new System.Drawing.Point(9, 107);
+            this.TVTargetFrameInitBox.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.TVTargetFrameInitBox.Name = "TVTargetFrameInitBox";
+            this.TVTargetFrameInitBox.Size = new System.Drawing.Size(150, 20);
+            this.TVTargetFrameInitBox.TabIndex = 21;
+            // 
+            // TVSettingGroupBox
+            // 
+            this.TVSettingGroupBox.Controls.Add(this.label3);
+            this.TVSettingGroupBox.Controls.Add(this.TVMethodLabel);
+            this.TVSettingGroupBox.Controls.Add(this.TVConsoleLabel);
+            this.TVSettingGroupBox.Controls.Add(this.TVGameDropDown);
+            this.TVSettingGroupBox.Controls.Add(this.TVConsoleDropDown);
+            this.TVSettingGroupBox.Controls.Add(this.TVGameLabel);
+            this.TVSettingGroupBox.Controls.Add(this.TVMethodDropDown);
+            this.TVSettingGroupBox.Location = new System.Drawing.Point(6, 6);
+            this.TVSettingGroupBox.Name = "TVSettingGroupBox";
+            this.TVSettingGroupBox.Size = new System.Drawing.Size(182, 105);
+            this.TVSettingGroupBox.TabIndex = 1;
+            this.TVSettingGroupBox.TabStop = false;
+            this.TVSettingGroupBox.Text = "Settings";
+            // 
+            // TVMethodLabel
+            // 
+            this.TVMethodLabel.AutoSize = true;
+            this.TVMethodLabel.Location = new System.Drawing.Point(8, 76);
+            this.TVMethodLabel.Name = "TVMethodLabel";
+            this.TVMethodLabel.Size = new System.Drawing.Size(43, 13);
+            this.TVMethodLabel.TabIndex = 23;
+            this.TVMethodLabel.Text = "Method";
+            // 
+            // TVConsoleLabel
+            // 
+            this.TVConsoleLabel.AutoSize = true;
+            this.TVConsoleLabel.Location = new System.Drawing.Point(216, 24);
+            this.TVConsoleLabel.Name = "TVConsoleLabel";
+            this.TVConsoleLabel.Size = new System.Drawing.Size(0, 13);
+            this.TVConsoleLabel.TabIndex = 3;
+            // 
+            // TVGameDropDown
+            // 
+            this.TVGameDropDown.FormattingEnabled = true;
+            this.TVGameDropDown.Items.AddRange(new object[] {
+            "FireRed 1.0",
+            "FireRed 1.1",
+            "Leaf Green"});
+            this.TVGameDropDown.Location = new System.Drawing.Point(59, 19);
+            this.TVGameDropDown.Name = "TVGameDropDown";
+            this.TVGameDropDown.Size = new System.Drawing.Size(117, 21);
+            this.TVGameDropDown.TabIndex = 2;
+            // 
+            // TVConsoleDropDown
+            // 
+            this.TVConsoleDropDown.FormattingEnabled = true;
+            this.TVConsoleDropDown.Items.AddRange(new object[] {
+            "GBA",
+            "NDS"});
+            this.TVConsoleDropDown.Location = new System.Drawing.Point(59, 46);
+            this.TVConsoleDropDown.Name = "TVConsoleDropDown";
+            this.TVConsoleDropDown.Size = new System.Drawing.Size(117, 21);
+            this.TVConsoleDropDown.TabIndex = 4;
+            // 
+            // TVGameLabel
+            // 
+            this.TVGameLabel.AutoSize = true;
+            this.TVGameLabel.Location = new System.Drawing.Point(8, 22);
+            this.TVGameLabel.Name = "TVGameLabel";
+            this.TVGameLabel.Size = new System.Drawing.Size(35, 13);
+            this.TVGameLabel.TabIndex = 23;
+            this.TVGameLabel.Text = "Game";
+            // 
+            // TVMethodDropDown
+            // 
+            this.TVMethodDropDown.FormattingEnabled = true;
+            this.TVMethodDropDown.Items.AddRange(new object[] {
+            "Method 1/2/4",
+            "Sweet Scent(Outdoors)",
+            "Sweet Scent(Indoors)"});
+            this.TVMethodDropDown.Location = new System.Drawing.Point(59, 73);
+            this.TVMethodDropDown.Name = "TVMethodDropDown";
+            this.TVMethodDropDown.Size = new System.Drawing.Size(117, 21);
+            this.TVMethodDropDown.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Console";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(132, 150);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(27, 20);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "B";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FlowtimerConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,6 +1022,31 @@
             ((System.ComponentModel.ISupportInitialize)(this.IntroTimerMSBox)).EndInit();
             this.Selections.ResumeLayout(false);
             this.Selections.PerformLayout();
+            this.TeachyTVTab.ResumeLayout(false);
+            this.TVAdjustedGroup.ResumeLayout(false);
+            this.TVAdjustedGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TVNewFlowtimerBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVAdjustTotalMSBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVAdjustMSBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVAdjustTotalFramesBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVAdjustFramesBox)).EndInit();
+            this.TVInitialGroupBox.ResumeLayout(false);
+            this.TVInitialGroupBox.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TVFrameHitBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVMSTotalBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVMSinTVBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVFramesTotalBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVFramesInBox)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TVIntroTimerMSInitBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVFramesOutBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVDelayBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TVTargetFrameInitBox)).EndInit();
+            this.TVSettingGroupBox.ResumeLayout(false);
+            this.TVSettingGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -528,6 +1087,52 @@
         private System.Windows.Forms.TextBox AdvancesAdjustBox;
         private System.Windows.Forms.TextBox IntroMSAdjustBox;
         private System.Windows.Forms.NumericUpDown FlatMSBox;
+        private System.Windows.Forms.TabPage TeachyTVTab;
+        private System.Windows.Forms.GroupBox TVSettingGroupBox;
+        private System.Windows.Forms.ComboBox TVConsoleDropDown;
+        private System.Windows.Forms.ComboBox TVMethodDropDown;
+        private System.Windows.Forms.Label TVConsoleLabel;
+        private System.Windows.Forms.ComboBox TVGameDropDown;
+        private System.Windows.Forms.NumericUpDown TVTargetFrameInitBox;
+        private System.Windows.Forms.NumericUpDown TVDelayBox;
+        private System.Windows.Forms.NumericUpDown TVIntroTimerMSInitBox;
+        private System.Windows.Forms.Label TVTargetFrameLabel;
+        private System.Windows.Forms.Label TVDelayBoxLabel;
+        private System.Windows.Forms.Label TVIntroTimerMSLabel;
+        private System.Windows.Forms.Label TVGameLabel;
+        private System.Windows.Forms.Label TVMethodLabel;
+        private System.Windows.Forms.NumericUpDown TVFramesOutBox;
+        private System.Windows.Forms.Label TVFrameOutsideLabel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox TVInitialGroupBox;
+        private System.Windows.Forms.GroupBox TVAdjustedGroup;
+        private System.Windows.Forms.NumericUpDown TVMSTotalBox;
+        private System.Windows.Forms.NumericUpDown TVMSinTVBox;
+        private System.Windows.Forms.NumericUpDown TVFramesTotalBox;
+        private System.Windows.Forms.NumericUpDown TVFramesInBox;
+        private System.Windows.Forms.Label TVMSTotalLabel;
+        private System.Windows.Forms.Label TVMSinTVLabel;
+        private System.Windows.Forms.Label TVTotalFramesLabel;
+        private System.Windows.Forms.Label TVFramesInTVLabel;
+        private System.Windows.Forms.Label TVAdjustTotalMSLabel;
+        private System.Windows.Forms.NumericUpDown TVAdjustTotalMSBox;
+        private System.Windows.Forms.Label TVAdjustMSLabel;
+        private System.Windows.Forms.NumericUpDown TVAdjustMSBox;
+        private System.Windows.Forms.Label TVAdjustTotalFramesLabel;
+        private System.Windows.Forms.NumericUpDown TVAdjustTotalFramesBox;
+        private System.Windows.Forms.Label TVAdjustFramesLabel;
+        private System.Windows.Forms.NumericUpDown TVAdjustFramesBox;
+        private System.Windows.Forms.Label TVFrameHitLabel;
+        private System.Windows.Forms.NumericUpDown TVFrameHitBox;
+        private System.Windows.Forms.Label TVNewFlowtimerLabel;
+        private System.Windows.Forms.NumericUpDown TVNewFlowtimerBox;
+        private System.Windows.Forms.Label TVNewFlowMSTotalLabel;
+        private System.Windows.Forms.TextBox TVNewFlowMSTotalBox;
+        private System.Windows.Forms.Label TVFlowtimerMSTotalLabel;
+        private System.Windows.Forms.TextBox TVFlowTimerMSTotalBox;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
     }
 }
 
