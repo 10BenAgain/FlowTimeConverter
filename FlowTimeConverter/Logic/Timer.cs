@@ -8,11 +8,11 @@ namespace FlowTimeConverter
         private byte NConsole { get; set; } = (byte)console;
         private byte Game { get; set; } = (byte)game;
         private byte Method { get; set; } = (byte)method;
-        private int TargetFrame { get; set; }
+        protected int TargetFrame { get; set; }
         private int TargetFrameHit { get; set; }
-        private int IntroTimer { get; set; }
+        protected int IntroTimer { get; set; }
         private int IntroTimerHit { get; set; }
-        private double IntroTimerMS { get; set; }
+        protected double IntroTimerMS { get; set; }
         private double SeedLagMS { get; set; }
         private double FlatMS { get; set; }
 
@@ -90,6 +90,8 @@ namespace FlowTimeConverter
         }
         public double GetFPS() => FPS;
         public int GetTargetFrame() => TargetFrame;
+        public double GetIntroTimerMS() => IntroTimerMS;
+        public double GetIntroTimer() => IntroTimer;
         public double CalculateFlatMS()
         {
             var delayDifference = TargetFrame + GetDelay();

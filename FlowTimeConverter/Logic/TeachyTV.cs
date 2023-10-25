@@ -1,12 +1,10 @@
 ﻿
 using System;
-using static FlowTimeConverter.Selections;
 
 namespace FlowTimeConverter.Logic
 {
     public class TeachyTV : Timer
     {
-        public double IntroTimerMS => GetIntroToFrames();
         public double InsideTV { get; set; }
         private int OutsideTV { get; set; }
         public TeachyTV(Selections.Version game, Selections.NConsole console, Selections.Method method) 
@@ -32,15 +30,19 @@ namespace FlowTimeConverter.Logic
             var Difference = GetTargetFrame() - OutsideTV;
             return Difference % Constants.TVAccelerator;
         }
-
+        public double GetOutSideTV()
+        {
+            return GetRemainderFrames() + OutsideTV - Constants.TVOffset;
+        }
         public double GetTotalFrames()
         {
-            return InsideTV + OutsideTV + GetDelay();
+            return InsideTV + GetOutSideTV() + GetDelay();
         }
 
         public double GetTVMS()
         {
-            return ReusableFunctions.FrameToMS(GetTotalFrames());
+            var output = ReusableFunctions.FrameToMS(GetFPS(), InsideTV);
+            return Math.Floor(output);
         }
 
         public double GetTotalFrameMS()
@@ -52,18 +54,10 @@ namespace FlowTimeConverter.Logic
 
         public double GetTotalMS()
         {
+            SetSeedLagMS();
+            SetIntroTimerMS();
             var framesMS = Math.Floor(GetTotalFrameMS());
             return framesMS + IntroTimerMS;
-        }
-        private void GetTVSettings()
-        {
-            TVMethod = TVMethodDropDown.SelectedIndex switch
-            {
-                0 => FlowTimeConverter.Selections.Method.M124,
-                1 => FlowTimeConverter.Selections.Method.SCO,
-                2 => FlowTimeConverter.Selections.Method.SCI,
-                _ => throw new NotImplementedException()
-            };
         }
     }
 }

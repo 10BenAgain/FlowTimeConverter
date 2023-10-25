@@ -92,6 +92,7 @@
             this.TVFramesTotalBox = new System.Windows.Forms.NumericUpDown();
             this.TVFramesInBox = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TVCalcButton = new System.Windows.Forms.Button();
             this.TVIntroTimerMSInitBox = new System.Windows.Forms.NumericUpDown();
             this.TVFramesOutBox = new System.Windows.Forms.NumericUpDown();
             this.TVTargetFrameLabel = new System.Windows.Forms.Label();
@@ -101,14 +102,13 @@
             this.TVIntroTimerMSLabel = new System.Windows.Forms.Label();
             this.TVTargetFrameInitBox = new System.Windows.Forms.NumericUpDown();
             this.TVSettingGroupBox = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.TVMethodLabel = new System.Windows.Forms.Label();
             this.TVConsoleLabel = new System.Windows.Forms.Label();
             this.TVGameDropDown = new System.Windows.Forms.ComboBox();
             this.TVConsoleDropDown = new System.Windows.Forms.ComboBox();
             this.TVGameLabel = new System.Windows.Forms.Label();
             this.TVMethodDropDown = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.TeachyTV.SuspendLayout();
             this.FlowtimeConverter.SuspendLayout();
             this.AdjustGroup.SuspendLayout();
@@ -759,6 +759,11 @@
             // TVMSTotalBox
             // 
             this.TVMSTotalBox.Location = new System.Drawing.Point(22, 165);
+            this.TVMSTotalBox.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
             this.TVMSTotalBox.Name = "TVMSTotalBox";
             this.TVMSTotalBox.Size = new System.Drawing.Size(94, 20);
             this.TVMSTotalBox.TabIndex = 4;
@@ -766,6 +771,11 @@
             // TVMSinTVBox
             // 
             this.TVMSinTVBox.Location = new System.Drawing.Point(22, 119);
+            this.TVMSinTVBox.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
             this.TVMSinTVBox.Name = "TVMSinTVBox";
             this.TVMSinTVBox.Size = new System.Drawing.Size(94, 20);
             this.TVMSinTVBox.TabIndex = 3;
@@ -773,6 +783,11 @@
             // TVFramesTotalBox
             // 
             this.TVFramesTotalBox.Location = new System.Drawing.Point(22, 75);
+            this.TVFramesTotalBox.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
             this.TVFramesTotalBox.Name = "TVFramesTotalBox";
             this.TVFramesTotalBox.Size = new System.Drawing.Size(94, 20);
             this.TVFramesTotalBox.TabIndex = 2;
@@ -780,13 +795,18 @@
             // TVFramesInBox
             // 
             this.TVFramesInBox.Location = new System.Drawing.Point(22, 28);
+            this.TVFramesInBox.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
             this.TVFramesInBox.Name = "TVFramesInBox";
             this.TVFramesInBox.Size = new System.Drawing.Size(94, 20);
             this.TVFramesInBox.TabIndex = 1;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.TVCalcButton);
             this.groupBox1.Controls.Add(this.TVIntroTimerMSInitBox);
             this.groupBox1.Controls.Add(this.TVFramesOutBox);
             this.groupBox1.Controls.Add(this.TVTargetFrameLabel);
@@ -800,6 +820,16 @@
             this.groupBox1.Size = new System.Drawing.Size(182, 188);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
+            // 
+            // TVCalcButton
+            // 
+            this.TVCalcButton.Location = new System.Drawing.Point(132, 150);
+            this.TVCalcButton.Name = "TVCalcButton";
+            this.TVCalcButton.Size = new System.Drawing.Size(27, 20);
+            this.TVCalcButton.TabIndex = 25;
+            this.TVCalcButton.Text = "B";
+            this.TVCalcButton.UseVisualStyleBackColor = true;
+            this.TVCalcButton.Click += new System.EventHandler(this.TVCalcButton_Click);
             // 
             // TVIntroTimerMSInitBox
             // 
@@ -916,6 +946,15 @@
             this.TVSettingGroupBox.TabStop = false;
             this.TVSettingGroupBox.Text = "Settings";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Console";
+            // 
             // TVMethodLabel
             // 
             this.TVMethodLabel.AutoSize = true;
@@ -976,25 +1015,6 @@
             this.TVMethodDropDown.Name = "TVMethodDropDown";
             this.TVMethodDropDown.Size = new System.Drawing.Size(117, 21);
             this.TVMethodDropDown.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Console";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(132, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(27, 20);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "B";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FlowtimerConverter
             // 
@@ -1132,7 +1152,7 @@
         private System.Windows.Forms.TextBox TVFlowTimerMSTotalBox;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button TVCalcButton;
     }
 }
 

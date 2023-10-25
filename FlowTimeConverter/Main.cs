@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace FlowTimeConverter
 {
-    public partial class FlowtimerConverter : Form
+    public sealed partial class FlowtimerConverter : Form
     {
         public Timer InitialConverter { get; set; }
         public Selections.NConsole NConsole { get; set; }
@@ -19,7 +19,6 @@ namespace FlowTimeConverter
         public FlowtimerConverter()
         {
             InitializeComponent();
-
         }
         private void FlowtimerConverter_Load_1(object sender, EventArgs e)
         {
@@ -27,8 +26,15 @@ namespace FlowTimeConverter
             MethodDropDown.SelectedItem = "Method 1/2/4";
             GameDropDown.SelectedItem = "FireRed 1.0";
             EncounterAdvancesBox.Value = 1400;
+
+            TVGameDropDown.SelectedItem = "FireRed 1.0";
+            TVConsoleDropDown.SelectedItem = "GBA";
+            TVMethodDropDown.SelectedItem = "Method 1/2/4";
+            TVIntroTimerMSInitBox.Value = 35000;
+            TVTargetFrameInitBox.Value = 45000;
+            TVFramesOutBox.Value = 1400;
         }
-        private void SetUserSettings()
+        private void GetConverterSettings()
         {
             Version = GameDropDown.SelectedIndex switch
             {
@@ -60,11 +66,35 @@ namespace FlowTimeConverter
                 _ => throw new NotImplementedException(),
             };
         }
-        
+        private void GetTVSettings()
+        {
+            TVVersion = TVGameDropDown.SelectedIndex switch
+            {
+                0 => FlowTimeConverter.Selections.Version.FR10,
+                1 => FlowTimeConverter.Selections.Version.FR11,
+                2 => FlowTimeConverter.Selections.Version.LG,
+                _ => throw new NotImplementedException()
+            };
+
+            TVConsole = TVConsoleDropDown.SelectedIndex switch
+            {
+                0 => FlowTimeConverter.Selections.NConsole.GBA,
+                1 => FlowTimeConverter.Selections.NConsole.NDS,
+                _ => throw new NotImplementedException()
+            };
+
+            TVMethod = TVMethodDropDown.SelectedIndex switch
+            {
+                0 => FlowTimeConverter.Selections.Method.M124,
+                1 => FlowTimeConverter.Selections.Method.SCO,
+                2 => FlowTimeConverter.Selections.Method.SCI,
+                _ => throw new NotImplementedException()
+            };
+        }
 
         private void CalculateInitialButton_Click(object sender, EventArgs e)
         {
-            SetUserSettings();
+            GetConverterSettings();
             var timer = new Timer(Version, NConsole, Method);
             var userInput = ReusableFunctions.ConvertDecimal(GetInitialUserInput());
 
@@ -89,7 +119,7 @@ namespace FlowTimeConverter
             }
             else
             {
-                SetUserSettings();
+                GetConverterSettings();
                 InitialConverter = new Timer(Version, NConsole, Method);
                 Recalculate();
             }
@@ -117,6 +147,32 @@ namespace FlowTimeConverter
                     }
                 );
         }
+        private void TVCalcButton_Click(object sender, EventArgs e)
+        {
+            GetTVSettings();
+            var tv = new TeachyTV(TVVersion, TVConsole, TVMethod);
+            var input = ReusableFunctions.ConvertDecimal(GetTVInitialInput());
+            tv
+                .SetIntroTimer(input[0])
+                .SetTargetFrame(input[1])
+                .SetIntroTimerMS();
+            tv.SetOutSideTV(Convert.ToInt32(input[2]));
+
+            TVDelayBox.Value = tv.GetDelay();
+            TVFramesInBox.Value = Convert.ToDecimal(tv.GetInsideTVFrames());
+            TVFramesTotalBox.Value = Convert.ToDecimal(tv.GetTotalFrames());
+            TVMSinTVBox.Value = Convert.ToDecimal(tv.GetTVMS());
+            TVMSTotalBox.Value = Convert.ToDecimal(tv.GetTotalMS());
+            TVFlowTimerMSTotalBox.Text =
+                ReusableFunctions.CreateFlowTimerString
+                (
+                    new double[]
+                    {
+                        tv.GetTotalMS(),
+                        tv.GetIntroTimer()
+                    }
+                ); 
+        }
         private decimal[] GetInitialUserInput()
         {
             return new decimal[]
@@ -131,6 +187,15 @@ namespace FlowTimeConverter
             {
                 IntroHitBox.Value,
                 EncounterHitBox.Value
+            };
+        }
+        private decimal[] GetTVInitialInput()
+        {
+            return new decimal[]
+            {
+                TVIntroTimerMSInitBox.Value,
+                TVTargetFrameInitBox.Value,
+                TVFramesOutBox.Value
             };
         }
         private void PictureBox1_Click(object sender, EventArgs e)
@@ -154,10 +219,6 @@ namespace FlowTimeConverter
                     IntroTimerMSBox.Value = 3500;
                     break;
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
         }
     }
 }
