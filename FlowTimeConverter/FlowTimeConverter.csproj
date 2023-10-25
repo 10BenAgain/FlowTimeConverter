@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logic\Constants.cs" />
+    <Compile Include="Logic\Converter.cs" />
     <Compile Include="Logic\ReusableFunctions.cs" />
     <Compile Include="Logic\TeachyTV.cs" />
     <Compile Include="Main.cs">
