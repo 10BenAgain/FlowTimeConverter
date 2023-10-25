@@ -4,10 +4,8 @@ namespace FlowTimeConverter.Logic
 {
     public class TeachyTV(Selections.Version game, Selections.NConsole console, Selections.Method method) : Converter(game, console, method)
     {
-        public double InsideTV { get; set; }
+        private double InsideTV { get; set; }
         private int OutsideTV { get; set; }
-        protected double IntroTimerMS { get; set; }
-        private double SeedLagMS => ReusableFunctions.FrameToMS(FPS, SeedLag);
 
         public TeachyTV SetOutSideTV(int frame)
         {

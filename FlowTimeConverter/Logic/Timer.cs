@@ -5,16 +5,8 @@ namespace FlowTimeConverter
 {
     public class Timer(Selections.Version game, Selections.NConsole console, Selections.Method method) : Converter(game, console, method)
     {
-        protected double IntroTimerMS { get; set; }
-        private double SeedLagMS => ReusableFunctions.FrameToMS(FPS, SeedLag);
         private double FlatMS { get; set; }
-
-        public Timer SetIntroTimerMS()
-        {
-            IntroTimerMS = IntroTimer + SeedLagMS;
-            return this;
-        }
-        
+        public void SetIntroTimerMS() => IntroTimerMS = IntroTimer + SeedLagMS;
         public void AdjustIntroMS() 
         {
             IntroTimerMS += AdjustSeedHit();
@@ -29,7 +21,7 @@ namespace FlowTimeConverter
 
         public int AdjustFrameHit() => TargetFrame - TargetFrameHit;
         public double AdjustFrameHitMS() => ReusableFunctions.FrameToMS(FPS, AdjustFrameHit());
-        public double AdjustSeedHit() => IntroTimerHit - IntroTimer;
+        public double AdjustSeedHit() => IntroTimer - IntroTimerHit;
         public double ReturnFinalIntro() => IntroTimerMS - SeedLagMS;
         public double RecalculateFlatMS()
         {

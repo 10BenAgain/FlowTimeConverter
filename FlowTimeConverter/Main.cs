@@ -103,8 +103,8 @@ namespace FlowTimeConverter
                 .SetIntroTimer(userInput[0])
                 .SetTargetFrame(userInput[1]);
 
-            timer
-                .SetIntroTimerMS();
+            timer.SetIntroTimerMS();
+                
 
             DelayBox.Value = timer.GetDelay();
             FlatMSBox.Value = Convert.ToInt32(timer.CalculateFlatMS());
@@ -203,23 +203,33 @@ namespace FlowTimeConverter
         {
             Process.Start("https://blisy.net/flowtimerconverter.html");
         }
+        
         private void ConsoleDropDown_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            switch (ConsoleDropDown.SelectedIndex)
+            IntroTimerMSBox.Value = SetIntroValue(ConsoleDropDown.SelectedIndex);
+        }
+
+        private int SetIntroValue(int index)
+        {
+            switch (index)
             {
                 case 0:
                 case 1:
                 case 4:
-                    IntroTimerMSBox.Value = 35000;
-                    break;
+                    return 35000;
 
                 case 2:
-                    IntroTimerMSBox.Value = 2500;
-                    break;
+                    return 2500;
                 case 3:
-                    IntroTimerMSBox.Value = 3500;
+                    return 3500;
+                default:
                     break;
             }
+            return 0;
+        }
+        private void ReCalculateTV_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

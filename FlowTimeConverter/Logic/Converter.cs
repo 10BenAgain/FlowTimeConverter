@@ -9,6 +9,7 @@ namespace FlowTimeConverter.Logic
         protected int TargetFrame { get; set; }
         protected int TargetFrameHit { get; set; }
         protected int IntroTimer { get; set; }
+        protected double IntroTimerMS { get; set; }
         protected int IntroTimerHit { get; set; }
         protected int Delay { get; set; } = method switch
         {
@@ -25,7 +26,7 @@ namespace FlowTimeConverter.Logic
             Selections.Version.LG => Constants.LG,
             _ => 0,
         };
-
+        protected double SeedLagMS => ReusableFunctions.FrameToMS(FPS, SeedLag);
         protected double FPS { get; set; } = console switch
         {
             Selections.NConsole.GBA => Constants.GBAFPS,
@@ -56,7 +57,6 @@ namespace FlowTimeConverter.Logic
             IntroTimerHit = frame;
             return this;
         }
-
         public virtual int GetDelay()
         {
             if (Method != 4)
