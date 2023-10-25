@@ -25,6 +25,7 @@ namespace FlowTimeConverter
             ConsoleDropDown.SelectedItem = "GBA";
             MethodDropDown.SelectedItem = "Method 1/2/4";
             GameDropDown.SelectedItem = "FireRed 1.0";
+            IntroTimerMSBox.Value = 35000;
             EncounterAdvancesBox.Value = 1400;
 
             TVGameDropDown.SelectedItem = "FireRed 1.0";
@@ -100,8 +101,9 @@ namespace FlowTimeConverter
 
             timer
                 .SetIntroTimer(userInput[0])
-                .SetTargetFrame(userInput[1])
-                .SetSeedLagMS()
+                .SetTargetFrame(userInput[1]);
+
+            timer
                 .SetIntroTimerMS();
 
             DelayBox.Value = timer.GetDelay();
@@ -154,8 +156,7 @@ namespace FlowTimeConverter
             var input = ReusableFunctions.ConvertDecimal(GetTVInitialInput());
             tv
                 .SetIntroTimer(input[0])
-                .SetTargetFrame(input[1])
-                .SetIntroTimerMS();
+                .SetTargetFrame(input[1]);
             tv.SetOutSideTV(Convert.ToInt32(input[2]));
 
             TVDelayBox.Value = tv.GetDelay();
@@ -171,7 +172,7 @@ namespace FlowTimeConverter
                         tv.GetTotalMS(),
                         tv.GetIntroTimer()
                     }
-                ); 
+                );
         }
         private decimal[] GetInitialUserInput()
         {

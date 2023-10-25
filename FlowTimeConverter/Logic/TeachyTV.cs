@@ -1,25 +1,24 @@
-﻿
-using System;
+﻿using System;
 
 namespace FlowTimeConverter.Logic
 {
-    public class TeachyTV : Timer
+    public class TeachyTV(Selections.Version game, Selections.NConsole console, Selections.Method method) : Converter(game, console, method)
     {
         public double InsideTV { get; set; }
         private int OutsideTV { get; set; }
-        public TeachyTV(Selections.Version game, Selections.NConsole console, Selections.Method method) 
-            : base(game, console, method)
-        {
-        }
+        protected double IntroTimerMS { get; set; }
+        private double SeedLagMS => ReusableFunctions.FrameToMS(FPS, SeedLag);
+
         public TeachyTV SetOutSideTV(int frame)
         {
             OutsideTV = frame;
             return this;
         }
-        public double GetIntroToFrames() => ReusableFunctions.MSToFrame(GetFPS(), IntroTimerMS);
+        public int GetIntroTimer() => IntroTimer;
+        public double GetIntroToFrames() => ReusableFunctions.MSToFrame(FPS, IntroTimerMS);
         public double GetInsideTVFrames()
         {
-            var Difference = GetTargetFrame() - OutsideTV;
+            var Difference = TargetFrame - OutsideTV;
             double result = Difference / Constants.TVAccelerator + Constants.TVOffset;
             InsideTV = Math.Floor(result);
             return InsideTV;
@@ -27,7 +26,7 @@ namespace FlowTimeConverter.Logic
 
         public double GetRemainderFrames()
         {
-            var Difference = GetTargetFrame() - OutsideTV;
+            var Difference = TargetFrame - OutsideTV;
             return Difference % Constants.TVAccelerator;
         }
         public double GetOutSideTV()
@@ -36,26 +35,25 @@ namespace FlowTimeConverter.Logic
         }
         public double GetTotalFrames()
         {
-            return InsideTV + GetOutSideTV() + GetDelay();
+            return InsideTV + GetOutSideTV() + Delay;
         }
 
         public double GetTVMS()
         {
-            var output = ReusableFunctions.FrameToMS(GetFPS(), InsideTV);
+            var output = ReusableFunctions.FrameToMS(FPS, InsideTV);
             return Math.Floor(output);
         }
 
         public double GetTotalFrameMS()
         {
-            var frameMS = ReusableFunctions.FrameToMS(GetFPS());
+            var frameMS = ReusableFunctions.FrameToMS(FPS);
             var totalFrames = Math.Floor(GetTotalFrames());
             return frameMS * totalFrames;
         }
 
         public double GetTotalMS()
         {
-            SetSeedLagMS();
-            SetIntroTimerMS();
+            IntroTimerMS = IntroTimer + SeedLagMS;
             var framesMS = Math.Floor(GetTotalFrameMS());
             return framesMS + IntroTimerMS;
         }
