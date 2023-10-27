@@ -65,6 +65,7 @@
             this.GameLabel = new System.Windows.Forms.Label();
             this.TeachyTVTab = new System.Windows.Forms.TabPage();
             this.TVAdjustedGroup = new System.Windows.Forms.GroupBox();
+            this.ReCalculateTV = new System.Windows.Forms.Button();
             this.TVNewFlowMSTotalLabel = new System.Windows.Forms.Label();
             this.TVNewFlowMSTotalBox = new System.Windows.Forms.TextBox();
             this.TVNewFlowtimerLabel = new System.Windows.Forms.Label();
@@ -109,7 +110,13 @@
             this.TVConsoleDropDown = new System.Windows.Forms.ComboBox();
             this.TVGameLabel = new System.Windows.Forms.Label();
             this.TVMethodDropDown = new System.Windows.Forms.ComboBox();
-            this.ReCalculateTV = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frameToMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mSToFrameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TeachyTV.SuspendLayout();
             this.FlowtimeConverter.SuspendLayout();
             this.AdjustGroup.SuspendLayout();
@@ -142,13 +149,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.TVDelayBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TVTargetFrameInitBox)).BeginInit();
             this.TVSettingGroupBox.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TeachyTV
             // 
             this.TeachyTV.Controls.Add(this.FlowtimeConverter);
             this.TeachyTV.Controls.Add(this.TeachyTVTab);
-            this.TeachyTV.Location = new System.Drawing.Point(12, 12);
+            this.TeachyTV.Location = new System.Drawing.Point(11, 27);
             this.TeachyTV.Name = "TeachyTV";
             this.TeachyTV.SelectedIndex = 0;
             this.TeachyTV.Size = new System.Drawing.Size(492, 337);
@@ -487,6 +495,7 @@
             this.MethodDropDown.Name = "MethodDropDown";
             this.MethodDropDown.Size = new System.Drawing.Size(137, 21);
             this.MethodDropDown.TabIndex = 6;
+            this.MethodDropDown.SelectionChangeCommitted += new System.EventHandler(this.MethodDropDown_SelectionChangeCommitted);
             // 
             // MethodLabel
             // 
@@ -520,6 +529,7 @@
             this.GameDropDown.Name = "GameDropDown";
             this.GameDropDown.Size = new System.Drawing.Size(137, 21);
             this.GameDropDown.TabIndex = 2;
+            this.GameDropDown.SelectionChangeCommitted += new System.EventHandler(this.GameDropDown_SelectionChangeCommitted);
             // 
             // GameLabel
             // 
@@ -564,6 +574,16 @@
             this.TVAdjustedGroup.Size = new System.Drawing.Size(139, 299);
             this.TVAdjustedGroup.TabIndex = 27;
             this.TVAdjustedGroup.TabStop = false;
+            // 
+            // ReCalculateTV
+            // 
+            this.ReCalculateTV.Location = new System.Drawing.Point(24, 12);
+            this.ReCalculateTV.Name = "ReCalculateTV";
+            this.ReCalculateTV.Size = new System.Drawing.Size(94, 23);
+            this.ReCalculateTV.TabIndex = 39;
+            this.ReCalculateTV.Text = "Calculate";
+            this.ReCalculateTV.UseVisualStyleBackColor = true;
+            this.ReCalculateTV.Click += new System.EventHandler(this.ReCalculateTV_Click);
             // 
             // TVNewFlowMSTotalLabel
             // 
@@ -1018,23 +1038,68 @@
             this.TVMethodDropDown.Size = new System.Drawing.Size(117, 21);
             this.TVMethodDropDown.TabIndex = 6;
             // 
-            // ReCalculateTV
+            // menuStrip1
             // 
-            this.ReCalculateTV.Location = new System.Drawing.Point(24, 12);
-            this.ReCalculateTV.Name = "ReCalculateTV";
-            this.ReCalculateTV.Size = new System.Drawing.Size(94, 23);
-            this.ReCalculateTV.TabIndex = 39;
-            this.ReCalculateTV.Text = "Calculate";
-            this.ReCalculateTV.UseVisualStyleBackColor = true;
-            this.ReCalculateTV.Click += new System.EventHandler(this.ReCalculateTV_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(514, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.openToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.frameToMSToolStripMenuItem,
+            this.mSToFrameToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // frameToMSToolStripMenuItem
+            // 
+            this.frameToMSToolStripMenuItem.Name = "frameToMSToolStripMenuItem";
+            this.frameToMSToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.frameToMSToolStripMenuItem.Text = "Frame to MS";
+            // 
+            // mSToFrameToolStripMenuItem
+            // 
+            this.mSToFrameToolStripMenuItem.Name = "mSToFrameToolStripMenuItem";
+            this.mSToFrameToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.mSToFrameToolStripMenuItem.Text = "MS to Frame";
             // 
             // FlowtimerConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 361);
+            this.ClientSize = new System.Drawing.Size(514, 372);
             this.Controls.Add(this.TeachyTV);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "FlowtimerConverter";
             this.Text = "Frames to MS";
@@ -1079,7 +1144,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.TVTargetFrameInitBox)).EndInit();
             this.TVSettingGroupBox.ResumeLayout(false);
             this.TVSettingGroupBox.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1166,6 +1234,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button TVCalcButton;
         private System.Windows.Forms.Button ReCalculateTV;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frameToMSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mSToFrameToolStripMenuItem;
     }
 }
 

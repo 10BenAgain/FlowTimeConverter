@@ -19,6 +19,7 @@ namespace FlowTimeConverter.Logic
             _ => 0,
         };
 
+
         protected int SeedLag { get; set; } = game switch
         {
             Selections.Version.FR10 => Constants.FR10,
@@ -36,6 +37,7 @@ namespace FlowTimeConverter.Logic
             Selections.NConsole.FPS60 => Constants.FPS60,
             _ => 0,
         };
+        public void SetDelay(int delay) => Delay = delay;
 
         public Converter SetTargetFrame(int frame)
         {

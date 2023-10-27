@@ -6,6 +6,7 @@ namespace FlowTimeConverter
     public class Timer(Selections.Version game, Selections.NConsole console, Selections.Method method) : Converter(game, console, method)
     {
         private double FlatMS { get; set; }
+
         public void SetIntroTimerMS() => IntroTimerMS = IntroTimer + SeedLagMS;
         public void AdjustIntroMS() 
         {

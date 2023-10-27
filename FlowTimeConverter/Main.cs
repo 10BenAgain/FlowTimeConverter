@@ -1,5 +1,6 @@
 ﻿using FlowTimeConverter.Logic;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 
@@ -27,6 +28,7 @@ namespace FlowTimeConverter
             GameDropDown.SelectedItem = "FireRed 1.0";
             IntroTimerMSBox.Value = 35000;
             EncounterAdvancesBox.Value = 1400;
+            DelayBox.Value = -20;
 
             TVGameDropDown.SelectedItem = "FireRed 1.0";
             TVConsoleDropDown.SelectedItem = "GBA";
@@ -106,7 +108,7 @@ namespace FlowTimeConverter
             timer.SetIntroTimerMS();
                 
 
-            DelayBox.Value = timer.GetDelay();
+            timer.SetDelay(Convert.ToInt32(DelayBox.Value));
             FlatMSBox.Value = Convert.ToInt32(timer.CalculateFlatMS());
             FlowtimerMSTotalTextBox.Text = ReusableFunctions
                 .CreateFlowTimerString(timer.FlowtimerMSTotal());
@@ -208,6 +210,18 @@ namespace FlowTimeConverter
         {
             IntroTimerMSBox.Value = SetIntroValue(ConsoleDropDown.SelectedIndex);
         }
+        private void GameDropDown_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var method = MethodDropDown.SelectedIndex;
+            var game = GameDropDown.SelectedIndex;
+            DelayBox.Value = SetDelayValue(method, game);
+        }
+        private void MethodDropDown_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var method = MethodDropDown.SelectedIndex;
+            var game = GameDropDown.SelectedIndex;
+            DelayBox.Value = SetDelayValue(method, game);
+        }
 
         private int SetIntroValue(int index)
         {
@@ -226,6 +240,26 @@ namespace FlowTimeConverter
                     break;
             }
             return 0;
+        }
+
+        private int SetDelayValue(int MethodIndex, int GameIndex)
+        {
+            if (MethodIndex == 3)
+            {
+                return GameIndex switch
+                {
+                    0 or 1 or 2 => -249,
+                    4 => -50,
+                    _ => -75,
+                };
+            }
+
+            else if (MethodIndex == 0)
+                return -20;
+            else if (MethodIndex == 1)
+                return -261;
+            else
+                return -268;
         }
         private void ReCalculateTV_Click(object sender, EventArgs e)
         {
