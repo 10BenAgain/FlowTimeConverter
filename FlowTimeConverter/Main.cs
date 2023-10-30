@@ -201,10 +201,6 @@ namespace FlowTimeConverter
                 TVFramesOutBox.Value
             };
         }
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://blisy.net/flowtimerconverter.html");
-        }
         
         private void ConsoleDropDown_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -215,6 +211,10 @@ namespace FlowTimeConverter
             var method = MethodDropDown.SelectedIndex;
             var game = GameDropDown.SelectedIndex;
             DelayBox.Value = SetDelayValue(method, game);
+        }
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://blisy.net/flowtimerconverter.html");
         }
 
         private int SetIntroValue(int index)
