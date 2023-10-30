@@ -92,7 +92,7 @@
             this.TVMSinTVBox = new System.Windows.Forms.NumericUpDown();
             this.TVFramesTotalBox = new System.Windows.Forms.NumericUpDown();
             this.TVFramesInBox = new System.Windows.Forms.NumericUpDown();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.InitialSettingsGroupBox = new System.Windows.Forms.GroupBox();
             this.TVCalcButton = new System.Windows.Forms.Button();
             this.TVIntroTimerMSInitBox = new System.Windows.Forms.NumericUpDown();
             this.TVFramesOutBox = new System.Windows.Forms.NumericUpDown();
@@ -110,6 +110,8 @@
             this.TVConsoleDropDown = new System.Windows.Forms.ComboBox();
             this.TVGameLabel = new System.Windows.Forms.Label();
             this.TVMethodDropDown = new System.Windows.Forms.ComboBox();
+            this.InitialCalculateGroupBox = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TeachyTV.SuspendLayout();
             this.FlowtimeConverter.SuspendLayout();
             this.AdjustGroup.SuspendLayout();
@@ -136,12 +138,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.TVMSinTVBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TVFramesTotalBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TVFramesInBox)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.InitialSettingsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TVIntroTimerMSInitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TVFramesOutBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TVDelayBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TVTargetFrameInitBox)).BeginInit();
             this.TVSettingGroupBox.SuspendLayout();
+            this.InitialCalculateGroupBox.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TeachyTV
@@ -151,60 +155,53 @@
             this.TeachyTV.Location = new System.Drawing.Point(12, 12);
             this.TeachyTV.Name = "TeachyTV";
             this.TeachyTV.SelectedIndex = 0;
-            this.TeachyTV.Size = new System.Drawing.Size(492, 337);
+            this.TeachyTV.Size = new System.Drawing.Size(492, 375);
             this.TeachyTV.TabIndex = 0;
             // 
             // FlowtimeConverter
             // 
             this.FlowtimeConverter.Controls.Add(this.AdjustGroup);
-            this.FlowtimeConverter.Controls.Add(this.pictureBox1);
             this.FlowtimeConverter.Controls.Add(this.ConverterContainer);
             this.FlowtimeConverter.Controls.Add(this.Selections);
             this.FlowtimeConverter.Location = new System.Drawing.Point(4, 22);
             this.FlowtimeConverter.Name = "FlowtimeConverter";
             this.FlowtimeConverter.Padding = new System.Windows.Forms.Padding(3);
-            this.FlowtimeConverter.Size = new System.Drawing.Size(484, 311);
+            this.FlowtimeConverter.Size = new System.Drawing.Size(484, 349);
             this.FlowtimeConverter.TabIndex = 0;
             this.FlowtimeConverter.Text = "Flowtime Converter";
             this.FlowtimeConverter.UseVisualStyleBackColor = true;
             // 
             // AdjustGroup
             // 
-            this.AdjustGroup.Controls.Add(this.NewTimerBox);
-            this.AdjustGroup.Controls.Add(this.AdvancesAdjustBox);
-            this.AdjustGroup.Controls.Add(this.IntroMSAdjustBox);
-            this.AdjustGroup.Controls.Add(this.NewTimerLabel);
-            this.AdjustGroup.Controls.Add(this.AdvancesAdjustLabel);
-            this.AdjustGroup.Controls.Add(this.IntroMSAdjustLabel);
-            this.AdjustGroup.Controls.Add(this.ReCalculate);
+            this.AdjustGroup.Controls.Add(this.groupBox2);
             this.AdjustGroup.Controls.Add(this.EncounterHitBox);
             this.AdjustGroup.Controls.Add(this.IntroHitBox);
             this.AdjustGroup.Controls.Add(this.EncounterHitBoxLabel);
             this.AdjustGroup.Controls.Add(this.IntroHitTimerLabel);
             this.AdjustGroup.Location = new System.Drawing.Point(329, 7);
             this.AdjustGroup.Name = "AdjustGroup";
-            this.AdjustGroup.Size = new System.Drawing.Size(141, 293);
+            this.AdjustGroup.Size = new System.Drawing.Size(141, 336);
             this.AdjustGroup.TabIndex = 3;
             this.AdjustGroup.TabStop = false;
             this.AdjustGroup.Text = "Adjust";
             // 
             // NewTimerBox
             // 
-            this.NewTimerBox.Location = new System.Drawing.Point(9, 241);
+            this.NewTimerBox.Location = new System.Drawing.Point(6, 141);
             this.NewTimerBox.Name = "NewTimerBox";
             this.NewTimerBox.Size = new System.Drawing.Size(120, 20);
             this.NewTimerBox.TabIndex = 27;
             // 
             // AdvancesAdjustBox
             // 
-            this.AdvancesAdjustBox.Location = new System.Drawing.Point(9, 200);
+            this.AdvancesAdjustBox.Location = new System.Drawing.Point(6, 100);
             this.AdvancesAdjustBox.Name = "AdvancesAdjustBox";
             this.AdvancesAdjustBox.Size = new System.Drawing.Size(120, 20);
             this.AdvancesAdjustBox.TabIndex = 26;
             // 
             // IntroMSAdjustBox
             // 
-            this.IntroMSAdjustBox.Location = new System.Drawing.Point(9, 161);
+            this.IntroMSAdjustBox.Location = new System.Drawing.Point(6, 61);
             this.IntroMSAdjustBox.Name = "IntroMSAdjustBox";
             this.IntroMSAdjustBox.Size = new System.Drawing.Size(120, 20);
             this.IntroMSAdjustBox.TabIndex = 25;
@@ -212,7 +209,7 @@
             // NewTimerLabel
             // 
             this.NewTimerLabel.AutoSize = true;
-            this.NewTimerLabel.Location = new System.Drawing.Point(6, 225);
+            this.NewTimerLabel.Location = new System.Drawing.Point(3, 125);
             this.NewTimerLabel.Name = "NewTimerLabel";
             this.NewTimerLabel.Size = new System.Drawing.Size(103, 13);
             this.NewTimerLabel.TabIndex = 24;
@@ -221,7 +218,7 @@
             // AdvancesAdjustLabel
             // 
             this.AdvancesAdjustLabel.AutoSize = true;
-            this.AdvancesAdjustLabel.Location = new System.Drawing.Point(6, 184);
+            this.AdvancesAdjustLabel.Location = new System.Drawing.Point(3, 84);
             this.AdvancesAdjustLabel.Name = "AdvancesAdjustLabel";
             this.AdvancesAdjustLabel.Size = new System.Drawing.Size(114, 13);
             this.AdvancesAdjustLabel.TabIndex = 21;
@@ -230,7 +227,7 @@
             // IntroMSAdjustLabel
             // 
             this.IntroMSAdjustLabel.AutoSize = true;
-            this.IntroMSAdjustLabel.Location = new System.Drawing.Point(6, 145);
+            this.IntroMSAdjustLabel.Location = new System.Drawing.Point(3, 45);
             this.IntroMSAdjustLabel.Name = "IntroMSAdjustLabel";
             this.IntroMSAdjustLabel.Size = new System.Drawing.Size(106, 13);
             this.IntroMSAdjustLabel.TabIndex = 20;
@@ -238,7 +235,7 @@
             // 
             // ReCalculate
             // 
-            this.ReCalculate.Location = new System.Drawing.Point(9, 110);
+            this.ReCalculate.Location = new System.Drawing.Point(6, 19);
             this.ReCalculate.Name = "ReCalculate";
             this.ReCalculate.Size = new System.Drawing.Size(120, 23);
             this.ReCalculate.TabIndex = 19;
@@ -248,7 +245,7 @@
             // 
             // EncounterHitBox
             // 
-            this.EncounterHitBox.Location = new System.Drawing.Point(9, 79);
+            this.EncounterHitBox.Location = new System.Drawing.Point(12, 95);
             this.EncounterHitBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -265,7 +262,7 @@
             // 
             // IntroHitBox
             // 
-            this.IntroHitBox.Location = new System.Drawing.Point(9, 40);
+            this.IntroHitBox.Location = new System.Drawing.Point(12, 56);
             this.IntroHitBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -278,7 +275,7 @@
             // EncounterHitBoxLabel
             // 
             this.EncounterHitBoxLabel.AutoSize = true;
-            this.EncounterHitBoxLabel.Location = new System.Drawing.Point(6, 63);
+            this.EncounterHitBoxLabel.Location = new System.Drawing.Point(9, 79);
             this.EncounterHitBoxLabel.Name = "EncounterHitBoxLabel";
             this.EncounterHitBoxLabel.Size = new System.Drawing.Size(118, 13);
             this.EncounterHitBoxLabel.TabIndex = 16;
@@ -287,7 +284,7 @@
             // IntroHitTimerLabel
             // 
             this.IntroHitTimerLabel.AutoSize = true;
-            this.IntroHitTimerLabel.Location = new System.Drawing.Point(6, 24);
+            this.IntroHitTimerLabel.Location = new System.Drawing.Point(9, 40);
             this.IntroHitTimerLabel.Name = "IntroHitTimerLabel";
             this.IntroHitTimerLabel.Size = new System.Drawing.Size(73, 13);
             this.IntroHitTimerLabel.TabIndex = 15;
@@ -296,7 +293,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 177);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 188);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(144, 123);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -306,34 +303,30 @@
             // 
             // ConverterContainer
             // 
-            this.ConverterContainer.Controls.Add(this.FlatMSBox);
+            this.ConverterContainer.Controls.Add(this.InitialCalculateGroupBox);
             this.ConverterContainer.Controls.Add(this.EncounterAdvancesBox);
             this.ConverterContainer.Controls.Add(this.DelayBox);
             this.ConverterContainer.Controls.Add(this.IntroTimerMSBox);
-            this.ConverterContainer.Controls.Add(this.FlowTimeMSTotalLabel);
-            this.ConverterContainer.Controls.Add(this.CalculateInitialButton);
             this.ConverterContainer.Controls.Add(this.AdvancesLabel);
-            this.ConverterContainer.Controls.Add(this.FlowtimerMSTotalTextBox);
             this.ConverterContainer.Controls.Add(this.DelayBoxLabel);
-            this.ConverterContainer.Controls.Add(this.FlatMSTextLabel);
             this.ConverterContainer.Controls.Add(this.IntroTimerMSLabel);
             this.ConverterContainer.Location = new System.Drawing.Point(162, 6);
             this.ConverterContainer.Name = "ConverterContainer";
-            this.ConverterContainer.Size = new System.Drawing.Size(160, 294);
+            this.ConverterContainer.Size = new System.Drawing.Size(160, 337);
             this.ConverterContainer.TabIndex = 1;
             this.ConverterContainer.TabStop = false;
             this.ConverterContainer.Text = "Converter";
             // 
             // FlatMSBox
             // 
-            this.FlatMSBox.Location = new System.Drawing.Point(23, 214);
+            this.FlatMSBox.Location = new System.Drawing.Point(6, 72);
             this.FlatMSBox.Maximum = new decimal(new int[] {
             99999999,
             0,
             0,
             0});
             this.FlatMSBox.Name = "FlatMSBox";
-            this.FlatMSBox.Size = new System.Drawing.Size(120, 20);
+            this.FlatMSBox.Size = new System.Drawing.Size(119, 20);
             this.FlatMSBox.TabIndex = 16;
             // 
             // EncounterAdvancesBox
@@ -385,7 +378,7 @@
             // FlowTimeMSTotalLabel
             // 
             this.FlowTimeMSTotalLabel.AutoSize = true;
-            this.FlowTimeMSTotalLabel.Location = new System.Drawing.Point(20, 238);
+            this.FlowTimeMSTotalLabel.Location = new System.Drawing.Point(6, 103);
             this.FlowTimeMSTotalLabel.Name = "FlowTimeMSTotalLabel";
             this.FlowTimeMSTotalLabel.Size = new System.Drawing.Size(97, 13);
             this.FlowTimeMSTotalLabel.TabIndex = 11;
@@ -393,7 +386,7 @@
             // 
             // CalculateInitialButton
             // 
-            this.CalculateInitialButton.Location = new System.Drawing.Point(23, 159);
+            this.CalculateInitialButton.Location = new System.Drawing.Point(6, 23);
             this.CalculateInitialButton.Name = "CalculateInitialButton";
             this.CalculateInitialButton.Size = new System.Drawing.Size(120, 23);
             this.CalculateInitialButton.TabIndex = 8;
@@ -413,9 +406,9 @@
             // 
             // FlowtimerMSTotalTextBox
             // 
-            this.FlowtimerMSTotalTextBox.Location = new System.Drawing.Point(23, 254);
+            this.FlowtimerMSTotalTextBox.Location = new System.Drawing.Point(6, 119);
             this.FlowtimerMSTotalTextBox.Name = "FlowtimerMSTotalTextBox";
-            this.FlowtimerMSTotalTextBox.Size = new System.Drawing.Size(122, 20);
+            this.FlowtimerMSTotalTextBox.Size = new System.Drawing.Size(119, 20);
             this.FlowtimerMSTotalTextBox.TabIndex = 10;
             // 
             // DelayBoxLabel
@@ -430,7 +423,7 @@
             // FlatMSTextLabel
             // 
             this.FlatMSTextLabel.AutoSize = true;
-            this.FlatMSTextLabel.Location = new System.Drawing.Point(20, 198);
+            this.FlatMSTextLabel.Location = new System.Drawing.Point(6, 56);
             this.FlatMSTextLabel.Name = "FlatMSTextLabel";
             this.FlatMSTextLabel.Size = new System.Drawing.Size(43, 13);
             this.FlatMSTextLabel.TabIndex = 9;
@@ -448,6 +441,7 @@
             // Selections
             // 
             this.Selections.Controls.Add(this.ConsoleDropDown);
+            this.Selections.Controls.Add(this.pictureBox1);
             this.Selections.Controls.Add(this.MethodDropDown);
             this.Selections.Controls.Add(this.MethodLabel);
             this.Selections.Controls.Add(this.ConsoleLabel);
@@ -455,7 +449,7 @@
             this.Selections.Controls.Add(this.GameLabel);
             this.Selections.Location = new System.Drawing.Point(6, 6);
             this.Selections.Name = "Selections";
-            this.Selections.Size = new System.Drawing.Size(150, 164);
+            this.Selections.Size = new System.Drawing.Size(150, 337);
             this.Selections.TabIndex = 0;
             this.Selections.TabStop = false;
             this.Selections.Text = "Settings";
@@ -469,7 +463,7 @@
             "New 3DS/2DS",
             "Old 3DS/2DS",
             "60FPS"});
-            this.ConsoleDropDown.Location = new System.Drawing.Point(6, 80);
+            this.ConsoleDropDown.Location = new System.Drawing.Point(6, 85);
             this.ConsoleDropDown.Name = "ConsoleDropDown";
             this.ConsoleDropDown.Size = new System.Drawing.Size(137, 21);
             this.ConsoleDropDown.TabIndex = 4;
@@ -483,7 +477,7 @@
             "Sweet Scent(Outdoors)",
             "Sweet Scent(Indoors)",
             "IDRNG"});
-            this.MethodDropDown.Location = new System.Drawing.Point(6, 127);
+            this.MethodDropDown.Location = new System.Drawing.Point(6, 137);
             this.MethodDropDown.Name = "MethodDropDown";
             this.MethodDropDown.Size = new System.Drawing.Size(137, 21);
             this.MethodDropDown.TabIndex = 6;
@@ -492,7 +486,7 @@
             // MethodLabel
             // 
             this.MethodLabel.AutoSize = true;
-            this.MethodLabel.Location = new System.Drawing.Point(3, 111);
+            this.MethodLabel.Location = new System.Drawing.Point(3, 121);
             this.MethodLabel.Name = "MethodLabel";
             this.MethodLabel.Size = new System.Drawing.Size(43, 13);
             this.MethodLabel.TabIndex = 5;
@@ -501,7 +495,7 @@
             // ConsoleLabel
             // 
             this.ConsoleLabel.AutoSize = true;
-            this.ConsoleLabel.Location = new System.Drawing.Point(3, 64);
+            this.ConsoleLabel.Location = new System.Drawing.Point(3, 69);
             this.ConsoleLabel.Name = "ConsoleLabel";
             this.ConsoleLabel.Size = new System.Drawing.Size(45, 13);
             this.ConsoleLabel.TabIndex = 3;
@@ -536,12 +530,12 @@
             // 
             this.TeachyTVTab.Controls.Add(this.TVAdjustedGroup);
             this.TeachyTVTab.Controls.Add(this.TVInitialGroupBox);
-            this.TeachyTVTab.Controls.Add(this.groupBox1);
+            this.TeachyTVTab.Controls.Add(this.InitialSettingsGroupBox);
             this.TeachyTVTab.Controls.Add(this.TVSettingGroupBox);
             this.TeachyTVTab.Location = new System.Drawing.Point(4, 22);
             this.TeachyTVTab.Name = "TeachyTVTab";
             this.TeachyTVTab.Padding = new System.Windows.Forms.Padding(3);
-            this.TeachyTVTab.Size = new System.Drawing.Size(484, 311);
+            this.TeachyTVTab.Size = new System.Drawing.Size(484, 349);
             this.TeachyTVTab.TabIndex = 1;
             this.TeachyTVTab.Text = "TeachyTV";
             this.TeachyTVTab.UseVisualStyleBackColor = true;
@@ -563,13 +557,13 @@
             this.TVAdjustedGroup.Controls.Add(this.TVAdjustFramesBox);
             this.TVAdjustedGroup.Location = new System.Drawing.Point(339, 6);
             this.TVAdjustedGroup.Name = "TVAdjustedGroup";
-            this.TVAdjustedGroup.Size = new System.Drawing.Size(139, 299);
+            this.TVAdjustedGroup.Size = new System.Drawing.Size(139, 337);
             this.TVAdjustedGroup.TabIndex = 27;
             this.TVAdjustedGroup.TabStop = false;
             // 
             // ReCalculateTV
             // 
-            this.ReCalculateTV.Location = new System.Drawing.Point(24, 12);
+            this.ReCalculateTV.Location = new System.Drawing.Point(23, 17);
             this.ReCalculateTV.Name = "ReCalculateTV";
             this.ReCalculateTV.Size = new System.Drawing.Size(94, 23);
             this.ReCalculateTV.TabIndex = 39;
@@ -580,7 +574,7 @@
             // TVNewFlowMSTotalLabel
             // 
             this.TVNewFlowMSTotalLabel.AutoSize = true;
-            this.TVNewFlowMSTotalLabel.Location = new System.Drawing.Point(21, 249);
+            this.TVNewFlowMSTotalLabel.Location = new System.Drawing.Point(20, 286);
             this.TVNewFlowMSTotalLabel.Name = "TVNewFlowMSTotalLabel";
             this.TVNewFlowMSTotalLabel.Size = new System.Drawing.Size(97, 13);
             this.TVNewFlowMSTotalLabel.TabIndex = 38;
@@ -588,7 +582,7 @@
             // 
             // TVNewFlowMSTotalBox
             // 
-            this.TVNewFlowMSTotalBox.Location = new System.Drawing.Point(24, 265);
+            this.TVNewFlowMSTotalBox.Location = new System.Drawing.Point(23, 302);
             this.TVNewFlowMSTotalBox.Name = "TVNewFlowMSTotalBox";
             this.TVNewFlowMSTotalBox.Size = new System.Drawing.Size(94, 20);
             this.TVNewFlowMSTotalBox.TabIndex = 37;
@@ -596,7 +590,7 @@
             // TVNewFlowtimerLabel
             // 
             this.TVNewFlowtimerLabel.AutoSize = true;
-            this.TVNewFlowtimerLabel.Location = new System.Drawing.Point(21, 209);
+            this.TVNewFlowtimerLabel.Location = new System.Drawing.Point(20, 226);
             this.TVNewFlowtimerLabel.Name = "TVNewFlowtimerLabel";
             this.TVNewFlowtimerLabel.Size = new System.Drawing.Size(93, 13);
             this.TVNewFlowtimerLabel.TabIndex = 36;
@@ -604,7 +598,7 @@
             // 
             // TVNewFlowtimerBox
             // 
-            this.TVNewFlowtimerBox.Location = new System.Drawing.Point(24, 225);
+            this.TVNewFlowtimerBox.Location = new System.Drawing.Point(23, 242);
             this.TVNewFlowtimerBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -622,7 +616,7 @@
             // TVAdjustTotalMSLabel
             // 
             this.TVAdjustTotalMSLabel.AutoSize = true;
-            this.TVAdjustTotalMSLabel.Location = new System.Drawing.Point(21, 166);
+            this.TVAdjustTotalMSLabel.Location = new System.Drawing.Point(20, 183);
             this.TVAdjustTotalMSLabel.Name = "TVAdjustTotalMSLabel";
             this.TVAdjustTotalMSLabel.Size = new System.Drawing.Size(85, 13);
             this.TVAdjustTotalMSLabel.TabIndex = 34;
@@ -630,7 +624,7 @@
             // 
             // TVAdjustTotalMSBox
             // 
-            this.TVAdjustTotalMSBox.Location = new System.Drawing.Point(24, 182);
+            this.TVAdjustTotalMSBox.Location = new System.Drawing.Point(23, 199);
             this.TVAdjustTotalMSBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -648,7 +642,7 @@
             // TVAdjustMSLabel
             // 
             this.TVAdjustMSLabel.AutoSize = true;
-            this.TVAdjustMSLabel.Location = new System.Drawing.Point(21, 122);
+            this.TVAdjustMSLabel.Location = new System.Drawing.Point(20, 139);
             this.TVAdjustMSLabel.Name = "TVAdjustMSLabel";
             this.TVAdjustMSLabel.Size = new System.Drawing.Size(75, 13);
             this.TVAdjustMSLabel.TabIndex = 32;
@@ -656,7 +650,7 @@
             // 
             // TVAdjustMSBox
             // 
-            this.TVAdjustMSBox.Location = new System.Drawing.Point(24, 138);
+            this.TVAdjustMSBox.Location = new System.Drawing.Point(23, 155);
             this.TVAdjustMSBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -674,7 +668,7 @@
             // TVAdjustTotalFramesLabel
             // 
             this.TVAdjustTotalFramesLabel.AutoSize = true;
-            this.TVAdjustTotalFramesLabel.Location = new System.Drawing.Point(21, 80);
+            this.TVAdjustTotalFramesLabel.Location = new System.Drawing.Point(20, 97);
             this.TVAdjustTotalFramesLabel.Name = "TVAdjustTotalFramesLabel";
             this.TVAdjustTotalFramesLabel.Size = new System.Drawing.Size(100, 13);
             this.TVAdjustTotalFramesLabel.TabIndex = 30;
@@ -682,7 +676,7 @@
             // 
             // TVAdjustTotalFramesBox
             // 
-            this.TVAdjustTotalFramesBox.Location = new System.Drawing.Point(24, 96);
+            this.TVAdjustTotalFramesBox.Location = new System.Drawing.Point(23, 113);
             this.TVAdjustTotalFramesBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -700,7 +694,7 @@
             // TVAdjustFramesLabel
             // 
             this.TVAdjustFramesLabel.AutoSize = true;
-            this.TVAdjustFramesLabel.Location = new System.Drawing.Point(21, 39);
+            this.TVAdjustFramesLabel.Location = new System.Drawing.Point(20, 56);
             this.TVAdjustFramesLabel.Name = "TVAdjustFramesLabel";
             this.TVAdjustFramesLabel.Size = new System.Drawing.Size(90, 13);
             this.TVAdjustFramesLabel.TabIndex = 28;
@@ -708,7 +702,7 @@
             // 
             // TVAdjustFramesBox
             // 
-            this.TVAdjustFramesBox.Location = new System.Drawing.Point(24, 55);
+            this.TVAdjustFramesBox.Location = new System.Drawing.Point(23, 72);
             this.TVAdjustFramesBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -725,6 +719,7 @@
             // 
             // TVInitialGroupBox
             // 
+            this.TVInitialGroupBox.Controls.Add(this.TVCalcButton);
             this.TVInitialGroupBox.Controls.Add(this.groupBox4);
             this.TVInitialGroupBox.Controls.Add(this.TVFlowtimerMSTotalLabel);
             this.TVInitialGroupBox.Controls.Add(this.TVMSTotalLabel);
@@ -738,7 +733,7 @@
             this.TVInitialGroupBox.Controls.Add(this.TVFramesInBox);
             this.TVInitialGroupBox.Location = new System.Drawing.Point(194, 6);
             this.TVInitialGroupBox.Name = "TVInitialGroupBox";
-            this.TVInitialGroupBox.Size = new System.Drawing.Size(139, 299);
+            this.TVInitialGroupBox.Size = new System.Drawing.Size(139, 337);
             this.TVInitialGroupBox.TabIndex = 26;
             this.TVInitialGroupBox.TabStop = false;
             // 
@@ -746,7 +741,7 @@
             // 
             this.groupBox4.Controls.Add(this.TVFrameHitBox);
             this.groupBox4.Controls.Add(this.TVFrameHitLabel);
-            this.groupBox4.Location = new System.Drawing.Point(6, 239);
+            this.groupBox4.Location = new System.Drawing.Point(6, 273);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(127, 54);
             this.groupBox4.TabIndex = 29;
@@ -776,7 +771,7 @@
             // TVFlowtimerMSTotalLabel
             // 
             this.TVFlowtimerMSTotalLabel.AutoSize = true;
-            this.TVFlowtimerMSTotalLabel.Location = new System.Drawing.Point(19, 197);
+            this.TVFlowtimerMSTotalLabel.Location = new System.Drawing.Point(19, 231);
             this.TVFlowtimerMSTotalLabel.Name = "TVFlowtimerMSTotalLabel";
             this.TVFlowtimerMSTotalLabel.Size = new System.Drawing.Size(97, 13);
             this.TVFlowtimerMSTotalLabel.TabIndex = 28;
@@ -785,7 +780,7 @@
             // TVMSTotalLabel
             // 
             this.TVMSTotalLabel.AutoSize = true;
-            this.TVMSTotalLabel.Location = new System.Drawing.Point(19, 149);
+            this.TVMSTotalLabel.Location = new System.Drawing.Point(19, 183);
             this.TVMSTotalLabel.Name = "TVMSTotalLabel";
             this.TVMSTotalLabel.Size = new System.Drawing.Size(61, 13);
             this.TVMSTotalLabel.TabIndex = 27;
@@ -794,7 +789,7 @@
             // TVMSinTVLabel
             // 
             this.TVMSinTVLabel.AutoSize = true;
-            this.TVMSinTVLabel.Location = new System.Drawing.Point(19, 103);
+            this.TVMSinTVLabel.Location = new System.Drawing.Point(19, 137);
             this.TVMSinTVLabel.Name = "TVMSinTVLabel";
             this.TVMSinTVLabel.Size = new System.Drawing.Size(51, 13);
             this.TVMSinTVLabel.TabIndex = 26;
@@ -803,7 +798,7 @@
             // TVTotalFramesLabel
             // 
             this.TVTotalFramesLabel.AutoSize = true;
-            this.TVTotalFramesLabel.Location = new System.Drawing.Point(19, 59);
+            this.TVTotalFramesLabel.Location = new System.Drawing.Point(19, 93);
             this.TVTotalFramesLabel.Name = "TVTotalFramesLabel";
             this.TVTotalFramesLabel.Size = new System.Drawing.Size(79, 13);
             this.TVTotalFramesLabel.TabIndex = 25;
@@ -812,7 +807,7 @@
             // TVFramesInTVLabel
             // 
             this.TVFramesInTVLabel.AutoSize = true;
-            this.TVFramesInTVLabel.Location = new System.Drawing.Point(19, 12);
+            this.TVFramesInTVLabel.Location = new System.Drawing.Point(19, 46);
             this.TVFramesInTVLabel.Name = "TVFramesInTVLabel";
             this.TVFramesInTVLabel.Size = new System.Drawing.Size(69, 13);
             this.TVFramesInTVLabel.TabIndex = 24;
@@ -820,14 +815,14 @@
             // 
             // TVFlowTimerMSTotalBox
             // 
-            this.TVFlowTimerMSTotalBox.Location = new System.Drawing.Point(22, 213);
+            this.TVFlowTimerMSTotalBox.Location = new System.Drawing.Point(22, 247);
             this.TVFlowTimerMSTotalBox.Name = "TVFlowTimerMSTotalBox";
             this.TVFlowTimerMSTotalBox.Size = new System.Drawing.Size(94, 20);
             this.TVFlowTimerMSTotalBox.TabIndex = 5;
             // 
             // TVMSTotalBox
             // 
-            this.TVMSTotalBox.Location = new System.Drawing.Point(22, 165);
+            this.TVMSTotalBox.Location = new System.Drawing.Point(22, 199);
             this.TVMSTotalBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -839,7 +834,7 @@
             // 
             // TVMSinTVBox
             // 
-            this.TVMSinTVBox.Location = new System.Drawing.Point(22, 119);
+            this.TVMSinTVBox.Location = new System.Drawing.Point(22, 153);
             this.TVMSinTVBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -851,7 +846,7 @@
             // 
             // TVFramesTotalBox
             // 
-            this.TVFramesTotalBox.Location = new System.Drawing.Point(22, 75);
+            this.TVFramesTotalBox.Location = new System.Drawing.Point(22, 109);
             this.TVFramesTotalBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -863,7 +858,7 @@
             // 
             // TVFramesInBox
             // 
-            this.TVFramesInBox.Location = new System.Drawing.Point(22, 28);
+            this.TVFramesInBox.Location = new System.Drawing.Point(22, 62);
             this.TVFramesInBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -873,36 +868,36 @@
             this.TVFramesInBox.Size = new System.Drawing.Size(94, 20);
             this.TVFramesInBox.TabIndex = 1;
             // 
-            // groupBox1
+            // InitialSettingsGroupBox
             // 
-            this.groupBox1.Controls.Add(this.TVCalcButton);
-            this.groupBox1.Controls.Add(this.TVIntroTimerMSInitBox);
-            this.groupBox1.Controls.Add(this.TVFramesOutBox);
-            this.groupBox1.Controls.Add(this.TVTargetFrameLabel);
-            this.groupBox1.Controls.Add(this.TVFrameOutsideLabel);
-            this.groupBox1.Controls.Add(this.TVDelayBoxLabel);
-            this.groupBox1.Controls.Add(this.TVDelayBox);
-            this.groupBox1.Controls.Add(this.TVIntroTimerMSLabel);
-            this.groupBox1.Controls.Add(this.TVTargetFrameInitBox);
-            this.groupBox1.Location = new System.Drawing.Point(6, 117);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(182, 188);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
+            this.InitialSettingsGroupBox.Controls.Add(this.TVIntroTimerMSInitBox);
+            this.InitialSettingsGroupBox.Controls.Add(this.TVFramesOutBox);
+            this.InitialSettingsGroupBox.Controls.Add(this.TVTargetFrameLabel);
+            this.InitialSettingsGroupBox.Controls.Add(this.TVFrameOutsideLabel);
+            this.InitialSettingsGroupBox.Controls.Add(this.TVDelayBoxLabel);
+            this.InitialSettingsGroupBox.Controls.Add(this.TVDelayBox);
+            this.InitialSettingsGroupBox.Controls.Add(this.TVIntroTimerMSLabel);
+            this.InitialSettingsGroupBox.Controls.Add(this.TVTargetFrameInitBox);
+            this.InitialSettingsGroupBox.Location = new System.Drawing.Point(6, 117);
+            this.InitialSettingsGroupBox.Name = "InitialSettingsGroupBox";
+            this.InitialSettingsGroupBox.Size = new System.Drawing.Size(182, 226);
+            this.InitialSettingsGroupBox.TabIndex = 25;
+            this.InitialSettingsGroupBox.TabStop = false;
+            this.InitialSettingsGroupBox.Text = "Starting Values";
             // 
             // TVCalcButton
             // 
-            this.TVCalcButton.Location = new System.Drawing.Point(132, 150);
+            this.TVCalcButton.Location = new System.Drawing.Point(22, 18);
             this.TVCalcButton.Name = "TVCalcButton";
-            this.TVCalcButton.Size = new System.Drawing.Size(27, 20);
+            this.TVCalcButton.Size = new System.Drawing.Size(94, 20);
             this.TVCalcButton.TabIndex = 25;
-            this.TVCalcButton.Text = "B";
+            this.TVCalcButton.Text = "Calculate";
             this.TVCalcButton.UseVisualStyleBackColor = true;
             this.TVCalcButton.Click += new System.EventHandler(this.TVCalcButton_Click);
             // 
             // TVIntroTimerMSInitBox
             // 
-            this.TVIntroTimerMSInitBox.Location = new System.Drawing.Point(9, 28);
+            this.TVIntroTimerMSInitBox.Location = new System.Drawing.Point(9, 42);
             this.TVIntroTimerMSInitBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -919,20 +914,20 @@
             0,
             0,
             0});
-            this.TVFramesOutBox.Location = new System.Drawing.Point(9, 150);
+            this.TVFramesOutBox.Location = new System.Drawing.Point(9, 179);
             this.TVFramesOutBox.Maximum = new decimal(new int[] {
             99999999,
             0,
             0,
             0});
             this.TVFramesOutBox.Name = "TVFramesOutBox";
-            this.TVFramesOutBox.Size = new System.Drawing.Size(116, 20);
+            this.TVFramesOutBox.Size = new System.Drawing.Size(150, 20);
             this.TVFramesOutBox.TabIndex = 24;
             // 
             // TVTargetFrameLabel
             // 
             this.TVTargetFrameLabel.AutoSize = true;
-            this.TVTargetFrameLabel.Location = new System.Drawing.Point(6, 90);
+            this.TVTargetFrameLabel.Location = new System.Drawing.Point(6, 114);
             this.TVTargetFrameLabel.Name = "TVTargetFrameLabel";
             this.TVTargetFrameLabel.Size = new System.Drawing.Size(70, 13);
             this.TVTargetFrameLabel.TabIndex = 18;
@@ -941,7 +936,7 @@
             // TVFrameOutsideLabel
             // 
             this.TVFrameOutsideLabel.AutoSize = true;
-            this.TVFrameOutsideLabel.Location = new System.Drawing.Point(6, 133);
+            this.TVFrameOutsideLabel.Location = new System.Drawing.Point(6, 162);
             this.TVFrameOutsideLabel.Name = "TVFrameOutsideLabel";
             this.TVFrameOutsideLabel.Size = new System.Drawing.Size(88, 13);
             this.TVFrameOutsideLabel.TabIndex = 23;
@@ -950,7 +945,7 @@
             // TVDelayBoxLabel
             // 
             this.TVDelayBoxLabel.AutoSize = true;
-            this.TVDelayBoxLabel.Location = new System.Drawing.Point(6, 51);
+            this.TVDelayBoxLabel.Location = new System.Drawing.Point(6, 70);
             this.TVDelayBoxLabel.Name = "TVDelayBoxLabel";
             this.TVDelayBoxLabel.Size = new System.Drawing.Size(55, 13);
             this.TVDelayBoxLabel.TabIndex = 17;
@@ -958,7 +953,7 @@
             // 
             // TVDelayBox
             // 
-            this.TVDelayBox.Location = new System.Drawing.Point(9, 67);
+            this.TVDelayBox.Location = new System.Drawing.Point(9, 86);
             this.TVDelayBox.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -976,7 +971,7 @@
             // TVIntroTimerMSLabel
             // 
             this.TVIntroTimerMSLabel.AutoSize = true;
-            this.TVIntroTimerMSLabel.Location = new System.Drawing.Point(6, 12);
+            this.TVIntroTimerMSLabel.Location = new System.Drawing.Point(6, 26);
             this.TVIntroTimerMSLabel.Name = "TVIntroTimerMSLabel";
             this.TVIntroTimerMSLabel.Size = new System.Drawing.Size(82, 13);
             this.TVIntroTimerMSLabel.TabIndex = 16;
@@ -989,7 +984,7 @@
             0,
             0,
             0});
-            this.TVTargetFrameInitBox.Location = new System.Drawing.Point(9, 107);
+            this.TVTargetFrameInitBox.Location = new System.Drawing.Point(9, 131);
             this.TVTargetFrameInitBox.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -1085,11 +1080,39 @@
             this.TVMethodDropDown.Size = new System.Drawing.Size(117, 21);
             this.TVMethodDropDown.TabIndex = 6;
             // 
+            // InitialCalculateGroupBox
+            // 
+            this.InitialCalculateGroupBox.Controls.Add(this.CalculateInitialButton);
+            this.InitialCalculateGroupBox.Controls.Add(this.FlatMSTextLabel);
+            this.InitialCalculateGroupBox.Controls.Add(this.FlatMSBox);
+            this.InitialCalculateGroupBox.Controls.Add(this.FlowtimerMSTotalTextBox);
+            this.InitialCalculateGroupBox.Controls.Add(this.FlowTimeMSTotalLabel);
+            this.InitialCalculateGroupBox.Location = new System.Drawing.Point(12, 162);
+            this.InitialCalculateGroupBox.Name = "InitialCalculateGroupBox";
+            this.InitialCalculateGroupBox.Size = new System.Drawing.Size(131, 165);
+            this.InitialCalculateGroupBox.TabIndex = 18;
+            this.InitialCalculateGroupBox.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.NewTimerBox);
+            this.groupBox2.Controls.Add(this.ReCalculate);
+            this.groupBox2.Controls.Add(this.AdvancesAdjustBox);
+            this.groupBox2.Controls.Add(this.IntroMSAdjustLabel);
+            this.groupBox2.Controls.Add(this.IntroMSAdjustBox);
+            this.groupBox2.Controls.Add(this.AdvancesAdjustLabel);
+            this.groupBox2.Controls.Add(this.NewTimerLabel);
+            this.groupBox2.Location = new System.Drawing.Point(6, 149);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(131, 177);
+            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabStop = false;
+            // 
             // FlowtimerConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 355);
+            this.ClientSize = new System.Drawing.Size(509, 399);
             this.Controls.Add(this.TeachyTV);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -1128,14 +1151,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.TVMSinTVBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TVFramesTotalBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TVFramesInBox)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.InitialSettingsGroupBox.ResumeLayout(false);
+            this.InitialSettingsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TVIntroTimerMSInitBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TVFramesOutBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TVDelayBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TVTargetFrameInitBox)).EndInit();
             this.TVSettingGroupBox.ResumeLayout(false);
             this.TVSettingGroupBox.PerformLayout();
+            this.InitialCalculateGroupBox.ResumeLayout(false);
+            this.InitialCalculateGroupBox.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1192,7 +1219,7 @@
         private System.Windows.Forms.Label TVMethodLabel;
         private System.Windows.Forms.NumericUpDown TVFramesOutBox;
         private System.Windows.Forms.Label TVFrameOutsideLabel;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox InitialSettingsGroupBox;
         private System.Windows.Forms.GroupBox TVInitialGroupBox;
         private System.Windows.Forms.GroupBox TVAdjustedGroup;
         private System.Windows.Forms.NumericUpDown TVMSTotalBox;
@@ -1223,6 +1250,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button TVCalcButton;
         private System.Windows.Forms.Button ReCalculateTV;
+        private System.Windows.Forms.GroupBox InitialCalculateGroupBox;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 
