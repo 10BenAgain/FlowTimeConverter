@@ -186,13 +186,17 @@ namespace FlowTimeConverter
                 InitialTV.SetFrameHit(userInput);
                 var values = InitialTV.GetAdjustedValues();
 
-                InitialTV.OverrideFlatMS(values[4]);
+
+                
                 TVMSinTVBox.Value = Convert.ToDecimal(values[4]);
                 TVAdjustFramesBox.Value = Convert.ToDecimal(values[0]);
                 TVAdjustTotalFramesBox.Value = Convert.ToDecimal(values[1]);
                 TVAdjustTotalMSBox.Value = Convert.ToDecimal(values[2]);
                 TVAdjustMSBox.Value = Convert.ToDecimal(values[3]);
                 TVNewFlowtimerBox.Value = Convert.ToDecimal(values[4]);
+
+                TVMSinTVBox.Value = Convert.ToDecimal(InitialTV.GetFlatTVMS());
+                TVMSTotalBox.Value = Convert.ToDecimal(InitialTV.GetTotalFlatMS());
 
                 TVNewFlowMSTotalBox.Text =
                     ReusableFunctions.CreateFlowTimerString

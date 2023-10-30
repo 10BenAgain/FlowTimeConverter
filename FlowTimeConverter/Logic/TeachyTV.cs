@@ -6,17 +6,21 @@ namespace FlowTimeConverter.Logic
     {
         private double InsideTV { get; set; }
         private int OutsideTV { get; set; }
-        private double FlatMS { get; set; }
+        private double FlatTVMS { get; set; }
+        private double TotalFlatMS { get; set; }
 
         public TeachyTV SetOutSideTV(int frame)
         {
             OutsideTV = frame;
             return this;
         }
-        public TeachyTV OverrideFlatMS(double val)
+        public double GetFlatTVMS()
         {
-            FlatMS = val;
-            return this;
+            return FlatTVMS;
+        }
+        public double GetTotalFlatMS()
+        {
+            return TotalFlatMS;
         }
 
         public int GetIntroTimer() => IntroTimer;
@@ -46,6 +50,7 @@ namespace FlowTimeConverter.Logic
         public double GetTVMS()
         {
             var output = ReusableFunctions.FrameToMS(FPS, InsideTV);
+            FlatTVMS = Math.Floor(output);
             return Math.Floor(output);
         }
 
@@ -60,7 +65,7 @@ namespace FlowTimeConverter.Logic
         {
             IntroTimerMS = IntroTimer + SeedLagMS;
             var framesMS = Math.Floor(GetTotalFrameMS());
-            FlatMS = framesMS + IntroTimerMS;
+            TotalFlatMS = Math.Round(framesMS + IntroTimerMS);
             return framesMS + IntroTimerMS;
         }
 
@@ -83,15 +88,18 @@ namespace FlowTimeConverter.Logic
                 second--;
             }
 
-            var total = adjustOut + second;
             var adjustTVBy = second >= 0 ? Math.Floor(second) : Math.Ceiling(second); // adjusttvby
             var adjustTotalBy = adjustOut + adjustTVBy; //adjusttotalby
 
             var msout = ReusableFunctions.FrameToMS(FPS, adjustTotalBy); // adjusttvmsby
             var tvmsout = ReusableFunctions.FrameToMS(FPS, adjustTVBy); // adjusttotalmsby
 
-            var adjustedTVMS = tvmsout + GetTVMS(); // tvms
-            var adjustedTotalMS = msout + FlatMS; // totalms
+            var adjustedTVMS = tvmsout + FlatTVMS; // tvms
+            FlatTVMS = Math.Round(adjustedTVMS);
+
+            var adjustedTotalMS = msout + TotalFlatMS; // totalms
+            TotalFlatMS = Math.Round(adjustedTotalMS);
+
 
             return new double[] { adjustTVBy, adjustTotalBy, msout, tvmsout, adjustedTVMS, adjustedTotalMS };
         }
