@@ -216,12 +216,6 @@ namespace FlowTimeConverter
             var game = GameDropDown.SelectedIndex;
             DelayBox.Value = SetDelayValue(method, game);
         }
-        private void MethodDropDown_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            var method = MethodDropDown.SelectedIndex;
-            var game = GameDropDown.SelectedIndex;
-            DelayBox.Value = SetDelayValue(method, game);
-        }
 
         private int SetIntroValue(int index)
         {

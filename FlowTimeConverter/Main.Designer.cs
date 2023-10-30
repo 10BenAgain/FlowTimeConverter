@@ -495,7 +495,7 @@
             this.MethodDropDown.Name = "MethodDropDown";
             this.MethodDropDown.Size = new System.Drawing.Size(137, 21);
             this.MethodDropDown.TabIndex = 6;
-            this.MethodDropDown.SelectionChangeCommitted += new System.EventHandler(this.MethodDropDown_SelectionChangeCommitted);
+            this.MethodDropDown.SelectionChangeCommitted += new System.EventHandler(this.GameDropDown_SelectionChangeCommitted);
             // 
             // MethodLabel
             // 
