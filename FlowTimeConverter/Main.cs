@@ -13,6 +13,7 @@ namespace FlowTimeConverter
         public Selections.Version Version { get; set; }
         public Selections.Method Method { get; set; }
 
+        public TeachyTV InitialTV { get; set; }
         public Selections.NConsole TVConsole { get; set; }
         public Selections.Version TVVersion { get; set; }
         public Selections.Method TVMethod { get; set; }
@@ -175,6 +176,35 @@ namespace FlowTimeConverter
                         tv.GetIntroTimer()
                     }
                 );
+            InitialTV = tv;
+        }
+        private void ReCalculateTV_Click(object sender, EventArgs e)
+        {
+            var userInput = Convert.ToInt32(TVFrameHitBox.Value);
+            if (InitialTV != null)
+            {
+                InitialTV.SetFrameHit(userInput);
+                var values = InitialTV.GetAdjustedValues();
+
+                InitialTV.OverrideFlatMS(values[4]);
+                TVMSinTVBox.Value = Convert.ToDecimal(values[4]);
+                TVAdjustFramesBox.Value = Convert.ToDecimal(values[0]);
+                TVAdjustTotalFramesBox.Value = Convert.ToDecimal(values[1]);
+                TVAdjustTotalMSBox.Value = Convert.ToDecimal(values[2]);
+                TVAdjustMSBox.Value = Convert.ToDecimal(values[3]);
+                TVNewFlowtimerBox.Value = Convert.ToDecimal(values[4]);
+
+                TVNewFlowMSTotalBox.Text =
+                    ReusableFunctions.CreateFlowTimerString
+                    (
+                        new double[] { values[5], InitialTV.GetIntroTimer() }
+                    );
+            }
+            else
+            {
+                InitialTV = new TeachyTV(TVVersion, TVConsole, TVMethod);
+            }
+               
         }
         private decimal[] GetInitialUserInput()
         {
@@ -255,9 +285,6 @@ namespace FlowTimeConverter
             else
                 return -268;
         }
-        private void ReCalculateTV_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

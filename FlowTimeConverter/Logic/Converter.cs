@@ -19,7 +19,6 @@ namespace FlowTimeConverter.Logic
             _ => 0,
         };
 
-
         protected int SeedLag { get; set; } = game switch
         {
             Selections.Version.FR10 => Constants.FR10,

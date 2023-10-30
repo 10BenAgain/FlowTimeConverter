@@ -6,12 +6,19 @@ namespace FlowTimeConverter.Logic
     {
         private double InsideTV { get; set; }
         private int OutsideTV { get; set; }
+        private double FlatMS { get; set; }
 
         public TeachyTV SetOutSideTV(int frame)
         {
             OutsideTV = frame;
             return this;
         }
+        public TeachyTV OverrideFlatMS(double val)
+        {
+            FlatMS = val;
+            return this;
+        }
+
         public int GetIntroTimer() => IntroTimer;
         public double GetIntroToFrames() => ReusableFunctions.MSToFrame(FPS, IntroTimerMS);
         public double GetInsideTVFrames()
@@ -53,7 +60,40 @@ namespace FlowTimeConverter.Logic
         {
             IntroTimerMS = IntroTimer + SeedLagMS;
             var framesMS = Math.Floor(GetTotalFrameMS());
+            FlatMS = framesMS + IntroTimerMS;
             return framesMS + IntroTimerMS;
+        }
+
+        public double AdjustedTV() => TargetFrame - TargetFrameHit;
+        
+        public double[] GetAdjustedValues()
+        {
+            var second = AdjustedTV() / Constants.TVAccelerator;
+            var adjustOut = (int)Math.Round(AdjustedTV()) % Constants.TVAccelerator;
+
+            if (adjustOut >= 156)
+            {
+                adjustOut -= Constants.TVAccelerator;
+                second++;
+            }
+
+            if (adjustOut < -156)
+            {
+                adjustOut += Constants.TVAccelerator;
+                second--;
+            }
+
+            var total = adjustOut + second;
+            var adjustTVBy = second >= 0 ? Math.Floor(second) : Math.Ceiling(second); // adjusttvby
+            var adjustTotalBy = adjustOut + adjustTVBy; //adjusttotalby
+
+            var msout = ReusableFunctions.FrameToMS(FPS, adjustTotalBy); // adjusttvmsby
+            var tvmsout = ReusableFunctions.FrameToMS(FPS, adjustTVBy); // adjusttotalmsby
+
+            var adjustedTVMS = tvmsout + GetTVMS(); // tvms
+            var adjustedTotalMS = msout + FlatMS; // totalms
+
+            return new double[] { adjustTVBy, adjustTotalBy, msout, tvmsout, adjustedTVMS, adjustedTotalMS };
         }
     }
 }
