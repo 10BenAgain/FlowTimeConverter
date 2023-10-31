@@ -181,6 +181,7 @@
             this.Controls.Add(this.ConsoleSelection);
             this.Controls.Add(this.FrameMSGroupBox);
             this.Controls.Add(this.ConsoleLabel);
+            this.MaximizeBox = false;
             this.Name = "Tools";
             this.Text = "Tools";
             this.Load += new System.EventHandler(this.Tools_Load);

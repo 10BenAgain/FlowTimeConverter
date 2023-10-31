@@ -115,8 +115,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quickConvertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CustomDelayCheckBox = new System.Windows.Forms.CheckBox();
             this.TeachyTV.SuspendLayout();
             this.FlowtimeConverter.SuspendLayout();
             this.AdjustGroup.SuspendLayout();
@@ -313,6 +314,7 @@
             // 
             // ConverterContainer
             // 
+            this.ConverterContainer.Controls.Add(this.CustomDelayCheckBox);
             this.ConverterContainer.Controls.Add(this.InitialCalculateGroupBox);
             this.ConverterContainer.Controls.Add(this.EncounterAdvancesBox);
             this.ConverterContainer.Controls.Add(this.DelayBox);
@@ -407,6 +409,7 @@
             // 
             // DelayBox
             // 
+            this.DelayBox.Enabled = false;
             this.DelayBox.Location = new System.Drawing.Point(23, 80);
             this.DelayBox.Maximum = new decimal(new int[] {
             99999,
@@ -419,7 +422,7 @@
             0,
             -2147483648});
             this.DelayBox.Name = "DelayBox";
-            this.DelayBox.Size = new System.Drawing.Size(120, 20);
+            this.DelayBox.Size = new System.Drawing.Size(92, 20);
             this.DelayBox.TabIndex = 14;
             // 
             // IntroTimerMSBox
@@ -1140,18 +1143,29 @@
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
+            // quickConvertToolStripMenuItem
+            // 
+            this.quickConvertToolStripMenuItem.Name = "quickConvertToolStripMenuItem";
+            this.quickConvertToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.quickConvertToolStripMenuItem.Text = "Quick Convert";
+            this.quickConvertToolStripMenuItem.Click += new System.EventHandler(this.QuickConvertToolStripMenuItem_Click);
+            // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
-            // quickConvertToolStripMenuItem
+            // CustomDelayCheckBox
             // 
-            this.quickConvertToolStripMenuItem.Name = "quickConvertToolStripMenuItem";
-            this.quickConvertToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.quickConvertToolStripMenuItem.Text = "Quick Convert";
-            this.quickConvertToolStripMenuItem.Click += new System.EventHandler(this.QuickConvertToolStripMenuItem_Click);
+            this.CustomDelayCheckBox.AutoSize = true;
+            this.CustomDelayCheckBox.FlatAppearance.BorderSize = 2;
+            this.CustomDelayCheckBox.Location = new System.Drawing.Point(128, 82);
+            this.CustomDelayCheckBox.Name = "CustomDelayCheckBox";
+            this.CustomDelayCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.CustomDelayCheckBox.TabIndex = 19;
+            this.CustomDelayCheckBox.UseVisualStyleBackColor = true;
+            this.CustomDelayCheckBox.CheckedChanged += new System.EventHandler(this.CustomDelayCheckBox_CheckedChanged);
             // 
             // FlowtimerConverter
             // 
@@ -1306,6 +1320,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quickConvertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.CheckBox CustomDelayCheckBox;
     }
 }
 

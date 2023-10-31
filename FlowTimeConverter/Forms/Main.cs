@@ -37,6 +37,7 @@ namespace FlowTimeConverter
             TVIntroTimerMSInitBox.Value = 35000;
             TVTargetFrameInitBox.Value = 45000;
             TVFramesOutBox.Value = 1400;
+            TVDelayBox.Value = -20;
         }
         private void GetConverterSettings()
         {
@@ -186,8 +187,6 @@ namespace FlowTimeConverter
                 InitialTV.SetFrameHit(userInput);
                 var values = InitialTV.GetAdjustedValues();
 
-
-                
                 TVMSinTVBox.Value = Convert.ToDecimal(values[4]);
                 TVAdjustFramesBox.Value = Convert.ToDecimal(values[0]);
                 TVAdjustTotalFramesBox.Value = Convert.ToDecimal(values[1]);
@@ -294,6 +293,14 @@ namespace FlowTimeConverter
         {
             Tools tool = new();
             tool.Show();
+        }
+
+        private void CustomDelayCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!CustomDelayCheckBox.Checked)
+                DelayBox.Enabled = false;
+            else
+                DelayBox.Enabled = true;
         }
     }
 }
