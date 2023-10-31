@@ -289,6 +289,11 @@ namespace FlowTimeConverter
             else
                 return -268;
         }
-        
+
+        private void QuickConvertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Tools tool = new();
+            tool.Show();
+        }
     }
 }

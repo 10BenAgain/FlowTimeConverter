@@ -32,32 +32,34 @@
             this.TeachyTV = new System.Windows.Forms.TabControl();
             this.FlowtimeConverter = new System.Windows.Forms.TabPage();
             this.AdjustGroup = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.NewTimerBox = new System.Windows.Forms.TextBox();
-            this.AdvancesAdjustBox = new System.Windows.Forms.TextBox();
-            this.IntroMSAdjustBox = new System.Windows.Forms.TextBox();
-            this.NewTimerLabel = new System.Windows.Forms.Label();
-            this.AdvancesAdjustLabel = new System.Windows.Forms.Label();
-            this.IntroMSAdjustLabel = new System.Windows.Forms.Label();
             this.ReCalculate = new System.Windows.Forms.Button();
+            this.AdvancesAdjustBox = new System.Windows.Forms.TextBox();
+            this.IntroMSAdjustLabel = new System.Windows.Forms.Label();
+            this.IntroMSAdjustBox = new System.Windows.Forms.TextBox();
+            this.AdvancesAdjustLabel = new System.Windows.Forms.Label();
+            this.NewTimerLabel = new System.Windows.Forms.Label();
             this.EncounterHitBox = new System.Windows.Forms.NumericUpDown();
             this.IntroHitBox = new System.Windows.Forms.NumericUpDown();
             this.EncounterHitBoxLabel = new System.Windows.Forms.Label();
             this.IntroHitTimerLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ConverterContainer = new System.Windows.Forms.GroupBox();
+            this.InitialCalculateGroupBox = new System.Windows.Forms.GroupBox();
+            this.CalculateInitialButton = new System.Windows.Forms.Button();
+            this.FlatMSTextLabel = new System.Windows.Forms.Label();
             this.FlatMSBox = new System.Windows.Forms.NumericUpDown();
+            this.FlowtimerMSTotalTextBox = new System.Windows.Forms.TextBox();
+            this.FlowTimeMSTotalLabel = new System.Windows.Forms.Label();
             this.EncounterAdvancesBox = new System.Windows.Forms.NumericUpDown();
             this.DelayBox = new System.Windows.Forms.NumericUpDown();
             this.IntroTimerMSBox = new System.Windows.Forms.NumericUpDown();
-            this.FlowTimeMSTotalLabel = new System.Windows.Forms.Label();
-            this.CalculateInitialButton = new System.Windows.Forms.Button();
             this.AdvancesLabel = new System.Windows.Forms.Label();
-            this.FlowtimerMSTotalTextBox = new System.Windows.Forms.TextBox();
             this.DelayBoxLabel = new System.Windows.Forms.Label();
-            this.FlatMSTextLabel = new System.Windows.Forms.Label();
             this.IntroTimerMSLabel = new System.Windows.Forms.Label();
             this.Selections = new System.Windows.Forms.GroupBox();
             this.ConsoleDropDown = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MethodDropDown = new System.Windows.Forms.ComboBox();
             this.MethodLabel = new System.Windows.Forms.Label();
             this.ConsoleLabel = new System.Windows.Forms.Label();
@@ -79,6 +81,7 @@
             this.TVAdjustFramesLabel = new System.Windows.Forms.Label();
             this.TVAdjustFramesBox = new System.Windows.Forms.NumericUpDown();
             this.TVInitialGroupBox = new System.Windows.Forms.GroupBox();
+            this.TVCalcButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.TVFrameHitBox = new System.Windows.Forms.NumericUpDown();
             this.TVFrameHitLabel = new System.Windows.Forms.Label();
@@ -93,7 +96,6 @@
             this.TVFramesTotalBox = new System.Windows.Forms.NumericUpDown();
             this.TVFramesInBox = new System.Windows.Forms.NumericUpDown();
             this.InitialSettingsGroupBox = new System.Windows.Forms.GroupBox();
-            this.TVCalcButton = new System.Windows.Forms.Button();
             this.TVIntroTimerMSInitBox = new System.Windows.Forms.NumericUpDown();
             this.TVFramesOutBox = new System.Windows.Forms.NumericUpDown();
             this.TVTargetFrameLabel = new System.Windows.Forms.Label();
@@ -110,20 +112,25 @@
             this.TVConsoleDropDown = new System.Windows.Forms.ComboBox();
             this.TVGameLabel = new System.Windows.Forms.Label();
             this.TVMethodDropDown = new System.Windows.Forms.ComboBox();
-            this.InitialCalculateGroupBox = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quickConvertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TeachyTV.SuspendLayout();
             this.FlowtimeConverter.SuspendLayout();
             this.AdjustGroup.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EncounterHitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntroHitBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ConverterContainer.SuspendLayout();
+            this.InitialCalculateGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FlatMSBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EncounterAdvancesBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DelayBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntroTimerMSBox)).BeginInit();
             this.Selections.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TeachyTVTab.SuspendLayout();
             this.TVAdjustedGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TVNewFlowtimerBox)).BeginInit();
@@ -144,15 +151,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.TVDelayBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TVTargetFrameInitBox)).BeginInit();
             this.TVSettingGroupBox.SuspendLayout();
-            this.InitialCalculateGroupBox.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TeachyTV
             // 
             this.TeachyTV.Controls.Add(this.FlowtimeConverter);
             this.TeachyTV.Controls.Add(this.TeachyTVTab);
-            this.TeachyTV.Location = new System.Drawing.Point(12, 12);
+            this.TeachyTV.Location = new System.Drawing.Point(8, 27);
             this.TeachyTV.Name = "TeachyTV";
             this.TeachyTV.SelectedIndex = 0;
             this.TeachyTV.Size = new System.Drawing.Size(492, 375);
@@ -185,53 +191,27 @@
             this.AdjustGroup.TabStop = false;
             this.AdjustGroup.Text = "Adjust";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.NewTimerBox);
+            this.groupBox2.Controls.Add(this.ReCalculate);
+            this.groupBox2.Controls.Add(this.AdvancesAdjustBox);
+            this.groupBox2.Controls.Add(this.IntroMSAdjustLabel);
+            this.groupBox2.Controls.Add(this.IntroMSAdjustBox);
+            this.groupBox2.Controls.Add(this.AdvancesAdjustLabel);
+            this.groupBox2.Controls.Add(this.NewTimerLabel);
+            this.groupBox2.Location = new System.Drawing.Point(6, 149);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(131, 177);
+            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabStop = false;
+            // 
             // NewTimerBox
             // 
             this.NewTimerBox.Location = new System.Drawing.Point(6, 141);
             this.NewTimerBox.Name = "NewTimerBox";
             this.NewTimerBox.Size = new System.Drawing.Size(120, 20);
             this.NewTimerBox.TabIndex = 27;
-            // 
-            // AdvancesAdjustBox
-            // 
-            this.AdvancesAdjustBox.Location = new System.Drawing.Point(6, 100);
-            this.AdvancesAdjustBox.Name = "AdvancesAdjustBox";
-            this.AdvancesAdjustBox.Size = new System.Drawing.Size(120, 20);
-            this.AdvancesAdjustBox.TabIndex = 26;
-            // 
-            // IntroMSAdjustBox
-            // 
-            this.IntroMSAdjustBox.Location = new System.Drawing.Point(6, 61);
-            this.IntroMSAdjustBox.Name = "IntroMSAdjustBox";
-            this.IntroMSAdjustBox.Size = new System.Drawing.Size(120, 20);
-            this.IntroMSAdjustBox.TabIndex = 25;
-            // 
-            // NewTimerLabel
-            // 
-            this.NewTimerLabel.AutoSize = true;
-            this.NewTimerLabel.Location = new System.Drawing.Point(3, 125);
-            this.NewTimerLabel.Name = "NewTimerLabel";
-            this.NewTimerLabel.Size = new System.Drawing.Size(103, 13);
-            this.NewTimerLabel.TabIndex = 24;
-            this.NewTimerLabel.Text = "New Flowtimer Total";
-            // 
-            // AdvancesAdjustLabel
-            // 
-            this.AdvancesAdjustLabel.AutoSize = true;
-            this.AdvancesAdjustLabel.Location = new System.Drawing.Point(3, 84);
-            this.AdvancesAdjustLabel.Name = "AdvancesAdjustLabel";
-            this.AdvancesAdjustLabel.Size = new System.Drawing.Size(114, 13);
-            this.AdvancesAdjustLabel.TabIndex = 21;
-            this.AdvancesAdjustLabel.Text = "Advances Adjusted By";
-            // 
-            // IntroMSAdjustLabel
-            // 
-            this.IntroMSAdjustLabel.AutoSize = true;
-            this.IntroMSAdjustLabel.Location = new System.Drawing.Point(3, 45);
-            this.IntroMSAdjustLabel.Name = "IntroMSAdjustLabel";
-            this.IntroMSAdjustLabel.Size = new System.Drawing.Size(106, 13);
-            this.IntroMSAdjustLabel.TabIndex = 20;
-            this.IntroMSAdjustLabel.Text = "Intro MS Adjusted By";
             // 
             // ReCalculate
             // 
@@ -242,6 +222,47 @@
             this.ReCalculate.Text = "Calculate";
             this.ReCalculate.UseVisualStyleBackColor = true;
             this.ReCalculate.Click += new System.EventHandler(this.ReCalculate_Click);
+            // 
+            // AdvancesAdjustBox
+            // 
+            this.AdvancesAdjustBox.Location = new System.Drawing.Point(6, 100);
+            this.AdvancesAdjustBox.Name = "AdvancesAdjustBox";
+            this.AdvancesAdjustBox.Size = new System.Drawing.Size(120, 20);
+            this.AdvancesAdjustBox.TabIndex = 26;
+            // 
+            // IntroMSAdjustLabel
+            // 
+            this.IntroMSAdjustLabel.AutoSize = true;
+            this.IntroMSAdjustLabel.Location = new System.Drawing.Point(3, 45);
+            this.IntroMSAdjustLabel.Name = "IntroMSAdjustLabel";
+            this.IntroMSAdjustLabel.Size = new System.Drawing.Size(106, 13);
+            this.IntroMSAdjustLabel.TabIndex = 20;
+            this.IntroMSAdjustLabel.Text = "Intro MS Adjusted By";
+            // 
+            // IntroMSAdjustBox
+            // 
+            this.IntroMSAdjustBox.Location = new System.Drawing.Point(6, 61);
+            this.IntroMSAdjustBox.Name = "IntroMSAdjustBox";
+            this.IntroMSAdjustBox.Size = new System.Drawing.Size(120, 20);
+            this.IntroMSAdjustBox.TabIndex = 25;
+            // 
+            // AdvancesAdjustLabel
+            // 
+            this.AdvancesAdjustLabel.AutoSize = true;
+            this.AdvancesAdjustLabel.Location = new System.Drawing.Point(3, 84);
+            this.AdvancesAdjustLabel.Name = "AdvancesAdjustLabel";
+            this.AdvancesAdjustLabel.Size = new System.Drawing.Size(114, 13);
+            this.AdvancesAdjustLabel.TabIndex = 21;
+            this.AdvancesAdjustLabel.Text = "Advances Adjusted By";
+            // 
+            // NewTimerLabel
+            // 
+            this.NewTimerLabel.AutoSize = true;
+            this.NewTimerLabel.Location = new System.Drawing.Point(3, 125);
+            this.NewTimerLabel.Name = "NewTimerLabel";
+            this.NewTimerLabel.Size = new System.Drawing.Size(103, 13);
+            this.NewTimerLabel.TabIndex = 24;
+            this.NewTimerLabel.Text = "New Flowtimer Total";
             // 
             // EncounterHitBox
             // 
@@ -290,17 +311,6 @@
             this.IntroHitTimerLabel.TabIndex = 15;
             this.IntroHitTimerLabel.Text = "Intro Timer Hit";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 188);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(144, 123);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
-            // 
             // ConverterContainer
             // 
             this.ConverterContainer.Controls.Add(this.InitialCalculateGroupBox);
@@ -317,6 +327,39 @@
             this.ConverterContainer.TabStop = false;
             this.ConverterContainer.Text = "Converter";
             // 
+            // InitialCalculateGroupBox
+            // 
+            this.InitialCalculateGroupBox.Controls.Add(this.CalculateInitialButton);
+            this.InitialCalculateGroupBox.Controls.Add(this.FlatMSTextLabel);
+            this.InitialCalculateGroupBox.Controls.Add(this.FlatMSBox);
+            this.InitialCalculateGroupBox.Controls.Add(this.FlowtimerMSTotalTextBox);
+            this.InitialCalculateGroupBox.Controls.Add(this.FlowTimeMSTotalLabel);
+            this.InitialCalculateGroupBox.Location = new System.Drawing.Point(12, 162);
+            this.InitialCalculateGroupBox.Name = "InitialCalculateGroupBox";
+            this.InitialCalculateGroupBox.Size = new System.Drawing.Size(131, 165);
+            this.InitialCalculateGroupBox.TabIndex = 18;
+            this.InitialCalculateGroupBox.TabStop = false;
+            // 
+            // CalculateInitialButton
+            // 
+            this.CalculateInitialButton.Location = new System.Drawing.Point(6, 23);
+            this.CalculateInitialButton.Name = "CalculateInitialButton";
+            this.CalculateInitialButton.Size = new System.Drawing.Size(120, 23);
+            this.CalculateInitialButton.TabIndex = 8;
+            this.CalculateInitialButton.Text = "Calculate";
+            this.CalculateInitialButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.CalculateInitialButton.UseVisualStyleBackColor = true;
+            this.CalculateInitialButton.Click += new System.EventHandler(this.CalculateInitialButton_Click);
+            // 
+            // FlatMSTextLabel
+            // 
+            this.FlatMSTextLabel.AutoSize = true;
+            this.FlatMSTextLabel.Location = new System.Drawing.Point(6, 56);
+            this.FlatMSTextLabel.Name = "FlatMSTextLabel";
+            this.FlatMSTextLabel.Size = new System.Drawing.Size(43, 13);
+            this.FlatMSTextLabel.TabIndex = 9;
+            this.FlatMSTextLabel.Text = "Flat MS";
+            // 
             // FlatMSBox
             // 
             this.FlatMSBox.Location = new System.Drawing.Point(6, 72);
@@ -328,6 +371,22 @@
             this.FlatMSBox.Name = "FlatMSBox";
             this.FlatMSBox.Size = new System.Drawing.Size(119, 20);
             this.FlatMSBox.TabIndex = 16;
+            // 
+            // FlowtimerMSTotalTextBox
+            // 
+            this.FlowtimerMSTotalTextBox.Location = new System.Drawing.Point(6, 119);
+            this.FlowtimerMSTotalTextBox.Name = "FlowtimerMSTotalTextBox";
+            this.FlowtimerMSTotalTextBox.Size = new System.Drawing.Size(119, 20);
+            this.FlowtimerMSTotalTextBox.TabIndex = 10;
+            // 
+            // FlowTimeMSTotalLabel
+            // 
+            this.FlowTimeMSTotalLabel.AutoSize = true;
+            this.FlowTimeMSTotalLabel.Location = new System.Drawing.Point(6, 103);
+            this.FlowTimeMSTotalLabel.Name = "FlowTimeMSTotalLabel";
+            this.FlowTimeMSTotalLabel.Size = new System.Drawing.Size(97, 13);
+            this.FlowTimeMSTotalLabel.TabIndex = 11;
+            this.FlowTimeMSTotalLabel.Text = "Flowtimer MS Total";
             // 
             // EncounterAdvancesBox
             // 
@@ -375,26 +434,6 @@
             this.IntroTimerMSBox.Size = new System.Drawing.Size(120, 20);
             this.IntroTimerMSBox.TabIndex = 12;
             // 
-            // FlowTimeMSTotalLabel
-            // 
-            this.FlowTimeMSTotalLabel.AutoSize = true;
-            this.FlowTimeMSTotalLabel.Location = new System.Drawing.Point(6, 103);
-            this.FlowTimeMSTotalLabel.Name = "FlowTimeMSTotalLabel";
-            this.FlowTimeMSTotalLabel.Size = new System.Drawing.Size(97, 13);
-            this.FlowTimeMSTotalLabel.TabIndex = 11;
-            this.FlowTimeMSTotalLabel.Text = "Flowtimer MS Total";
-            // 
-            // CalculateInitialButton
-            // 
-            this.CalculateInitialButton.Location = new System.Drawing.Point(6, 23);
-            this.CalculateInitialButton.Name = "CalculateInitialButton";
-            this.CalculateInitialButton.Size = new System.Drawing.Size(120, 23);
-            this.CalculateInitialButton.TabIndex = 8;
-            this.CalculateInitialButton.Text = "Calculate";
-            this.CalculateInitialButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.CalculateInitialButton.UseVisualStyleBackColor = true;
-            this.CalculateInitialButton.Click += new System.EventHandler(this.CalculateInitialButton_Click);
-            // 
             // AdvancesLabel
             // 
             this.AdvancesLabel.AutoSize = true;
@@ -404,13 +443,6 @@
             this.AdvancesLabel.TabIndex = 7;
             this.AdvancesLabel.Text = "Encounter Advances";
             // 
-            // FlowtimerMSTotalTextBox
-            // 
-            this.FlowtimerMSTotalTextBox.Location = new System.Drawing.Point(6, 119);
-            this.FlowtimerMSTotalTextBox.Name = "FlowtimerMSTotalTextBox";
-            this.FlowtimerMSTotalTextBox.Size = new System.Drawing.Size(119, 20);
-            this.FlowtimerMSTotalTextBox.TabIndex = 10;
-            // 
             // DelayBoxLabel
             // 
             this.DelayBoxLabel.AutoSize = true;
@@ -419,15 +451,6 @@
             this.DelayBoxLabel.Size = new System.Drawing.Size(55, 13);
             this.DelayBoxLabel.TabIndex = 5;
             this.DelayBoxLabel.Text = "Delay Box";
-            // 
-            // FlatMSTextLabel
-            // 
-            this.FlatMSTextLabel.AutoSize = true;
-            this.FlatMSTextLabel.Location = new System.Drawing.Point(6, 56);
-            this.FlatMSTextLabel.Name = "FlatMSTextLabel";
-            this.FlatMSTextLabel.Size = new System.Drawing.Size(43, 13);
-            this.FlatMSTextLabel.TabIndex = 9;
-            this.FlatMSTextLabel.Text = "Flat MS";
             // 
             // IntroTimerMSLabel
             // 
@@ -468,6 +491,17 @@
             this.ConsoleDropDown.Size = new System.Drawing.Size(137, 21);
             this.ConsoleDropDown.TabIndex = 4;
             this.ConsoleDropDown.SelectionChangeCommitted += new System.EventHandler(this.ConsoleDropDown_SelectionChangeCommitted);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 188);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(144, 123);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // MethodDropDown
             // 
@@ -737,6 +771,16 @@
             this.TVInitialGroupBox.TabIndex = 26;
             this.TVInitialGroupBox.TabStop = false;
             // 
+            // TVCalcButton
+            // 
+            this.TVCalcButton.Location = new System.Drawing.Point(22, 18);
+            this.TVCalcButton.Name = "TVCalcButton";
+            this.TVCalcButton.Size = new System.Drawing.Size(94, 20);
+            this.TVCalcButton.TabIndex = 25;
+            this.TVCalcButton.Text = "Calculate";
+            this.TVCalcButton.UseVisualStyleBackColor = true;
+            this.TVCalcButton.Click += new System.EventHandler(this.TVCalcButton_Click);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.TVFrameHitBox);
@@ -884,16 +928,6 @@
             this.InitialSettingsGroupBox.TabIndex = 25;
             this.InitialSettingsGroupBox.TabStop = false;
             this.InitialSettingsGroupBox.Text = "Starting Values";
-            // 
-            // TVCalcButton
-            // 
-            this.TVCalcButton.Location = new System.Drawing.Point(22, 18);
-            this.TVCalcButton.Name = "TVCalcButton";
-            this.TVCalcButton.Size = new System.Drawing.Size(94, 20);
-            this.TVCalcButton.TabIndex = 25;
-            this.TVCalcButton.Text = "Calculate";
-            this.TVCalcButton.UseVisualStyleBackColor = true;
-            this.TVCalcButton.Click += new System.EventHandler(this.TVCalcButton_Click);
             // 
             // TVIntroTimerMSInitBox
             // 
@@ -1080,40 +1114,52 @@
             this.TVMethodDropDown.Size = new System.Drawing.Size(117, 21);
             this.TVMethodDropDown.TabIndex = 6;
             // 
-            // InitialCalculateGroupBox
+            // menuStrip1
             // 
-            this.InitialCalculateGroupBox.Controls.Add(this.CalculateInitialButton);
-            this.InitialCalculateGroupBox.Controls.Add(this.FlatMSTextLabel);
-            this.InitialCalculateGroupBox.Controls.Add(this.FlatMSBox);
-            this.InitialCalculateGroupBox.Controls.Add(this.FlowtimerMSTotalTextBox);
-            this.InitialCalculateGroupBox.Controls.Add(this.FlowTimeMSTotalLabel);
-            this.InitialCalculateGroupBox.Location = new System.Drawing.Point(12, 162);
-            this.InitialCalculateGroupBox.Name = "InitialCalculateGroupBox";
-            this.InitialCalculateGroupBox.Size = new System.Drawing.Size(131, 165);
-            this.InitialCalculateGroupBox.TabIndex = 18;
-            this.InitialCalculateGroupBox.TabStop = false;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem,
+            this.optionsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(506, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // groupBox2
+            // fileToolStripMenuItem
             // 
-            this.groupBox2.Controls.Add(this.NewTimerBox);
-            this.groupBox2.Controls.Add(this.ReCalculate);
-            this.groupBox2.Controls.Add(this.AdvancesAdjustBox);
-            this.groupBox2.Controls.Add(this.IntroMSAdjustLabel);
-            this.groupBox2.Controls.Add(this.IntroMSAdjustBox);
-            this.groupBox2.Controls.Add(this.AdvancesAdjustLabel);
-            this.groupBox2.Controls.Add(this.NewTimerLabel);
-            this.groupBox2.Location = new System.Drawing.Point(6, 149);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(131, 177);
-            this.groupBox2.TabIndex = 28;
-            this.groupBox2.TabStop = false;
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quickConvertToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.optionsToolStripMenuItem.Text = "Options";
+            // 
+            // quickConvertToolStripMenuItem
+            // 
+            this.quickConvertToolStripMenuItem.Name = "quickConvertToolStripMenuItem";
+            this.quickConvertToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quickConvertToolStripMenuItem.Text = "Quick Convert";
+            this.quickConvertToolStripMenuItem.Click += new System.EventHandler(this.QuickConvertToolStripMenuItem_Click);
             // 
             // FlowtimerConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 399);
+            this.ClientSize = new System.Drawing.Size(506, 411);
             this.Controls.Add(this.TeachyTV);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FlowtimerConverter";
@@ -1123,17 +1169,21 @@
             this.FlowtimeConverter.ResumeLayout(false);
             this.AdjustGroup.ResumeLayout(false);
             this.AdjustGroup.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EncounterHitBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntroHitBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ConverterContainer.ResumeLayout(false);
             this.ConverterContainer.PerformLayout();
+            this.InitialCalculateGroupBox.ResumeLayout(false);
+            this.InitialCalculateGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FlatMSBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EncounterAdvancesBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DelayBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntroTimerMSBox)).EndInit();
             this.Selections.ResumeLayout(false);
             this.Selections.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TeachyTVTab.ResumeLayout(false);
             this.TVAdjustedGroup.ResumeLayout(false);
             this.TVAdjustedGroup.PerformLayout();
@@ -1159,11 +1209,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.TVTargetFrameInitBox)).EndInit();
             this.TVSettingGroupBox.ResumeLayout(false);
             this.TVSettingGroupBox.PerformLayout();
-            this.InitialCalculateGroupBox.ResumeLayout(false);
-            this.InitialCalculateGroupBox.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1252,6 +1301,11 @@
         private System.Windows.Forms.Button ReCalculateTV;
         private System.Windows.Forms.GroupBox InitialCalculateGroupBox;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quickConvertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
     }
 }
 

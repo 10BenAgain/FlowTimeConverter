@@ -19,7 +19,6 @@ namespace FlowTimeConverter
             return FlatMS;
         }
         public double[] FlowtimerMSTotal() => new double[] { FlatMS + IntroTimerMS, IntroTimer };
-
         public int AdjustFrameHit() => TargetFrame - TargetFrameHit;
         public double AdjustFrameHitMS() => ReusableFunctions.FrameToMS(FPS, AdjustFrameHit());
         public double AdjustSeedHit() => IntroTimer - IntroTimerHit;
