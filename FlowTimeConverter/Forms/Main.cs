@@ -1,6 +1,5 @@
 ﻿using FlowTimeConverter.Logic;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 
@@ -108,7 +107,6 @@ namespace FlowTimeConverter
                 .SetTargetFrame(userInput[1]);
 
             timer.SetIntroTimerMS();
-                
 
             timer.SetDelay(Convert.ToInt32(DelayBox.Value));
             FlatMSBox.Value = Convert.ToInt32(timer.CalculateFlatMS());
@@ -163,7 +161,7 @@ namespace FlowTimeConverter
                 .SetTargetFrame(input[1]);
             tv.SetOutSideTV(Convert.ToInt32(input[2]));
 
-            TVDelayBox.Value = tv.GetDelay();
+            tv.SetDelay(Convert.ToInt32(TVDelayBox.Value));
             TVFramesInBox.Value = Convert.ToDecimal(tv.GetInsideTVFrames());
             TVFramesTotalBox.Value = Convert.ToDecimal(tv.GetTotalFrames());
             TVMSinTVBox.Value = Convert.ToDecimal(tv.GetTVMS());
@@ -177,6 +175,7 @@ namespace FlowTimeConverter
                         tv.GetIntroTimer()
                     }
                 );
+
             InitialTV = tv;
         }
         private void ReCalculateTV_Click(object sender, EventArgs e)
@@ -297,10 +296,68 @@ namespace FlowTimeConverter
 
         private void CustomDelayCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (!CustomDelayCheckBox.Checked)
-                DelayBox.Enabled = false;
-            else
-                DelayBox.Enabled = true;
+            DelayBox.Enabled = CustomDelayCheckBox.Checked;
+        }
+
+        private void MenuSaveOption_Click(object sender, EventArgs e)
+        {
+            using var saveSelect = new SaveFileDialog();
+            saveSelect.RestoreDirectory = true;
+            saveSelect.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+
+            saveSelect.ShowDialog();
+            string selectedFile = saveSelect.FileName;
+
+            var jsonHandle = new UserJSON
+            {
+                FilePath = selectedFile
+            };
+
+            jsonHandle.SaveTimerInput(ConvertData());
+        }
+        private void OpenFileMenuOption_Click(object sender, EventArgs e)
+        {
+            using (var openSelect = new OpenFileDialog())
+            {
+                openSelect.ShowDialog();
+                string selectedFolder = openSelect.FileName;
+                var jsonHandle = new UserJSON()
+                {
+                    FilePath = selectedFolder
+                };
+
+                var final = jsonHandle.LoadTimerInput();
+                LoadTimerDataFromFile(final);
+            }
+        }
+        
+        private JSONTimer ConvertData()
+        {
+            return new JSONTimer
+            {
+                NConsole = (byte)ConsoleDropDown.SelectedIndex,
+                Game = (byte)GameDropDown.SelectedIndex,
+                Method = (byte)MethodDropDown.SelectedIndex,
+                TargetFrame = EncounterAdvancesBox.Value,
+                TargetFrameHit = EncounterHitBox.Value,
+                IntroTimer = IntroTimerMSBox.Value,
+                IntroTimerHit = IntroHitBox.Value,
+                FlatMS = FlatMSBox.Value,
+                FlowtimerInitial = FlowtimerMSTotalTextBox.Text
+            };
+        }
+
+        private void LoadTimerDataFromFile(JSONTimer Timer)
+        {
+            ConsoleDropDown.SelectedIndex = Timer.NConsole;
+            GameDropDown.SelectedIndex = Timer.Game;
+            MethodDropDown.SelectedIndex = Timer.Method;
+            EncounterAdvancesBox.Value = Timer.TargetFrame;
+            EncounterHitBox.Value = Timer.TargetFrameHit;
+            IntroTimerMSBox.Value = Timer.IntroTimer;
+            IntroHitBox.Value = Timer.IntroTimerHit;
+            FlatMSBox.Value = Timer.FlatMS;
+            FlowtimerMSTotalTextBox.Text = Timer.FlowtimerInitial;
         }
     }
 }

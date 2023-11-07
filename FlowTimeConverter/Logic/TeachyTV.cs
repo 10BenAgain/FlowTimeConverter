@@ -2,7 +2,7 @@
 
 namespace FlowTimeConverter.Logic
 {
-    public class TeachyTV(Selections.Version game, Selections.NConsole console, Selections.Method method) : Converter(game, console, method)
+    public class TeachyTV(Selections.Version game, Selections.NConsole console, Selections.Method method) : Converter(game, console, method) 
     {
         private double InsideTV { get; set; }
         private int OutsideTV { get; set; }
@@ -46,7 +46,6 @@ namespace FlowTimeConverter.Logic
         {
             return InsideTV + GetOutSideTV() + Delay;
         }
-
         public double GetTVMS()
         {
             var output = ReusableFunctions.FrameToMS(FPS, InsideTV);
@@ -99,7 +98,6 @@ namespace FlowTimeConverter.Logic
 
             var adjustedTotalMS = msout + TotalFlatMS; // totalms
             TotalFlatMS = Math.Round(adjustedTotalMS);
-
 
             return new double[] { adjustTVBy, adjustTotalBy, msout, tvmsout, adjustedTVMS, adjustedTotalMS };
         }
