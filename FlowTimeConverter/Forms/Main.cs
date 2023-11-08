@@ -324,9 +324,11 @@ namespace FlowTimeConverter
         }
         private void OpenFileMenuOption_Click(object sender, EventArgs e)
         {
-            using (var openSelect = new OpenFileDialog())
-            {
+            TabPage viewTab = MainTabControl.SelectedTab;
 
+            if (viewTab == FlowtimeConverter)
+            {
+                using var openSelect = new OpenFileDialog();
                 if (openSelect.ShowDialog() == DialogResult.OK)
                 {
                     string selectedFolder = openSelect.FileName;
@@ -353,7 +355,10 @@ namespace FlowTimeConverter
                 IntroTimer = IntroTimerMSBox.Value,
                 IntroTimerHit = IntroHitBox.Value,
                 FlatMS = FlatMSBox.Value,
-                FlowtimerInitial = FlowtimerMSTotalTextBox.Text
+                FlowtimerInitial = FlowtimerMSTotalTextBox.Text,
+                IntroMSAdjusted = IntroMSAdjustBox.Text,
+                FrameAdjusted = AdvancesAdjustBox.Text,
+                NewAdjusted = NewTimerBox.Text
             };
         }
 
@@ -368,9 +373,12 @@ namespace FlowTimeConverter
             IntroHitBox.Value = Timer.IntroTimerHit;
             FlatMSBox.Value = Timer.FlatMS;
             FlowtimerMSTotalTextBox.Text = Timer.FlowtimerInitial;
+            IntroMSAdjustBox.Text = Timer.IntroMSAdjusted;
+            AdvancesAdjustBox.Text = Timer.FrameAdjusted;
+            NewTimerBox.Text = Timer.NewAdjusted;
         }
 
-        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ResetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TabPage viewTab = MainTabControl.SelectedTab;
 
@@ -388,6 +396,7 @@ namespace FlowTimeConverter
                 EncounterHitBox.Value = 0;
                 IntroMSAdjustBox.Text = string.Empty;
                 AdvancesAdjustBox.Text = string.Empty;
+                NewTimerBox.Text = string.Empty;
             }
         }
     }

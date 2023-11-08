@@ -79,6 +79,7 @@
             this.FlowtimeConverter = new System.Windows.Forms.TabPage();
             this.AdjustGroup = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.RecalculateTimerButton = new System.Windows.Forms.Button();
             this.NewTimerBox = new System.Windows.Forms.TextBox();
             this.AdvancesAdjustBox = new System.Windows.Forms.TextBox();
             this.IntroMSAdjustLabel = new System.Windows.Forms.Label();
@@ -120,7 +121,6 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quickConvertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.RecalculateTimerButton = new System.Windows.Forms.Button();
             this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TeachyTVTab.SuspendLayout();
             this.TVAdjustedGroup.SuspendLayout();
@@ -755,6 +755,17 @@
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             // 
+            // RecalculateTimerButton
+            // 
+            this.RecalculateTimerButton.Location = new System.Drawing.Point(5, 29);
+            this.RecalculateTimerButton.Name = "RecalculateTimerButton";
+            this.RecalculateTimerButton.Size = new System.Drawing.Size(120, 23);
+            this.RecalculateTimerButton.TabIndex = 29;
+            this.RecalculateTimerButton.Text = "Calculate";
+            this.RecalculateTimerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.RecalculateTimerButton.UseVisualStyleBackColor = true;
+            this.RecalculateTimerButton.Click += new System.EventHandler(this.ReCalculate_Click);
+            // 
             // NewTimerBox
             // 
             this.NewTimerBox.Location = new System.Drawing.Point(5, 169);
@@ -919,6 +930,11 @@
             0,
             0,
             0});
+            this.FlatMSBox.Minimum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            -2147483648});
             this.FlatMSBox.Name = "FlatMSBox";
             this.FlatMSBox.Size = new System.Drawing.Size(119, 20);
             this.FlatMSBox.TabIndex = 16;
@@ -1180,7 +1196,7 @@
             // quickConvertToolStripMenuItem
             // 
             this.quickConvertToolStripMenuItem.Name = "quickConvertToolStripMenuItem";
-            this.quickConvertToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quickConvertToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.quickConvertToolStripMenuItem.Text = "Quick Convert";
             this.quickConvertToolStripMenuItem.Click += new System.EventHandler(this.QuickConvertToolStripMenuItem_Click);
             // 
@@ -1192,24 +1208,13 @@
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
-            // RecalculateTimerButton
-            // 
-            this.RecalculateTimerButton.Location = new System.Drawing.Point(5, 29);
-            this.RecalculateTimerButton.Name = "RecalculateTimerButton";
-            this.RecalculateTimerButton.Size = new System.Drawing.Size(120, 23);
-            this.RecalculateTimerButton.TabIndex = 29;
-            this.RecalculateTimerButton.Text = "Calculate";
-            this.RecalculateTimerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.RecalculateTimerButton.UseVisualStyleBackColor = true;
-            this.RecalculateTimerButton.Click += new System.EventHandler(this.ReCalculate_Click);
-            // 
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
             this.resetToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.resetToolStripMenuItem.Text = "Reset";
-            this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.ResetToolStripMenuItem_Click);
             // 
             // FlowtimerConverter
             // 
