@@ -11,10 +11,13 @@ namespace FlowTimeConverter.Logic
         public decimal TargetFrame { get; set; }
         public decimal TargetFrameHit { get; set; }
         public decimal IntroTimer { get; set; }
-        public decimal IntroTimerMS { get; set; }
         public decimal IntroTimerHit { get; set; }
         public decimal FlatMS { get; set; }
         public string FlowtimerInitial { get; set; }
+
+        public string IntroMSAdjusted { get; set; }
+        public string FrameAdjusted { get; set; }
+        public string NewAdjusted { get; set; }
     }
 
     public class UserJSON

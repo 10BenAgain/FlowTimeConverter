@@ -111,7 +111,7 @@
             this.ConsoleLabel = new System.Windows.Forms.Label();
             this.GameDropDown = new System.Windows.Forms.ComboBox();
             this.GameLabel = new System.Windows.Forms.Label();
-            this.TeachyTV = new System.Windows.Forms.TabControl();
+            this.MainTabControl = new System.Windows.Forms.TabControl();
             this.MainMENU = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuSaveOption = new System.Windows.Forms.ToolStripMenuItem();
@@ -121,6 +121,7 @@
             this.quickConvertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RecalculateTimerButton = new System.Windows.Forms.Button();
+            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TeachyTVTab.SuspendLayout();
             this.TVAdjustedGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TVNewFlowtimerBox)).BeginInit();
@@ -154,7 +155,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IntroTimerMSBox)).BeginInit();
             this.Selections.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.TeachyTV.SuspendLayout();
+            this.MainTabControl.SuspendLayout();
             this.MainMENU.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1111,15 +1112,15 @@
             this.GameLabel.TabIndex = 1;
             this.GameLabel.Text = "Game";
             // 
-            // TeachyTV
+            // MainTabControl
             // 
-            this.TeachyTV.Controls.Add(this.FlowtimeConverter);
-            this.TeachyTV.Controls.Add(this.TeachyTVTab);
-            this.TeachyTV.Location = new System.Drawing.Point(12, 31);
-            this.TeachyTV.Name = "TeachyTV";
-            this.TeachyTV.SelectedIndex = 0;
-            this.TeachyTV.Size = new System.Drawing.Size(492, 375);
-            this.TeachyTV.TabIndex = 0;
+            this.MainTabControl.Controls.Add(this.FlowtimeConverter);
+            this.MainTabControl.Controls.Add(this.TeachyTVTab);
+            this.MainTabControl.Location = new System.Drawing.Point(12, 31);
+            this.MainTabControl.Name = "MainTabControl";
+            this.MainTabControl.SelectedIndex = 0;
+            this.MainTabControl.Size = new System.Drawing.Size(492, 375);
+            this.MainTabControl.TabIndex = 0;
             // 
             // MainMENU
             // 
@@ -1179,11 +1180,14 @@
             // quickConvertToolStripMenuItem
             // 
             this.quickConvertToolStripMenuItem.Name = "quickConvertToolStripMenuItem";
-            this.quickConvertToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.quickConvertToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quickConvertToolStripMenuItem.Text = "Quick Convert";
+            this.quickConvertToolStripMenuItem.Click += new System.EventHandler(this.QuickConvertToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resetToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -1199,12 +1203,20 @@
             this.RecalculateTimerButton.UseVisualStyleBackColor = true;
             this.RecalculateTimerButton.Click += new System.EventHandler(this.ReCalculate_Click);
             // 
+            // resetToolStripMenuItem
+            // 
+            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+            this.resetToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetToolStripMenuItem.Text = "Reset";
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
+            // 
             // FlowtimerConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 418);
-            this.Controls.Add(this.TeachyTV);
+            this.Controls.Add(this.MainTabControl);
             this.Controls.Add(this.MainMENU);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -1254,7 +1266,7 @@
             this.Selections.ResumeLayout(false);
             this.Selections.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.TeachyTV.ResumeLayout(false);
+            this.MainTabControl.ResumeLayout(false);
             this.MainMENU.ResumeLayout(false);
             this.MainMENU.PerformLayout();
             this.ResumeLayout(false);
@@ -1346,7 +1358,7 @@
         private System.Windows.Forms.Label ConsoleLabel;
         private System.Windows.Forms.ComboBox GameDropDown;
         private System.Windows.Forms.Label GameLabel;
-        private System.Windows.Forms.TabControl TeachyTV;
+        private System.Windows.Forms.TabControl MainTabControl;
         private System.Windows.Forms.MenuStrip MainMENU;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MenuSaveOption;
@@ -1356,6 +1368,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quickConvertToolStripMenuItem;
         private System.Windows.Forms.Button RecalculateTimerButton;
+        private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
     }
 }
 

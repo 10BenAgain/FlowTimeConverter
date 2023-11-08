@@ -1,6 +1,5 @@
 ﻿using FlowTimeConverter.Logic;
 using System;
-using Newtonsoft.Json;
 
 namespace FlowTimeConverter
 {

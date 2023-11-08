@@ -301,33 +301,43 @@ namespace FlowTimeConverter
 
         private void MenuSaveOption_Click(object sender, EventArgs e)
         {
-            using var saveSelect = new SaveFileDialog();
-            saveSelect.RestoreDirectory = true;
-            saveSelect.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+            TabPage viewTab = MainTabControl.SelectedTab;
 
-            saveSelect.ShowDialog();
-            string selectedFile = saveSelect.FileName;
-
-            var jsonHandle = new UserJSON
+            if (viewTab == FlowtimeConverter)
             {
-                FilePath = selectedFile
-            };
+                using var saveSelect = new SaveFileDialog();
+                saveSelect.RestoreDirectory = true;
+                saveSelect.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
 
-            jsonHandle.SaveTimerInput(ConvertData());
+                if (saveSelect.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedFile = saveSelect.FileName;
+
+                    var jsonHandle = new UserJSON
+                    {
+                        FilePath = selectedFile
+                    };
+
+                    jsonHandle.SaveTimerInput(ConvertData());
+                }
+            }
         }
         private void OpenFileMenuOption_Click(object sender, EventArgs e)
         {
             using (var openSelect = new OpenFileDialog())
             {
-                openSelect.ShowDialog();
-                string selectedFolder = openSelect.FileName;
-                var jsonHandle = new UserJSON()
-                {
-                    FilePath = selectedFolder
-                };
 
-                var final = jsonHandle.LoadTimerInput();
-                LoadTimerDataFromFile(final);
+                if (openSelect.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedFolder = openSelect.FileName;
+                    var jsonHandle = new UserJSON()
+                    {
+                        FilePath = selectedFolder
+                    };
+
+                    var final = jsonHandle.LoadTimerInput();
+                    LoadTimerDataFromFile(final);
+                }
             }
         }
         
@@ -358,6 +368,27 @@ namespace FlowTimeConverter
             IntroHitBox.Value = Timer.IntroTimerHit;
             FlatMSBox.Value = Timer.FlatMS;
             FlowtimerMSTotalTextBox.Text = Timer.FlowtimerInitial;
+        }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TabPage viewTab = MainTabControl.SelectedTab;
+
+            if (viewTab == FlowtimeConverter)
+            {
+                ConsoleDropDown.SelectedItem = "GBA";
+                MethodDropDown.SelectedItem = "Method 1/2/4";
+                GameDropDown.SelectedItem = "FireRed 1.0";
+                IntroTimerMSBox.Value = 35000;
+                EncounterAdvancesBox.Value = 1400;
+                DelayBox.Value = -20;
+                FlatMSBox.Value = 0;
+                FlowtimerMSTotalTextBox.Text = string.Empty;
+                IntroHitBox.Value = 0;
+                EncounterHitBox.Value = 0;
+                IntroMSAdjustBox.Text = string.Empty;
+                AdvancesAdjustBox.Text = string.Empty;
+            }
         }
     }
 }
