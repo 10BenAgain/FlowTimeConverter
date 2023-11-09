@@ -483,6 +483,11 @@
             0,
             0,
             0});
+            this.TVMSinTVBox.Minimum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            -2147483648});
             this.TVMSinTVBox.Name = "TVMSinTVBox";
             this.TVMSinTVBox.Size = new System.Drawing.Size(94, 20);
             this.TVMSinTVBox.TabIndex = 3;

@@ -23,22 +23,10 @@ namespace FlowTimeConverter
         }
         private void FlowtimerConverter_Load_1(object sender, EventArgs e)
         {
-            ConsoleDropDown.SelectedItem = "GBA";
-            MethodDropDown.SelectedItem = "Method 1/2/4";
-            GameDropDown.SelectedItem = "FireRed 1.0";
-            IntroTimerMSBox.Value = 35000;
-            EncounterAdvancesBox.Value = 1400;
-            DelayBox.Value = -20;
-
-            TVGameDropDown.SelectedItem = "FireRed 1.0";
-            TVConsoleDropDown.SelectedItem = "GBA";
-            TVMethodDropDown.SelectedItem = "Method 1/2/4";
-            TVIntroTimerMSInitBox.Value = 35000;
-            TVTargetFrameInitBox.Value = 45000;
-            TVFramesOutBox.Value = 1400;
-            TVDelayBox.Value = -20;
+            ResetTimer();
+            ResetTV();
         }
-        private void GetConverterSettings()
+        private void GetTimerSettings()
         {
             Version = GameDropDown.SelectedIndex switch
             {
@@ -98,7 +86,7 @@ namespace FlowTimeConverter
 
         private void CalculateInitialButton_Click(object sender, EventArgs e)
         {
-            GetConverterSettings();
+            GetTimerSettings();
             var timer = new Timer(Version, NConsole, Method);
             var userInput = ReusableFunctions.ConvertDecimal(GetInitialUserInput());
 
@@ -123,7 +111,7 @@ namespace FlowTimeConverter
             }
             else
             {
-                GetConverterSettings();
+                GetTimerSettings();
                 InitialConverter = new Timer(Version, NConsole, Method);
                 Recalculate();
             }
@@ -383,21 +371,48 @@ namespace FlowTimeConverter
             TabPage viewTab = MainTabControl.SelectedTab;
 
             if (viewTab == FlowtimeConverter)
-            {
-                ConsoleDropDown.SelectedItem = "GBA";
-                MethodDropDown.SelectedItem = "Method 1/2/4";
-                GameDropDown.SelectedItem = "FireRed 1.0";
-                IntroTimerMSBox.Value = 35000;
-                EncounterAdvancesBox.Value = 1400;
-                DelayBox.Value = -20;
-                FlatMSBox.Value = 0;
-                FlowtimerMSTotalTextBox.Text = string.Empty;
-                IntroHitBox.Value = 0;
-                EncounterHitBox.Value = 0;
-                IntroMSAdjustBox.Text = string.Empty;
-                AdvancesAdjustBox.Text = string.Empty;
-                NewTimerBox.Text = string.Empty;
-            }
+                ResetTimer();
+            if (viewTab == TeachyTVTab)
+                ResetTV();
+        }
+
+        private void ResetTimer()
+        {
+            ConsoleDropDown.SelectedItem = "GBA";
+            MethodDropDown.SelectedItem = "Method 1/2/4";
+            GameDropDown.SelectedItem = "FireRed 1.0";
+            IntroTimerMSBox.Value = 35000;
+            EncounterAdvancesBox.Value = 1400;
+            DelayBox.Value = -20;
+            FlatMSBox.Value = 0;
+            FlowtimerMSTotalTextBox.Text = string.Empty;
+            IntroHitBox.Value = 0;
+            EncounterHitBox.Value = 0;
+            IntroMSAdjustBox.Text = string.Empty;
+            AdvancesAdjustBox.Text = string.Empty;
+            NewTimerBox.Text = string.Empty;
+        }
+        private void ResetTV()
+        {
+            TVGameDropDown.SelectedItem = "FireRed 1.0";
+            TVConsoleDropDown.SelectedItem = "GBA";
+            TVMethodDropDown.SelectedItem = "Method 1/2/4";
+            TVIntroTimerMSInitBox.Value = 35000;
+            TVTargetFrameInitBox.Value = 45000;
+            TVFramesOutBox.Value = 1400;
+            TVDelayBox.Value = -20;
+            TVFramesInBox.Value = 0;
+            TVFramesTotalBox.Value = 0;
+            TVMSinTVBox.Value = 0;
+            TVMSTotalBox.Value = 0;
+            TVFlowTimerMSTotalBox.Text = string.Empty;
+            TVFrameHitBox.Value = 0;
+            TVAdjustFramesBox.Value = 0;
+            TVAdjustTotalFramesBox.Value = 0;
+            TVAdjustMSBox.Value = 0;
+            TVAdjustTotalMSBox.Value = 0;
+            TVNewFlowtimerBox.Value = 0;
+            TVNewFlowMSTotalBox.Text = string.Empty;
         }
     }
 }
