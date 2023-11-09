@@ -1,6 +1,7 @@
 ﻿using FlowTimeConverter.Logic;
 using System;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace FlowTimeConverter
@@ -291,47 +292,64 @@ namespace FlowTimeConverter
         {
             TabPage viewTab = MainTabControl.SelectedTab;
 
+            var selection = SaveSelection();
             if (viewTab == FlowtimeConverter)
             {
-                using var saveSelect = new SaveFileDialog();
-                saveSelect.RestoreDirectory = true;
-                saveSelect.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
-
-                if (saveSelect.ShowDialog() == DialogResult.OK)
-                {
-                    string selectedFile = saveSelect.FileName;
-
-                    var jsonHandle = new UserJSON
-                    {
-                        FilePath = selectedFile
-                    };
-
-                    jsonHandle.SaveTimerInput(ConvertData());
-                }
+                var timer = ConvertTimerData();
+                selection.SaveTimerInput(timer);
+            }
+            if (viewTab == TeachyTVTab)
+            {
+                var timer = ConvertTVData();
+                selection.SaveTVInput(timer);
             }
         }
+
         private void OpenFileMenuOption_Click(object sender, EventArgs e)
         {
             TabPage viewTab = MainTabControl.SelectedTab;
 
+            var selection = OpenSelection();
             if (viewTab == FlowtimeConverter)
             {
-                using var openSelect = new OpenFileDialog();
-                if (openSelect.ShowDialog() == DialogResult.OK)
-                {
-                    string selectedFolder = openSelect.FileName;
-                    var jsonHandle = new UserJSON()
-                    {
-                        FilePath = selectedFolder
-                    };
-
-                    var final = jsonHandle.LoadTimerInput();
-                    LoadTimerDataFromFile(final);
-                }
+                var file = selection.LoadTimerInput();
+                LoadTimerDataFromFile(file);
             }
+
+            if (viewTab == TeachyTVTab)
+            {
+                var file = selection.LoadTVInput();
+                LoadTVDataFromFile(file);
+            }
+
         }
-        
-        private JSONTimer ConvertData()
+        private UserJSON OpenSelection()
+        {
+            using var openSelect = new OpenFileDialog();
+            openSelect.RestoreDirectory = true;
+            openSelect.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+            if (openSelect.ShowDialog() == DialogResult.OK)
+                return new UserJSON()
+                {
+                    FilePath = openSelect.FileName
+                };
+            else
+                return new UserJSON();
+        }
+        private UserJSON SaveSelection()
+        {
+            using var saveSelect = new SaveFileDialog();
+            saveSelect.RestoreDirectory = true;
+            saveSelect.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+            if (saveSelect.ShowDialog() == DialogResult.OK)
+                return new UserJSON()
+                {
+                    FilePath = saveSelect.FileName
+                };
+            else
+                return new UserJSON();
+        }
+        private JSONTimer ConvertTimerData()
         {
             return new JSONTimer
             {
@@ -342,12 +360,60 @@ namespace FlowTimeConverter
                 TargetFrameHit = EncounterHitBox.Value,
                 IntroTimer = IntroTimerMSBox.Value,
                 IntroTimerHit = IntroHitBox.Value,
+                Delay = DelayBox.Value, 
                 FlatMS = FlatMSBox.Value,
                 FlowtimerInitial = FlowtimerMSTotalTextBox.Text,
                 IntroMSAdjusted = IntroMSAdjustBox.Text,
                 FrameAdjusted = AdvancesAdjustBox.Text,
                 NewAdjusted = NewTimerBox.Text
             };
+        }
+
+        private JSONTV ConvertTVData()
+        {
+            return new JSONTV
+            {
+                NConsole = (byte)TVConsoleDropDown.SelectedIndex,
+                Game = (byte)TVGameDropDown.SelectedIndex,
+                Method = (byte)TVMethodDropDown.SelectedIndex,
+                IntroTimer = TVIntroTimerMSInitBox.Value,
+                Delay = TVDelayBox.Value,
+                TargetFrame = TVTargetFrameInitBox.Value,
+                FramesOutofTV = TVFramesOutBox.Value,
+                FramesInTV = TVFramesInBox.Value,
+                FramesTotal = TVFramesTotalBox.Value,
+                MSTV = TVMSinTVBox.Value,
+                MSTotal = TVMSTotalBox.Value,
+                FlowtimerMSTotal = TVFlowTimerMSTotalBox.Text,
+                AdjustTVFrames = TVAdjustFramesBox.Value,
+                AdjustTotalFrames = TVAdjustTotalFramesBox.Value,
+                AdjustTVMS = TVAdjustMSBox.Value,
+                AjustTotalMS = TVAdjustTotalMSBox.Value,
+                NewFlowTimerTV = TVNewFlowtimerBox.Value,
+                FlowTimerMSTotal = TVNewFlowMSTotalBox.Text
+            };
+        }
+        private void LoadTVDataFromFile(JSONTV TV)
+        {
+            TVConsoleDropDown.SelectedIndex = TV.NConsole;
+            TVGameDropDown.SelectedIndex = TV.Game;
+            TVMethodDropDown.SelectedIndex = TV.Method;
+            TVIntroTimerMSInitBox.Value = TV.IntroTimer;
+            TVDelayBox.Value = TV.Delay;
+            TVTargetFrameInitBox.Value = TV.TargetFrame;
+            TVFramesOutBox.Value = TV.FramesOutofTV;
+            TVFramesInBox.Value = TV.FramesInTV;
+            TVFramesTotalBox.Value = TV.FramesTotal;
+            TVMSinTVBox.Value = TV.MSTotal;
+            TVMSTotalBox.Value = TV.MSTotal;
+            TVFlowTimerMSTotalBox.Text = TV.FlowTimerMSTotal;
+            TVAdjustFramesBox.Value = TV.AdjustTotalFrames;
+            TVAdjustTotalFramesBox.Value = TV.AdjustTotalFrames;
+            TVAdjustMSBox.Value = TV.AdjustTVMS;
+            TVAdjustTotalMSBox.Value = TV.AjustTotalMS;
+            TVNewFlowtimerBox.Value = TV.NewFlowTimerTV;
+            TVNewFlowMSTotalBox.Text = TV.FlowTimerMSTotal;
+          
         }
 
         private void LoadTimerDataFromFile(JSONTimer Timer)
@@ -359,12 +425,14 @@ namespace FlowTimeConverter
             EncounterHitBox.Value = Timer.TargetFrameHit;
             IntroTimerMSBox.Value = Timer.IntroTimer;
             IntroHitBox.Value = Timer.IntroTimerHit;
+            DelayBox.Value = Timer.Delay;
             FlatMSBox.Value = Timer.FlatMS;
             FlowtimerMSTotalTextBox.Text = Timer.FlowtimerInitial;
             IntroMSAdjustBox.Text = Timer.IntroMSAdjusted;
             AdvancesAdjustBox.Text = Timer.FrameAdjusted;
             NewTimerBox.Text = Timer.NewAdjusted;
         }
+        
 
         private void ResetToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -413,6 +481,11 @@ namespace FlowTimeConverter
             TVAdjustTotalMSBox.Value = 0;
             TVNewFlowtimerBox.Value = 0;
             TVNewFlowMSTotalBox.Text = string.Empty;
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
