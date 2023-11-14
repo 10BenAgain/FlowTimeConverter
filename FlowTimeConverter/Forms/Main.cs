@@ -293,15 +293,18 @@ namespace FlowTimeConverter
             TabPage viewTab = MainTabControl.SelectedTab;
 
             var selection = SaveSelection();
-            if (viewTab == FlowtimeConverter)
+            if (selection.FilePath != null)
             {
-                var timer = ConvertTimerData();
-                selection.SaveTimerInput(timer);
-            }
-            if (viewTab == TeachyTVTab)
-            {
-                var timer = ConvertTVData();
-                selection.SaveTVInput(timer);
+                if (viewTab == FlowtimeConverter)
+                {
+                    var timer = ConvertTimerData();
+                    selection.SaveTimerInput(timer);
+                }
+                if (viewTab == TeachyTVTab)
+                {
+                    var timer = ConvertTVData();
+                    selection.SaveTVInput(timer);
+                }
             }
         }
 
@@ -310,18 +313,21 @@ namespace FlowTimeConverter
             TabPage viewTab = MainTabControl.SelectedTab;
 
             var selection = OpenSelection();
-            if (viewTab == FlowtimeConverter)
+            if (selection.FilePath != null)
             {
-                var file = selection.LoadTimerInput();
-                LoadTimerDataFromFile(file);
-            }
+                if (viewTab == FlowtimeConverter)
+                {
+                    var file = selection.LoadTimerInput();
+                    LoadTimerDataFromFile(file);
+                }
 
-            if (viewTab == TeachyTVTab)
-            {
-                var file = selection.LoadTVInput();
-                LoadTVDataFromFile(file);
-            }
+                if (viewTab == TeachyTVTab)
+                {
+                    var file = selection.LoadTVInput();
+                    LoadTVDataFromFile(file);
 
+                }
+            }
         }
         private UserJSON OpenSelection()
         {
